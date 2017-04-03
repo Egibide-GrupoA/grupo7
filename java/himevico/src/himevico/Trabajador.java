@@ -26,7 +26,7 @@ public abstract class Trabajador {
     private String telEmpresa;
     private double salario;
     private Date fechaNacimiento;
-    private String password;
+    private String contrasena;
 
     
     
@@ -214,19 +214,20 @@ public abstract class Trabajador {
     }
 
     /**
-     * @return the password
+     * @return the contrasena
      */
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
     /**
-     * @param password the password to set
+     * @param contrasena the contrasena to set
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
-    
+
+
     
     
     
