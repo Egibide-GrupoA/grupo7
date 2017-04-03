@@ -1,3 +1,7 @@
 *.DS_Store
 /java/himevico/nbproject/private/
 /java/himevico/build/
+/java/himevico/nbbuild/
+/java/himevico/dist/
+/java/himevico/nbdist/
+/java/himevico/.nb-gradle/

@@ -7,13 +7,14 @@ package himevico;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.sql.ResultSet;
 
 /**
  *
  * @author asier
  */
 public class Himevico {
-
+       static ResultSet rs;
     /**
      * @param args the command line arguments
      */
@@ -25,5 +26,11 @@ public class Himevico {
         // La contraseña de la BBDD se pedira al iniciar el programa para no 
         // publicar la misma en GitHub
         db.connect("program7", br.readLine(), "program7");
+        ResultSet rs;
+        rs = db.selectAll("categoria");
+        while (rs.next()) {
+            System.out.println(rs.getString("nombre"));
+        }
+       
     }   
 }
