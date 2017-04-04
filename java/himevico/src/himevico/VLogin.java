@@ -6,6 +6,13 @@
 package himevico;
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -22,7 +29,7 @@ public class VLogin extends javax.swing.JFrame {
         initComponents();
         
         // Icono JFrame
-        setIconImage(new ImageIcon(getClass().getResource("/imagenes")).getImage());
+//        setIconImage(new ImageIcon(getClass().getResource("/imagenes")).getImage());
         
         //Color JFrame
         //this.getContentPane().setBackground(Color.orange);
@@ -144,13 +151,32 @@ public class VLogin extends javax.swing.JFrame {
         // Iniciar sesión
         
         String usuario = jTextField1.getText();
-        String contraseña = new String( jPasswordField1.getPassword());
-        
-        if ( contraseña.equalsIgnoreCase("admin") && usuario.equalsIgnoreCase("admin")){
-            
-        
-        }else{
-            JOptionPane.showMessageDialog(this, "Error!", "", JOptionPane.ERROR_MESSAGE);
+        String contrasena = new String( jPasswordField1.getPassword());
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));        
+        // TODO code application logic here
+        GestorBBDD db = new GestorBBDD();
+        System.out.print("Contraseña BBDD: ");
+        try {
+            // La contraseña de la BBDD se pedira al iniciar el programa para no
+            // publicar la misma en GitHub
+            db.connect("program7", br.readLine(), "program7");
+        } catch (IOException ex) {
+            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ResultSet rs;
+        rs = db.comprobarUsuario(usuario,contrasena);
+        try {
+            if (rs.next()) {
+                VInicio inicio=new VInicio();
+                inicio.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "Error!", "", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

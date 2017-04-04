@@ -48,4 +48,18 @@ public class GestorBBDD {
      }
      return rs;
     }
+    public static ResultSet comprobarUsuario(String usuario,String password) {
+     
+     sql= "SELECT * FROM `persona` WHERE `dni` = '"+usuario+"' AND `contrasena` = '"+password+"';";
+         System.out.println(sql);
+     try{  
+        rs=stmt.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+     return rs;
+    }
 }
