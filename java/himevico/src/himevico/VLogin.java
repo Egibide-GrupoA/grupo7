@@ -70,18 +70,6 @@ public class VLogin extends javax.swing.JFrame {
             }
         });
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Contraseña: ");
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
@@ -154,7 +142,7 @@ public class VLogin extends javax.swing.JFrame {
         String contrasena = new String( jPasswordField1.getPassword());
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));        
-        // TODO code application logic here
+     
         GestorBBDD db = new GestorBBDD();
         System.out.print("Contraseña BBDD: ");
         try {
@@ -173,22 +161,13 @@ public class VLogin extends javax.swing.JFrame {
                 VInicio inicio=new VInicio();
                 inicio.setVisible(true);
             }else{
-                JOptionPane.showMessageDialog(this, "Error!", "", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Error", "", JOptionPane.ERROR_MESSAGE);
             }
         } catch (SQLException ex) {
             Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // Usuario
-        
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // Contraseña
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     /**
      * @param args the command line arguments
