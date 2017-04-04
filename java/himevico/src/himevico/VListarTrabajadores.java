@@ -34,6 +34,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jScrollPane1.setViewportView(jEditorPane1);
 

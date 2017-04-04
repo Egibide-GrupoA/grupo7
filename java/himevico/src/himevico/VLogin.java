@@ -151,6 +151,7 @@ public class VLogin extends javax.swing.JFrame {
             if (rs.next()) {
                 VInicio inicio=new VInicio();
                 inicio.setVisible(true);
+                this.setVisible(false);
             }else{
                 JOptionPane.showMessageDialog(this, "Error", "", JOptionPane.ERROR_MESSAGE);
             }
