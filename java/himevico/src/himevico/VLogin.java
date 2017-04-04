@@ -145,19 +145,6 @@ public class VLogin extends javax.swing.JFrame {
         String usuario = jTextField1.getText();
         String contrasena = new String( jPasswordField1.getPassword());
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));        
-     
-        GestorBBDD db = new GestorBBDD();
-        System.out.print("Contraseña BBDD: ");
-        try {
-            // La contraseña de la BBDD se pedira al iniciar el programa para no
-            // publicar la misma en GitHub
-            db.connect("program7", br.readLine(), "program7");
-        } catch (IOException ex) {
-            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
         ResultSet rs;
         rs = db.comprobarUsuario(usuario,contrasena);
         try {
