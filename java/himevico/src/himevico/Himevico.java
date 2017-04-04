@@ -27,12 +27,11 @@ public class Himevico {
         // La contraseña de la BBDD se pedira al iniciar el programa para no 
         // publicar la misma en GitHub
         db.connect("program7", br.readLine(), "program7");
-        ResultSet rs;
-        rs = db.selectAll("categoria");
-        while (rs.next()) {
-            System.out.println(rs.getString("nombre"));
-        }
-        
+
+        Centro centro = new Centro(1,db);
+        System.out.println(centro.getCalle());
+        System.out.println(centro.getNombre());
+
         VLogin login= new VLogin();
         login.setVisible(true);
     }   
