@@ -21,12 +21,16 @@ import javax.swing.JOptionPane;
  * @author Sheila
  */
 public class VLogin extends javax.swing.JFrame {
-
+    private GestorBBDD db;
     /**
      * Creates new form VInicio
      */
     public VLogin() {
         initComponents();
+    }
+    public VLogin(GestorBBDD db) {
+        initComponents();
+        this.db=db;
         
         // Icono JFrame
 //        setIconImage(new ImageIcon(getClass().getResource("/imagenes")).getImage());
@@ -155,17 +159,6 @@ public class VLogin extends javax.swing.JFrame {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));        
         // TODO code application logic here
-        GestorBBDD db = new GestorBBDD();
-        System.out.print("Contraseña BBDD: ");
-        try {
-            // La contraseña de la BBDD se pedira al iniciar el programa para no
-            // publicar la misma en GitHub
-            db.connect("program7", br.readLine(), "program7");
-        } catch (IOException ex) {
-            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
-        }
         ResultSet rs;
         rs = db.comprobarUsuario(usuario,contrasena);
         try {
