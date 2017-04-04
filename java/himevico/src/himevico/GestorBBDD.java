@@ -62,4 +62,18 @@ public class GestorBBDD {
      }
      return rs;
     }
+    public static ResultSet selectCentro(int idCentro) {
+     
+     sql= "SELECT `id` ,`nombre`, `calle`, `numero`, `codPostal`, `ciudad`, `provincia`, `telefono` FROM `centro` WHERE `id` = "+idCentro+";";
+         System.out.println(sql);
+     try{  
+        rs=stmt.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+     return rs;
+    }
 }
