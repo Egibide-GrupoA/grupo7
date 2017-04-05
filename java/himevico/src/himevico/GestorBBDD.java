@@ -76,4 +76,34 @@ public class GestorBBDD {
      }
      return rs;
     }
+    public static boolean crearPersona(String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, int telPersonal, int telEmpresa, double salario, String fechaNacimiento, int idCategoria, int idCentro, String contrasena) {
+     //TODO: manejo de fechas
+     sql= "INSERT INTO `persona` (`id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `portal`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro`, `contrasena`) VALUES ("
+             + "NULL, '"+dni+"', '"+nombre+"', '"+apellido1+"', '"+apellido2+"', '"+calle+"', '"+portal+"', '"+piso+"', '"+mano+"', NULL, '"+telPersonal+"', '"+telEmpresa+"', "+salario+", '"+idCategoria+"', '"+idCentro+"', MD5('"+contrasena+"'));";
+         System.out.println(sql);
+     try{  
+        stmt.executeUpdate(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+     return true;
+    }
+    public static boolean crearCentro(String nombre, String calle, int numero, int codPostal, String ciudad, String provincia,String telefono) {
+     
+     sql= "INSERT INTO `centro` (`id`, `nombre`, `calle`, `numero`, `codPostal`, `ciudad`, `provincia`, `telefono`) VALUES ("
+             + "NULL, '"+nombre+"', '"+calle+"', '"+numero+"', '"+codPostal+"', '"+ciudad+"', '"+provincia+"', '"+telefono+"');";
+         System.out.println(sql);
+     try{  
+        stmt.executeUpdate(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+     return true;
+    }
 }

@@ -48,6 +48,7 @@ public class Centro {
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.telefono = telefono;
+        GestorBBDD.crearCentro(nombre, calle, numero, codPostal, ciudad, provincia, telefono);
     }
 
     /**
