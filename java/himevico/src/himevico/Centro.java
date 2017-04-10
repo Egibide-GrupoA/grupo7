@@ -13,11 +13,14 @@ import java.sql.SQLException;
  * @author Sheila
  */
 public class Centro {
+
     
     private int idCentro;
     private String nombre;
     private String calle;
     private int numero;
+    private int piso;
+    private char mano;
     private int codPostal;
     private String ciudad;
     private String provincia;
@@ -31,6 +34,8 @@ public class Centro {
             this.nombre = rs.getString("nombre");
             this.calle = rs.getString("calle");
             this.numero = rs.getInt("numero");
+            this.piso = rs.getInt("piso");
+            this.mano = rs.getString("mano").charAt(0);
             this.codPostal = rs.getInt("codPostal");
             this.ciudad = rs.getString("ciudad");
             this.provincia = rs.getString("provincia");
@@ -44,11 +49,13 @@ public class Centro {
         this.nombre = nombre;
         this.calle = calle;
         this.numero = numero;
+        this.piso = piso;
+        this.mano = mano;
         this.codPostal = codPostal;
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.telefono = telefono;
-        GestorBBDD.crearCentro(nombre, calle, numero, codPostal, ciudad, provincia, telefono);
+        GestorBBDD.crearCentro(nombre, calle, numero, piso, mano, codPostal, ciudad, provincia, telefono);
     }
 
     /**
@@ -120,6 +127,35 @@ public class Centro {
     public void setCodPostal(int codPostal) {
         this.codPostal = codPostal;
     }
+    
+    /**
+     * @return the piso
+     */
+    public int getPiso() {
+        return piso;
+    }
+
+    /**
+     * @param piso the piso to set
+     */
+    public void setPiso(int piso) {
+        this.piso = piso;
+    }
+
+  
+       /**
+     * @return the mano
+     */
+    public char getMano() {
+        return mano;
+    }
+
+    /**
+     * @param mano the mano to set
+     */
+    public void setMano(char mano) {
+        this.mano = mano;
+    }
 
     /**
      * @return the ciudad
@@ -162,7 +198,7 @@ public class Centro {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    
+
     
     
     

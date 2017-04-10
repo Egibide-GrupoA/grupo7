@@ -11,9 +11,13 @@ package himevico;
  */
 public class Logistica extends Trabajador {
 
-    public Logistica() {
+
+    public Logistica(int idCentro, String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
+        super(idCentro, nombre, calle, numero, codPostal, ciudad, provincia, telefono);
     }
-    
+
+
+
     
      
     

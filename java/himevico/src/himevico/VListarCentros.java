@@ -30,7 +30,7 @@ public class VListarCentros extends javax.swing.JFrame {
         
         try {
             while (rs.next()) {
-                model.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getString("calle"), rs.getInt("numero"), rs.getInt("codPostal"), rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("telefono")});
+                model.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getString("calle"), rs.getInt("numero"), rs.getInt("piso"), rs.getString("mano").charAt(0), rs.getInt("codPostal"), rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("telefono")});
             }
         } catch (SQLException ex) {
             Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
