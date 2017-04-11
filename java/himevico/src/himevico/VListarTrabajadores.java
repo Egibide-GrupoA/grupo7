@@ -22,7 +22,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
      */
     public VListarTrabajadores() {
         initComponents();
-        ResultSet rs = GestorBBDD.selectAll("trabajador");
+        /*ResultSet rs = GestorBBDD.selectAll("trabajador");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
         try {
@@ -32,6 +32,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
         }
+        */
     }
 
     /**

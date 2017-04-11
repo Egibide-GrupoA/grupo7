@@ -43,7 +43,10 @@ public class Centro {
         this.telefono = telefono;
         GestorBBDD.crearCentro(this);
     }
-
+    public Centro(int idCentro) throws SQLException {
+        this.idCentro = idCentro;
+        GestorBBDD.getCentro(this);
+    }
     /**
      * @return the idCentro
      */

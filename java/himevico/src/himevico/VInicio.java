@@ -5,6 +5,9 @@
  */
 package himevico;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author 7FPROG10
@@ -154,7 +157,12 @@ public class VInicio extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Botón listar centros
         
-        VListarCentros vlc = new VListarCentros();
+        VListarCentros vlc = null;
+        try {
+            vlc = new VListarCentros();
+        } catch (Exception ex) {
+            Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         vlc.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 

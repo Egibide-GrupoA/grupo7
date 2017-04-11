@@ -46,13 +46,8 @@ public class VModificar extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         iDNI = new javax.swing.JTextField();
         iNombre = new javax.swing.JTextField();
-<<<<<<< HEAD
         iPrimerApellido = new javax.swing.JTextField();
         iSegundoApellido = new javax.swing.JTextField();
-=======
-        iApellido1 = new javax.swing.JTextField();
-        iApellido2 = new javax.swing.JTextField();
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
         iCalle = new javax.swing.JTextField();
         iPortal = new javax.swing.JTextField();
         iPiso = new javax.swing.JTextField();
@@ -60,15 +55,10 @@ public class VModificar extends javax.swing.JFrame {
         iTelefonoPersonal = new javax.swing.JTextField();
         iTelefonoEmpresa = new javax.swing.JTextField();
         iSalario = new javax.swing.JTextField();
-<<<<<<< HEAD
         iContrasena = new javax.swing.JPasswordField();
-=======
-        iPassword = new javax.swing.JPasswordField();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -105,20 +95,14 @@ public class VModificar extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
         jButton1.setText("Cancelar");
-=======
-        iPassword.setText("jPasswordField1");
-
-        jButton1.setText(" Cancelar");
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
-
-        jButton2.setText("Guardar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
+
+        jButton3.setText("Guardar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,19 +122,11 @@ public class VModificar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
                         .addComponent(iPrimerApellido))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(iSegundoApellido))
-=======
-                        .addComponent(iApellido1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iApellido2))
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -174,22 +150,15 @@ public class VModificar extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-<<<<<<< HEAD
                                 .addComponent(iMano, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
-=======
-                                .addComponent(iMano))
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(iTelefonoEmpresa))))
-<<<<<<< HEAD
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(iSalario))
-=======
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
@@ -197,23 +166,14 @@ public class VModificar extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel13)
-<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(iContrasena)))
-=======
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iPassword))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(iSalario)))
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(180, 180, 180)
                 .addComponent(jButton1)
-                .addGap(55, 55, 55)
-                .addComponent(jButton2)
+                .addGap(36, 36, 36)
+                .addComponent(jButton3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -230,19 +190,11 @@ public class VModificar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-<<<<<<< HEAD
                     .addComponent(iPrimerApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(iSegundoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                    .addComponent(iApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(iApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -270,16 +222,11 @@ public class VModificar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel13)
-<<<<<<< HEAD
                     .addComponent(iContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-=======
-                    .addComponent(iPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -287,19 +234,12 @@ public class VModificar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iDNIActionPerformed
-<<<<<<< HEAD
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iDNIActionPerformed
-=======
         // TODO add your handling code here:
     }//GEN-LAST:event_iDNIActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,7 +280,6 @@ public class VModificar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
     private javax.swing.JTextField iCalle;
     private javax.swing.JPasswordField iContrasena;
     private javax.swing.JTextField iDNI;
@@ -352,22 +291,10 @@ public class VModificar extends javax.swing.JFrame {
     private javax.swing.JTextField iPrimerApellido;
     private javax.swing.JTextField iSalario;
     private javax.swing.JTextField iSegundoApellido;
-=======
-    private javax.swing.JTextField iApellido1;
-    private javax.swing.JTextField iApellido2;
-    private javax.swing.JTextField iCalle;
-    private javax.swing.JTextField iDNI;
-    private javax.swing.JTextField iMano;
-    private javax.swing.JTextField iNombre;
-    private javax.swing.JPasswordField iPassword;
-    private javax.swing.JTextField iPiso;
-    private javax.swing.JTextField iPortal;
-    private javax.swing.JTextField iSalario;
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
     private javax.swing.JTextField iTelefonoEmpresa;
     private javax.swing.JTextField iTelefonoPersonal;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;

@@ -28,7 +28,7 @@ public class Himevico {
         // publicar la misma en GitHub
         db.connect("program7", br.readLine(), "program7");
         
-
+        
         VLogin login= new VLogin();
         login.setVisible(true);
     }   

@@ -8,6 +8,7 @@ package himevico;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,20 +24,18 @@ public class VListarCentros extends javax.swing.JFrame {
     /**
      * Creates new form VListarCentros
      */
-    public VListarCentros() {
+    public VListarCentros() throws Exception {
         initComponents();
-        List<Centro> = GestorBBDD.selectAll("centro");
+        List<Centro> centros = null;
+        centros = GestorBBDD.listarCentros();
+
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
-        try {
-            while (rs.next()) {
-                model.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getString("calle"), rs.getInt("numero"), rs.getInt("piso"), rs.getString("mano").charAt(0), rs.getInt("codPostal"), rs.getString("ciudad"), rs.getString("provincia"), rs.getInt("telefono")});
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
+        for (int i = 0; i < centros.size(); i++) {
+            model.addRow(new Object[]{centros.get(i).getIdCentro(), centros.get(i).getNombre(), centros.get(i).getCalle(), centros.get(i).getNumero(), centros.get(i).getPiso(), centros.get(i).getMano(), centros.get(i).getCodPostal(), centros.get(i).getCiudad(), centros.get(i).getProvincia(), centros.get(i).getTelefono()});
         }
-;
-             
+        
+
     }
 
     /**
@@ -127,7 +126,7 @@ public class VListarCentros extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) throws SQLException {
+    public static void main(String args[]){
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -155,7 +154,11 @@ public class VListarCentros extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VListarCentros().setVisible(true);
+                try {
+                    new VListarCentros().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
