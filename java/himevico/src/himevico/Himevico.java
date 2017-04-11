@@ -28,9 +28,6 @@ public class Himevico {
         // publicar la misma en GitHub
         db.connect("program7", br.readLine(), "program7");
 
-        Centro centro = new Centro(1,db);
-        System.out.println(centro.getCalle());
-        System.out.println(centro.getNombre());
 
         VLogin login= new VLogin();
         login.setVisible(true);

@@ -14,7 +14,7 @@ public class VInicio extends javax.swing.JFrame {
     
     private VListarTrabajadores vlt = null;
     private VListarCentros vlc = null;
-    private VCrearTrabajadores vct = null;
+    private VModificar vct = null;
     private VCrearCentros vcc = null;
     
 
@@ -161,7 +161,7 @@ public class VInicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botón crear trabajadores
         
-        VCrearTrabajadores vct = new VCrearTrabajadores();
+        VModificar vct = new VModificar();
         vct.setVisible(true);
         
         

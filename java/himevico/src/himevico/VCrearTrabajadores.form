@@ -8,12 +8,9 @@
     </Component>
     <Component class="com.toedter.calendar.JYearChooser" name="jYearChooser1">
     </Component>
-    <Component class="com.toedter.calendar.JCalendar" name="iFechaNacimiento">
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -51,20 +48,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
                       <Component id="iPrimerApellido" max="32767" attributes="0"/>
-=======
-                      <Component id="iApellido1" max="32767" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
                       <Component id="iSegundoApellido" max="32767" attributes="0"/>
-=======
-                      <Component id="iApellido2" max="32767" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -92,11 +81,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-<<<<<<< HEAD
-                              <Component id="iMano" pref="61" max="32767" attributes="0"/>
-=======
                               <Component id="iMano" max="32767" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
@@ -105,41 +90,31 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="iSalario" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                      <Component id="iFechaNacimiento" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="iContrasena" max="32767" attributes="0"/>
-=======
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="iPassword" max="32767" attributes="0"/>
+                      <Component id="iContrasena" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="iSalario" max="32767" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -159,20 +134,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                   <Component id="iPrimerApellido" min="-2" max="-2" attributes="0"/>
-=======
-                  <Component id="iApellido1" min="-2" max="-2" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                   <Component id="iSegundoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-=======
-                  <Component id="iApellido2" alignment="3" min="-2" max="-2" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -198,25 +165,21 @@
                   <Component id="iSalario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                  <Component id="iFechaNacimiento" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                   <Component id="iContrasena" min="-2" max="-2" attributes="0"/>
-=======
-                  <Component id="iPassword" min="-2" max="-2" attributes="0"/>
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace pref="37" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -294,15 +257,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="iNombre">
     </Component>
-<<<<<<< HEAD
     <Component class="javax.swing.JTextField" name="iPrimerApellido">
     </Component>
     <Component class="javax.swing.JTextField" name="iSegundoApellido">
-=======
-    <Component class="javax.swing.JTextField" name="iApellido1">
-    </Component>
-    <Component class="javax.swing.JTextField" name="iApellido2">
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
     </Component>
     <Component class="javax.swing.JTextField" name="iCalle">
     </Component>
@@ -318,16 +275,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="iSalario">
     </Component>
-<<<<<<< HEAD
     <Component class="javax.swing.JPasswordField" name="iContrasena">
-=======
-    <Component class="javax.swing.JPasswordField" name="iPassword">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-      </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
->>>>>>> 3551f54e00bb78ce0a69136775af711fada0f212
+    <Component class="com.toedter.calendar.JCalendar" name="iFechaNacimiento">
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -338,11 +288,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
     </Component>
   </SubComponents>
 </Form>
