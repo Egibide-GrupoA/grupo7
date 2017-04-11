@@ -5,14 +5,28 @@
  */
 package himevico;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author Sheila
- */
+
+
+*/
+
+/*
 public class Administracion extends Trabajador{
 
-    public Administracion() {
+   public Administracion(int idCentro, String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
+        super(idCentro, nombre, calle, numero, codPostal, ciudad, provincia, telefono);
+    }
+
+   
+ 
+        
+        
     }
     
+*/
     
-}
+
