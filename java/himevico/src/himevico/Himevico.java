@@ -27,7 +27,7 @@ public class Himevico {
         // La contraseña de la BBDD se pedira al iniciar el programa para no 
         // publicar la misma en GitHub
         db.connect("program7", br.readLine(), "program7");
-
+        
 
         VLogin login= new VLogin();
         login.setVisible(true);

@@ -5,59 +5,36 @@
  */
 package himevico;
 
+import java.util.Date;
+
 /**
  *
  * @author Sheila
  */
 public class Logistica extends Trabajador {
 
-
-   /* public Trabajador(int idTrabajador, GestorBBDD db) throw Exception{
+    public Logistica(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
+        this.setIdTrabajador(idTrabajador);
+        this.setDni(dni);
+        this.setNombre(nombre);
+        this.setApellido1(apellido1);
+        this.setApellido2(apellido2);
+        this.setCalle(calle);
+        this.setPortal(portal);
+        this.setPiso(piso);
+        this.setMano(mano);
+        this.setTelPersonal(telPersonal);
+        this.setTelEmpresa(telEmpresa);
+        this.setSalario(salario);
+        this.setFechaNacimiento(fechaNacimiento);
+        this.setContrasena(contrasena);
+        this.setCentro(centro);
         
-        ResultSet rs;
-        rs = db.selectPersona(idTrabajador);
-        if (rs.next()) {
-            this.idTrabajador = rs.getInt("idTrabajador");
-            this.dni = rs.getString("dni");
-            this.nombre = rs.getString("nombre");
-            this.apellido1 = rs.getString("apellido1");
-            this.apellido2 = rs.getString("apellido2");
-            this.calle = rs.getString("calle");
-            this.portal = rs.getInt("portal");
-            this.piso = rs.getInt("piso");
-            this.mano = rs.getString(mano).charAt(0);
-            this.telPersonal = rs.getString("telPersonal");
-            this.telEmpresa = rs.getString("telEmpresa");
-            this.salario = rs.getDouble("salario");
-            this.fechaNacimiento = rs.getDate("fechaNacimiento");
-            this.contrasena = rs.getString("contrasena");
-            
-            
-        }
-    
-    }
-    
-    */
-    
-       public Trabajador(int idCentro, String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
-        this.idTrabajador = idTrabajador;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
-        this.calle = calle;
-        this.portal = portal;
-        this.piso = piso;
-        this.mano = mano;
-        this.telPersonal = telPersonal;
-        this.telEmpresa = telEmpresa;
-        this.salario = salario;
-        this.fechaNacimiento = fechaNacimiento;
-        this.contrasena = contrasena;
         
+        //TODO 
+        // Conexión BBDD
+        // ArrayList/LinkedList
     }
-
-    
-     
+ 
     
 }

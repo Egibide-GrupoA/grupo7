@@ -10,6 +10,9 @@ package himevico;
  * @author 7FPROG10
  */
 public class VTrabajador extends javax.swing.JFrame {
+    
+    VModificar vm = new VModificar();
+    
 
     /**
      * Creates new form VTrabajador
@@ -27,21 +30,26 @@ public class VTrabajador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jCrear = new javax.swing.JButton();
+        jModificar = new javax.swing.JButton();
+        jBorrar = new javax.swing.JButton();
+        jConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Crear");
+        jCrear.setText("Crear");
 
-        jButton2.setText("Modificar");
-        jButton2.setToolTipText("");
+        jModificar.setText("Modificar");
+        jModificar.setToolTipText("");
+        jModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jModificarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Borrar");
+        jBorrar.setText("Borrar");
 
-        jButton4.setText("Consultar");
+        jConsultar.setText("Consultar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,13 +57,13 @@ public class VTrabajador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton1)
+                .addComponent(jCrear)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(jBorrar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(jConsultar)
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -63,15 +71,24 @@ public class VTrabajador extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(244, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(jCrear)
+                    .addComponent(jModificar)
+                    .addComponent(jBorrar)
+                    .addComponent(jConsultar))
                 .addGap(33, 33, 33))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
+        // Botón modificar
+        vm.setVisible(true);
+        
+        
+        
+        
+    }//GEN-LAST:event_jModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -109,9 +126,9 @@ public class VTrabajador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jBorrar;
+    private javax.swing.JButton jConsultar;
+    private javax.swing.JButton jCrear;
+    private javax.swing.JButton jModificar;
     // End of variables declaration//GEN-END:variables
 }
