@@ -28,6 +28,15 @@ public abstract class Trabajador {
     private double salario;
     private Date fechaNacimiento;
     private String contrasena;
+    private Centro centro;
+
+    public Centro getCentro() {
+        return centro;
+    }
+
+    public void setCentro(Centro centro) {
+        this.centro = centro;
+    }
 
 
 

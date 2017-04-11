@@ -11,7 +11,6 @@ package himevico;
  */
 public class VCrearCentros extends javax.swing.JFrame {
     
-   VCrearCentros vcc = new VCrearCentros();
 
     /**
      * Creates new form VCrear
@@ -197,7 +196,7 @@ public class VCrearCentros extends javax.swing.JFrame {
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
         // Cancelar
-        vcc.setVisible(false);
+        this.setVisible(false);
         
         
         

@@ -22,7 +22,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
      */
     public VListarTrabajadores() {
         initComponents();
-        ResultSet rs = GestorBBDD.selectAll("persona");
+        ResultSet rs = GestorBBDD.selectAll("trabajador");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
 
         try {

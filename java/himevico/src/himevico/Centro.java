@@ -26,22 +26,8 @@ public class Centro {
     private String provincia;
     private String telefono;
 
-    public Centro(int idCentro, GestorBBDD db) throws Exception {
-        ResultSet rs;
-        rs = db.selectCentro(idCentro);
-        if (rs.next()) {
-            this.idCentro = rs.getInt("id");
-            this.nombre = rs.getString("nombre");
-            this.calle = rs.getString("calle");
-            this.numero = rs.getInt("numero");
-            this.piso = rs.getInt("piso");
-            this.mano = rs.getString("mano").charAt(0);
-            this.codPostal = rs.getInt("codPostal");
-            this.ciudad = rs.getString("ciudad");
-            this.provincia = rs.getString("provincia");
-            this.telefono = rs.getString("telefono");
-        }
-    
+    public Centro() throws Exception {
+        
     }
 
     public Centro(int idCentro, String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
@@ -55,7 +41,7 @@ public class Centro {
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.telefono = telefono;
-        GestorBBDD.crearCentro(nombre, calle, numero, piso, mano, codPostal, ciudad, provincia, telefono);
+        GestorBBDD.crearCentro(this);
     }
 
     /**

@@ -25,7 +25,7 @@ public class VListarCentros extends javax.swing.JFrame {
      */
     public VListarCentros() {
         initComponents();
-        ResultSet rs = GestorBBDD.selectAll("centro");
+        List<Centro> = GestorBBDD.selectAll("centro");
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
         try {
