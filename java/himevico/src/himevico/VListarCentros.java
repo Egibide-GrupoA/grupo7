@@ -32,12 +32,11 @@ public class VListarCentros extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
         for (int i = 0; i < centros.size(); i++) {
-            model.addRow(new Object[]{centros.get(i).getIdCentro(), centros.get(i).getNombre(), centros.get(i).getCalle(), centros.get(i).getNumero(), centros.get(i).getPiso(), centros.get(i).getMano(), centros.get(i).getCodPostal(), centros.get(i).getCiudad(), centros.get(i).getProvincia(), centros.get(i).getTelefono()});
+            model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro(), centros.get(i).getNombre(), centros.get(i).getCalle(), centros.get(i).getNumero(), centros.get(i).getPiso(), centros.get(i).getMano(), centros.get(i).getCodPostal(), centros.get(i).getCiudad(), centros.get(i).getProvincia(), centros.get(i).getTelefono()});
         }
         
 
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,14 +66,14 @@ public class VListarCentros extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "Calle", "Numero", "CP", "Provincia", "Telefono"
+                "ref", "ID", "Nombre", "Calle", "Numero", "CP", "Provincia", "Telefono"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -86,8 +85,16 @@ public class VListarCentros extends javax.swing.JFrame {
             }
         });
         jTable1.setColumnSelectionAllowed(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +111,7 @@ public class VListarCentros extends javax.swing.JFrame {
                         .addComponent(jButton3))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -122,6 +129,12 @@ public class VListarCentros extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        VCentro centros= new VCentro((Centro) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        centros.setVisible(true);        
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
