@@ -1,4 +1,5 @@
 *.DS_Store
+*.bak_*
 /java/himevico/nbproject/private/
 /java/himevico/build/
 /java/himevico/nbbuild/
