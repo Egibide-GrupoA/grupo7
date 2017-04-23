@@ -26,16 +26,24 @@ public class VListarCentros extends javax.swing.JFrame {
      */
     public VListarCentros() throws Exception {
         initComponents();
+        actualizar();
+    }
+    public void actualizar() throws Exception{
         List<Centro> centros = null;
         centros = GestorBBDD.listarCentros();
 
+        //limpiar tabla
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        if (model.getRowCount() > 0) {
+            for (int i = model.getRowCount() - 1; i > -1; i--) {
+                model.removeRow(i);
+            }
+        }
         
+        //añadir elementos a tabla
         for (int i = 0; i < centros.size(); i++) {
             model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro(), centros.get(i).getNombre(), centros.get(i).getCalle(), centros.get(i).getNumero(), centros.get(i).getPiso(), centros.get(i).getMano(), centros.get(i).getCodPostal(), centros.get(i).getCiudad(), centros.get(i).getProvincia(), centros.get(i).getTelefono()});
         }
-        
-
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,7 +141,9 @@ public class VListarCentros extends javax.swing.JFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         VCentro centros= new VCentro((Centro) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-        centros.setVisible(true);        
+        centros.setVisible(true);
+        // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+        centros.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
 
     /**

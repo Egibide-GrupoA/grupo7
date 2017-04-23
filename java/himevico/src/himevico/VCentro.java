@@ -5,12 +5,23 @@
  */
 package himevico;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author 7FPROG10
  */
 public class VCentro extends javax.swing.JFrame {
 
+    // Save dad screen
+    private VListarCentros listado;
+
+    public void setListado(VListarCentros listado) {
+        this.listado = listado;
+    }
+        
+    
     /**
      * Creates new form VTrabajador
      */
@@ -172,6 +183,12 @@ public class VCentro extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         centro.eliminar();
+        this.setVisible(false);
+        try {
+            listado.actualizar();
+        } catch (Exception ex) {
+            Logger.getLogger(VCentro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
