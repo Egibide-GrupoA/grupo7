@@ -21,6 +21,13 @@ public class VCentro extends javax.swing.JFrame {
     public VCentro(Centro centro) {
         initComponents();
         System.out.println(centro);
+        jNombre.setText(centro.getNombre());
+        jCalle.setText(centro.getCalle());
+        jNumero.setText(String.valueOf(centro.getNumero()));
+        jPiso.setText(String.valueOf(centro.getPiso()));
+        jMano.setText(String.valueOf(centro.getMano()));
+        jCP.setText(String.valueOf(centro.getCodPostal()));
+        jTelefoni.setText(centro.getTelefono());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,34 +38,112 @@ public class VCentro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        Name = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jNombre = new javax.swing.JLabel();
+        jCalle = new javax.swing.JLabel();
+        jNumero = new javax.swing.JLabel();
+        jPiso = new javax.swing.JLabel();
+        jMano = new javax.swing.JLabel();
+        jCP = new javax.swing.JLabel();
+        jTelefoni = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Centro");
+        jLabel9.setText("Piso:");
 
-        Name.setText("Name");
+        jLabel10.setText("Mano: ");
+
+        jLabel11.setText("Telefono:");
+
+        jLabel2.setText("Nombre: ");
+
+        jLabel5.setText("Calle: ");
+
+        jLabel6.setText("Numero:");
+
+        jLabel8.setText("CP: ");
+
+        jNombre.setText("jLabel3");
+
+        jCalle.setText("jLabel1");
+
+        jNumero.setText("jLabel1");
+
+        jPiso.setText("jLabel1");
+
+        jMano.setText("jLabel1");
+
+        jCP.setText("jLabel1");
+
+        jTelefoni.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(Name)
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jNombre))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCalle)
+                        .addGap(247, 247, 247)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jNumero)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPiso)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jMano)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(jCP))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTelefoni)))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Name))
-                .addContainerGap(265, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jNombre))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel8)
+                    .addComponent(jCalle)
+                    .addComponent(jNumero)
+                    .addComponent(jPiso)
+                    .addComponent(jMano)
+                    .addComponent(jCP))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTelefoni))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         pack();
@@ -101,7 +186,19 @@ public class VCentro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Name;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jCP;
+    private javax.swing.JLabel jCalle;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jMano;
+    private javax.swing.JLabel jNombre;
+    private javax.swing.JLabel jNumero;
+    private javax.swing.JLabel jPiso;
+    private javax.swing.JLabel jTelefoni;
     // End of variables declaration//GEN-END:variables
 }
