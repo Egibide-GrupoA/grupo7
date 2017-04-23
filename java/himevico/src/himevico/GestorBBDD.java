@@ -167,4 +167,17 @@ public class GestorBBDD {
          System.out.println(e);
      }
     }
+    
+    public static void eliminar(Centro centro){
+        sql="DELETE FROM `centro` WHERE `centro`.`id` = " + centro.getIdCentro();
+     System.out.println(sql);
+     try{  
+        stmt.executeUpdate(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     }
+        
+    }
 }

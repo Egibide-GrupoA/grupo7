@@ -47,6 +47,10 @@ public class Centro {
         this.idCentro = idCentro;
         GestorBBDD.getCentro(this);
     }
+    public void eliminar() {
+        GestorBBDD.eliminar(this);
+        
+    }
     /**
      * @return the idCentro
      */
