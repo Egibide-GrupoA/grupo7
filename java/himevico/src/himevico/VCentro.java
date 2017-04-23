@@ -7,6 +7,7 @@ package himevico;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -182,12 +183,16 @@ public class VCentro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        centro.eliminar();
-        this.setVisible(false);
-        try {
-            listado.actualizar();
-        } catch (Exception ex) {
-            Logger.getLogger(VCentro.class.getName()).log(Level.SEVERE, null, ex);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "¿Estas seguro de que deseas eliminar este elemento?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            centro.eliminar();
+            this.setVisible(false);
+            try {
+                listado.actualizar();
+            } catch (Exception ex) {
+                Logger.getLogger(VCentro.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
