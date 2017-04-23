@@ -113,15 +113,7 @@ public class GestorBBDD {
     public static void getCentro(Centro centro) throws SQLException {
      
      sql= "SELECT `id` ,`nombre`, `calle`, `numero`, `codPostal`, `ciudad`, `piso`, `mano`,  `provincia`, `telefono` FROM `centro` WHERE `id` = "+centro.getIdCentro()+";";
-         System.out.println(sql);
-     try{  
-        rs=stmt.executeQuery(sql);
-     }
-     catch(SQLException e)
-     {
-         System.out.println(e);
-     
-     }
+     rs=executeQuery(sql);
     rs.next();
     centro.setIdCentro(rs.getInt("id"));
     centro.setNombre(rs.getString("nombre"));
@@ -140,16 +132,7 @@ public class GestorBBDD {
      Centro centro = trabajador.getCentro();
      sql= "INSERT INTO `trabajador` (`id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `portal`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro`, `contrasena`) VALUES ("
              + "NULL, '"+trabajador.getDni()+"', '"+trabajador.getNombre()+"', '"+trabajador.getApellido1()+"', '"+trabajador.getApellido2()+"', '"+trabajador.getCalle()+"', '"+trabajador.getPortal()+"', '"+trabajador.getPiso()+"', '"+trabajador.getPortal()+"', NULL, '"+trabajador.getTelPersonal()+"', '"+trabajador.getTelEmpresa()+"', "+trabajador.getSalario()+", '1', '"+centro.getIdCentro()+"', MD5('"+trabajador.getContrasena()+"'));";
-     
-         System.out.println(sql);
-     try{  
-        stmt.executeUpdate(sql);
-     }
-     catch(SQLException e)
-     {
-         System.out.println(e);
-     
-     }
+        executeUpdate(sql); 
      return true;
     }
     
@@ -158,7 +141,15 @@ public class GestorBBDD {
      
      sql= "INSERT INTO `centro` (`id`, `nombre`, `calle`, `numero`, `piso`, `mano`, `codPostal`,`ciudad`, `provincia`, `telefono`) VALUES ("
              + "NULL, '"+centro.getNombre()+"', '"+centro.getCalle()+"', '"+centro.getNumero()+"', '"+centro.getPiso()+"', '"+centro.getMano()+"', '"+centro.getCodPostal()+"', '"+centro.getCiudad()+"', '"+centro.getProvincia()+"', '"+centro.getTelefono()+"');";
-         System.out.println(sql);
+     executeUpdate(sql); 
+    }
+    
+    public static void eliminar(Centro centro){
+        sql="DELETE FROM `centro` WHERE `centro`.`id` = " + centro.getIdCentro();
+        executeUpdate(sql); 
+    }
+    private static void executeUpdate(String sql){
+             System.out.println(sql);
      try{  
         stmt.executeUpdate(sql);
      }
@@ -167,17 +158,15 @@ public class GestorBBDD {
          System.out.println(e);
      }
     }
-    
-    public static void eliminar(Centro centro){
-        sql="DELETE FROM `centro` WHERE `centro`.`id` = " + centro.getIdCentro();
-     System.out.println(sql);
-     try{  
-        stmt.executeUpdate(sql);
-     }
-     catch(SQLException e)
-     {
-         System.out.println(e);
-     }
-        
+    private static ResultSet executeQuery(String sql){
+        System.out.println(sql);
+        try{  
+           rs=stmt.executeQuery(sql);
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e);
+        }
+        return rs;
     }
 }
