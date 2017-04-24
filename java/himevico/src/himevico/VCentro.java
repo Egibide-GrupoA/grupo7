@@ -99,6 +99,11 @@ public class VCentro extends javax.swing.JFrame {
         jTelefoni.setText("jLabel1");
 
         jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Eliminar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +200,13 @@ public class VCentro extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println("CONTROL");
+        System.out.println(this.centro.getNombre());
+        VCrearCentros vCrearCentros = new VCrearCentros(this.centro);
+        vCrearCentros.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
