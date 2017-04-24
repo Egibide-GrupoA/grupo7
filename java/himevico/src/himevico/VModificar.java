@@ -6,6 +6,9 @@
 package himevico;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,6 +16,8 @@ import java.awt.Color;
  */
 public class VModificar extends javax.swing.JFrame {
 
+    private List<Trabajador> trabajadores = new ArrayList<>();
+    
     /**
      * Creates new form VCrear
      */
