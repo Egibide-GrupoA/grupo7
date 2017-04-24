@@ -6,6 +6,11 @@
 package himevico;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +19,7 @@ import java.awt.Dimension;
 public class VCrearCentros extends javax.swing.JFrame {
     
 
+    private List<Centro> centros = new ArrayList<>();
     /**
      * Creates new form VCrear
      */
@@ -229,20 +235,44 @@ public class VCrearCentros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
-        // Guardar
-        String nombre = jNombre.getText();
-        String calle = jCalle.getText();
-        String numero = jNumero.getText();
-        String piso = jPiso.getText();
-        String mano = jMano.getText();
-        String cp = jCp.getText();
-        String telefono = jTelefono.getText();
-        
-        limpiar();
-        jNombre.requestFocus();
-        
- 
-        
+       
+            // Guardar
+            
+            String nombre = jNombre.getText();
+            String calle = jCalle.getText();
+            String numero = jNumero.getText();
+            String piso = jPiso.getText();
+            String mano = jMano.getText();
+            String cp = jCp.getText();
+            String telefono = jTelefono.getText();
+            
+             if ( !nombre.isEmpty() && !calle.isEmpty() && !numero.isEmpty() && !piso.isEmpty()
+            && !mano.isEmpty() && !cp.isEmpty() && !telefono.isEmpty()){
+            
+            Centro centro = null;
+                try {
+                    centro = new Centro();
+                } catch (Exception ex) {
+                    Logger.getLogger(VCrearCentros.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
+            centro.setNombre(nombre);
+            centro.setCalle(calle);
+            //centro.setNumero(numero);
+            //centro.setPiso(piso);
+            //centro.setMano(mano);
+            centro.setCiudad(cp);
+            centro.setTelefono(telefono);
+            
+            
+            limpiar();
+            jNombre.requestFocus();
+            
+     
+     
+        }else{
+            JOptionPane.showMessageDialog(this, "Rellene todos los campos", "", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
@@ -256,21 +286,18 @@ public class VCrearCentros extends javax.swing.JFrame {
     private void jCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCpActionPerformed
         // Botón CP
         
-        Dimension longitud = jCp.getSize();
+        String cp = jCp.getText();
+        
+        if (!(cp.length() == 5)){
+             JOptionPane.showMessageDialog(this, "Longitud incorrecta", "", JOptionPane.ERROR_MESSAGE);
        
-        jCp.getSize(longitud);
-        
-        
-     
-        
-       
-        
+        }
         
         
     }//GEN-LAST:event_jCpActionPerformed
 
     private void jProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jProvinciaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jProvinciaActionPerformed
 
     /**

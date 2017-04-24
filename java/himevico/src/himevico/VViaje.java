@@ -13,6 +13,7 @@ import java.awt.Color;
  */
 public class VViaje extends javax.swing.JFrame {
 
+   
     /**
      * Creates new form VViaje
      */
@@ -89,11 +90,16 @@ public class VViaje extends javax.swing.JFrame {
     private void jCerrarParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCerrarParteActionPerformed
         // Botón cerrar parte
         jCerrarParte.setBackground(Color.RED);
+        this.setVisible(false);
+        
+       
     }//GEN-LAST:event_jCerrarParteActionPerformed
 
     private void jAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnadirActionPerformed
         // Botón añadir
-        jAnadir.setBackground(Color.BLUE);
+        jAnadir.setBackground(Color.GREEN);
+        
+        
 
     }//GEN-LAST:event_jAnadirActionPerformed
 
