@@ -13,6 +13,10 @@ import java.util.Date;
  */
 public class Logistica extends Trabajador {
 
+    public Logistica() {
+    }
+    
+
     public Logistica(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setIdTrabajador(idTrabajador);
         this.setDni(dni);

@@ -5,6 +5,8 @@
  */
 package himevico;
 
+import java.awt.Color;
+
 /**
  *
  * @author Sheila
@@ -27,21 +29,73 @@ public class VViaje extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCerrarParte = new javax.swing.JButton();
+        jAnadir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jCerrarParte.setText("Cerrar Parte");
+        jCerrarParte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCerrarParteActionPerformed(evt);
+            }
+        });
+
+        jAnadir.setText("Añadir");
+        jAnadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAnadirActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "HORA INICIO", "HORA FIN", "VEHÍCULO", "ALBARÁN", "ELIMINAR"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCerrarParte)
+                .addGap(63, 63, 63)
+                .addComponent(jAnadir, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jAnadir)
+                    .addComponent(jCerrarParte))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCerrarParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCerrarParteActionPerformed
+        // Botón cerrar parte
+        jCerrarParte.setBackground(Color.RED);
+    }//GEN-LAST:event_jCerrarParteActionPerformed
+
+    private void jAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnadirActionPerformed
+        // Botón añadir
+        jAnadir.setBackground(Color.BLUE);
+
+    }//GEN-LAST:event_jAnadirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +133,9 @@ public class VViaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jAnadir;
+    private javax.swing.JButton jCerrarParte;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

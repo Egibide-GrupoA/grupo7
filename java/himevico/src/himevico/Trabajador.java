@@ -6,6 +6,7 @@
 package himevico;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -13,6 +14,8 @@ import java.util.Date;
  * @author Sheila
  */
 public abstract class Trabajador {
+    
+    
     
     private int idTrabajador;
     private String dni;
@@ -29,6 +32,9 @@ public abstract class Trabajador {
     private Date fechaNacimiento;
     private String contrasena;
     private Centro centro;
+    
+    private ArrayList<Parte> partes = new ArrayList<>();
+    
 
    
     public Centro getCentro() {

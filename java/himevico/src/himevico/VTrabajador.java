@@ -5,6 +5,8 @@
  */
 package himevico;
 
+import java.awt.Color;
+
 /**
  *
  * @author 7FPROG10
@@ -30,6 +32,7 @@ public class VTrabajador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
         jCrear = new javax.swing.JButton();
         jModificar = new javax.swing.JButton();
         jBorrar = new javax.swing.JButton();
@@ -37,7 +40,15 @@ public class VTrabajador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 0, 14)); // NOI18N
+        jLabel2.setText("EMPLEADOS");
+
         jCrear.setText("Crear");
+        jCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCrearActionPerformed(evt);
+            }
+        });
 
         jModificar.setText("Modificar");
         jModificar.setToolTipText("");
@@ -48,47 +59,77 @@ public class VTrabajador extends javax.swing.JFrame {
         });
 
         jBorrar.setText("Borrar");
+        jBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBorrarActionPerformed(evt);
+            }
+        });
 
         jConsultar.setText("Consultar");
+        jConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConsultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jCrear)
-                .addGap(18, 18, 18)
-                .addComponent(jModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jBorrar)
-                .addGap(18, 18, 18)
-                .addComponent(jConsultar)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(jBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(244, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCrear)
                     .addComponent(jModificar)
                     .addComponent(jBorrar)
                     .addComponent(jConsultar))
-                .addGap(33, 33, 33))
+                .addGap(28, 28, 28))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCrearActionPerformed
+        // Botón crear
+        jCrear.setBackground(Color.BLUE);
+    }//GEN-LAST:event_jCrearActionPerformed
+
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
         // Botón modificar
+        jModificar.setBackground(Color.BLUE);
         vm.setVisible(true);
-        
-        
-        
-        
+
     }//GEN-LAST:event_jModificarActionPerformed
+
+    private void jBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBorrarActionPerformed
+        // Botón borrar
+        jBorrar.setBackground(Color.RED);
+    }//GEN-LAST:event_jBorrarActionPerformed
+
+    private void jConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultarActionPerformed
+        // Botón consultar
+        jConsultar.setBackground(Color.BLUE);
+    }//GEN-LAST:event_jConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,6 +170,7 @@ public class VTrabajador extends javax.swing.JFrame {
     private javax.swing.JButton jBorrar;
     private javax.swing.JButton jConsultar;
     private javax.swing.JButton jCrear;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton jModificar;
     // End of variables declaration//GEN-END:variables
 }
