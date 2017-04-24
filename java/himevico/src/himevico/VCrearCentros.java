@@ -23,6 +23,18 @@ public class VCrearCentros extends javax.swing.JFrame {
         limpiar();
         
     }
+    public VCrearCentros(Centro centro) {
+        initComponents();
+        
+        jNombre.setText(centro.getNombre());
+        jCalle.setText(centro.getCalle());
+        jNumero.setText(String.valueOf(centro.getNumero()));
+        jPiso.setText(String.valueOf(centro.getPiso()));
+        jMano.setText(String.valueOf(centro.getMano()));
+        jCp.setText(String.valueOf(centro.getCodPostal()));
+        jTelefono.setText(centro.getTelefono());
+        
+    }
 
   
     public void limpiar(){

@@ -95,6 +95,12 @@ public class VCentro extends javax.swing.JFrame {
 
         jLabel10.setText("Mano: ");
 
+        jEditar.setText("Editar");
+        jEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEditarActionPerformed(evt);
+            }
+        });
         jLabel8.setText("CP: ");
 
         jLabel1.setText("Ciudad:");
@@ -218,6 +224,13 @@ public class VCentro extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jEliminarActionPerformed
+
+    private void jEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEditarActionPerformed
+        System.out.println("CONTROL");
+        System.out.println(this.centro.getNombre());
+        VCrearCentros vCrearCentros = new VCrearCentros(this.centro);
+        vCrearCentros.setVisible(true);
+    }//GEN-LAST:event_jEditarActionPerformed
 
     private void jCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCpActionPerformed
         // TODO add your handling code here:
