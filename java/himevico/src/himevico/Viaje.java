@@ -5,6 +5,8 @@
  */
 package himevico;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author 7FPROG10
@@ -26,6 +28,10 @@ public class Viaje {
         this.matricula = matricula;
     }
 
+     public Viaje(int idViaje) throws SQLException {
+        this.idViaje = idViaje;
+        GestorBBDD.getViaje(this);
+    }
     /**
      * @return the idViaje
      */

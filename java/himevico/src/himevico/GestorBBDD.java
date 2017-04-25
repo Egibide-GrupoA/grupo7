@@ -169,4 +169,38 @@ public class GestorBBDD {
         }
         return rs;
     }
+    
+    
+    
+    public static void getViaje(Viaje viaje) throws SQLException {
+     
+     sql= "SELECT `id` ,`hora inicio`, `hora fin`, `matricula`FROM `centro` WHERE `id` = "+viaje.getIdViaje()+";";
+     rs=executeQuery(sql);
+     rs.next();
+     viaje.setIdViaje(rs.getInt("id"));
+     viaje.setHoraInicio(rs.getInt("hora inicio"));
+     viaje.setHoraFin(rs.getInt("hora fin"));
+     viaje.setMatricula(rs.getString("matricula"));
+ 
+    }
+    public static List<Viaje> listarViajes() throws SQLException, Exception {
+     List<Viaje> viajes = new ArrayList<>();
+     sql= "SELECT * FROM viaje;";
+         System.out.println(sql);
+     try{  
+        rs2=stmt2.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+    while (rs2.next()) {
+        
+        viajes.add(new Viaje(rs2.getInt("id")));
+       
+        System.out.println("TEST1");
+    }
+     return viajes;
+    }
 }
