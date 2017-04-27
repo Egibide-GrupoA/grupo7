@@ -7,6 +7,7 @@ package himevico;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -20,19 +21,28 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     /**
      * Creates new form VListarCentros
      */
-    public VListarTrabajadores() {
+    public VListarTrabajadores() throws Exception {
         initComponents();
-        /*ResultSet rs = GestorBBDD.selectAll("trabajador");
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        actualizar();
 
-        try {
-            while (rs.next()) {
-                model.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("idCategoria")});
+    }
+      public void actualizar() throws Exception{
+        List<Logistica> trabajadores = null;
+        trabajadores = GestorBBDD.listarTrabajadoresLogistica();
+
+        //limpiar tabla
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        if (model.getRowCount() > 0) {
+            for (int i = model.getRowCount() - 1; i > -1; i--) {
+                model.removeRow(i);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
+        //añadir elementos a tabla
+        for (int i = 0; i < trabajadores.size(); i++) {
+            //TODO add category
+            model.addRow(new Object[]{trabajadores.get(i), trabajadores.get(i).getIdTrabajador(), trabajadores.get(i).getNombre(), trabajadores.get(i).getApellido1(), trabajadores.get(i).getApellido2()});
+        }
     }
 
     /**
@@ -64,14 +74,14 @@ public class VListarTrabajadores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "Apellido 1", "Apellido 2", "idCategorial"
+                "", "ID", "Nombre", "Apellido 1", "Apellido 2", "idCategorial"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -149,7 +159,11 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VListarTrabajadores().setVisible(true);
+                try {
+                    new VListarTrabajadores().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(VListarTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

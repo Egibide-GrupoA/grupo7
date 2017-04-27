@@ -5,6 +5,7 @@
  */
 package himevico;
 
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -15,7 +16,10 @@ public class Logistica extends Trabajador {
 
     public Logistica() {
     }
-    
+    public Logistica(int idTrabajador) throws SQLException {
+        this.setIdTrabajador(idTrabajador);
+        GestorBBDD.getTrabajadorLogistica(this);
+    }
 
     public Logistica(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setIdTrabajador(idTrabajador);
@@ -34,7 +38,7 @@ public class Logistica extends Trabajador {
         this.setContrasena(contrasena);
         this.setCentro(centro);
         
-        
+
         //TODO 
         // Conexión BBDD
         // ArrayList/LinkedList
