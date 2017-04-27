@@ -93,6 +93,11 @@ public class VListarTrabajadores extends javax.swing.JFrame {
             }
         });
         jTable1.setColumnSelectionAllowed(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -128,6 +133,13 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        VTrabajador trabajador= new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        trabajador.setVisible(true);
+        // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+        trabajador.setListado(this);                    
+    }//GEN-LAST:event_jTable1MouseClicked
+                     
     /**
      * @param args the command line arguments
      */
