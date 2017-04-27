@@ -25,10 +25,12 @@ public class VViaje extends javax.swing.JFrame {
      */
     public VViaje() throws Exception {
         initComponents();
+
+    
         
-        // Obtener fecha sistema
+        // Obtener fecha sistema, sumamos 1 a Calendar.MONTH por empieza a contar en 0.
         Calendar calendario = Calendar.getInstance();
-        String fecha = calendario.get(Calendar.DATE)+"/"+calendario.get(Calendar.MONTH)+"/"+calendario.get(Calendar.YEAR);
+        String fecha = calendario.get(Calendar.DATE)+"/"+(calendario.get(Calendar.MONTH)+1)+"/"+calendario.get(Calendar.YEAR);
         this.jFecha.setText(fecha);
         
         //actualizarViajes();
@@ -36,6 +38,8 @@ public class VViaje extends javax.swing.JFrame {
         
        
     }
+    
+      
     
     /*
     public void actualizarViajes() throws Exception{
@@ -96,7 +100,15 @@ public class VViaje extends javax.swing.JFrame {
             new String [] {
                 "ID", "HORA INICIO", "HORA FIN", "VEHÍCULO", "ALBARÁN", "ELIMINAR"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTablaViajes);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

@@ -52,7 +52,6 @@ public class VParteAdministracion extends javax.swing.JFrame {
 
         jLabel1.setText("Vehículo: ");
 
-        jVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jVehiculoActionPerformed(evt);

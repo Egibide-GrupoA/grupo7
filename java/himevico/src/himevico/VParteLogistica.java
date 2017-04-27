@@ -6,6 +6,9 @@
 package himevico;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
 /**
@@ -13,6 +16,9 @@ import javax.swing.JComboBox;
  * @author Sheila
  */
 public class VParteLogistica extends javax.swing.JFrame {
+    
+   
+
 
     /**
      * Creates new form VParte
@@ -51,7 +57,6 @@ public class VParteLogistica extends javax.swing.JFrame {
 
         jLabel1.setText("Vehículo: ");
 
-        jVehiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jVehiculoActionPerformed(evt);
@@ -61,24 +66,20 @@ public class VParteLogistica extends javax.swing.JFrame {
         jLabel2.setText("Hora inicio: ");
 
         jHoraInicio1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
-        jHoraInicio1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jHoraInicio1ActionPerformed(evt);
-            }
-        });
 
         jHoraInicio2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" }));
-        jHoraInicio2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jHoraInicio2ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Hora fin: ");
 
         jHoraFin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
         jLabel4.setText("Nº Albarán:");
+
+        jNumeroAlbaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNumeroAlbaranActionPerformed(evt);
+            }
+        });
 
         jBotonVolver.setText("Volver");
         jBotonVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -203,21 +204,16 @@ public class VParteLogistica extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jVehiculoActionPerformed
-        // Combobox
+        // Llenar desplegable
+        
+ 
+        
+    
+    
+     
+        
+        
     }//GEN-LAST:event_jVehiculoActionPerformed
-
-    private void jHoraInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraInicio1ActionPerformed
-        // Hora inicio
-
-        String horaInicio = null;
-
-        horaInicio.subSequence(0, 23);
-
-    }//GEN-LAST:event_jHoraInicio1ActionPerformed
-
-    private void jHoraInicio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraInicio2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jHoraInicio2ActionPerformed
 
     private void jBotonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonVolverActionPerformed
         // Botón volver
@@ -228,7 +224,34 @@ public class VParteLogistica extends javax.swing.JFrame {
     private void jBotonAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAnadirActionPerformed
         // Botón añadir
         jBotonAnadir.setBackground(Color.GREEN);
+        
+        // Guardar 
+        
+        
     }//GEN-LAST:event_jBotonAnadirActionPerformed
+
+    
+     /*private List<Integer> albaranes = new ArrayList<>();
+     
+     public void enumerarAlbaranes(){
+         int numero = 1;
+         for (Integer albaran : albaranes) {
+             numero += albaran+"\n";
+             jNumeroAlbaran.
+                 
+             
+             
+         }
+     }
+     
+    */
+    
+    private void jNumeroAlbaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNumeroAlbaranActionPerformed
+        // Campo número de albarán
+        
+        
+
+    }//GEN-LAST:event_jNumeroAlbaranActionPerformed
 
     /**
      * @param args the command line arguments
