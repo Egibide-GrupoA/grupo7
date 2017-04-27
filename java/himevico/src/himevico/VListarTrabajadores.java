@@ -7,6 +7,7 @@ package himevico;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
@@ -20,19 +21,28 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     /**
      * Creates new form VListarCentros
      */
-    public VListarTrabajadores() {
+    public VListarTrabajadores() throws Exception {
         initComponents();
-        /*ResultSet rs = GestorBBDD.selectAll("trabajador");
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        actualizar();
 
-        try {
-            while (rs.next()) {
-                model.addRow(new Object[]{rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido1"), rs.getString("apellido2"), rs.getString("idCategoria")});
+    }
+      public void actualizar() throws Exception{
+        List<Logistica> trabajadores = null;
+        trabajadores = GestorBBDD.listarTrabajadoresLogistica();
+
+        //limpiar tabla
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        if (model.getRowCount() > 0) {
+            for (int i = model.getRowCount() - 1; i > -1; i--) {
+                model.removeRow(i);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
         }
-        */
+        
+        //añadir elementos a tabla
+        for (int i = 0; i < trabajadores.size(); i++) {
+            //TODO add category
+            model.addRow(new Object[]{trabajadores.get(i), trabajadores.get(i).getIdTrabajador(), trabajadores.get(i).getNombre(), trabajadores.get(i).getApellido1(), trabajadores.get(i).getApellido2()});
+        }
     }
 
     /**
@@ -45,8 +55,6 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -55,23 +63,19 @@ public class VListarTrabajadores extends javax.swing.JFrame {
 
         jButton1.setText("Buscar");
 
-        jButton2.setText("Modificar");
-
-        jButton3.setText("Eliminar");
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nombre", "Apellido 1", "Apellido 2", "idCategorial"
+                "", "ID", "Nombre", "Apellido 1", "Apellido 2", "idCategorial"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -83,6 +87,11 @@ public class VListarTrabajadores extends javax.swing.JFrame {
             }
         });
         jTable1.setColumnSelectionAllowed(true);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
@@ -93,12 +102,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(80, 80, 80)
-                        .addComponent(jButton3))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -108,16 +112,20 @@ public class VListarTrabajadores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        VTrabajador trabajador= new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        trabajador.setVisible(true);
+        // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+        trabajador.setListado(this);                    
+    }//GEN-LAST:event_jTable1MouseClicked
+                     
     /**
      * @param args the command line arguments
      */
@@ -149,15 +157,17 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VListarTrabajadores().setVisible(true);
+                try {
+                    new VListarTrabajadores().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(VListarTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

@@ -43,23 +43,28 @@ public class GestorBBDD {
             Logger.getLogger(GestorBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public static List<Trabajador> listarTrabajadres() {
-     List<Trabajador> trabajadores;
-     sql= "SELECT * FROM trabajadores;";
+    public static List<Logistica> listarTrabajadoresLogistica() throws SQLException, Exception {
+     List<Logistica> logiticos = new ArrayList<>();
+     sql= "SELECT * FROM trabajador;";
          System.out.println(sql);
      try{  
-        rs=stmt.executeQuery(sql);
+        rs2=stmt2.executeQuery(sql);
      }
      catch(SQLException e)
      {
          System.out.println(e);
      
      }
-
-     //trabajadores.add(new Logistica());
-     //return trabajadores;
-     return null;
+    while (rs2.next()) {
+        
+        logiticos.add(new Logistica(rs2.getInt("id")));
+       
+        System.out.println("TEST1");
     }
+     return logiticos;
+    }
+    
+    
     public static List<Centro> listarCentros() throws SQLException, Exception {
      List<Centro> centros = new ArrayList<>();
      sql= "SELECT * FROM centro;";
@@ -110,6 +115,22 @@ public class GestorBBDD {
      return rs;
     }
 */
+    public static void getTrabajadorLogistica(Logistica logistica) throws SQLException {
+     
+        sql= "SELECT `id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro` FROM `trabajador` WHERE `id` = "+logistica.getIdTrabajador()+";";
+        rs=executeQuery(sql);
+        rs.next();
+        //logistica.setIdCentro(rs.getInt("id"));
+        logistica.setNombre(rs.getString("nombre"));
+        logistica.setCalle(rs.getString("calle"));
+        //logistica.setNumero(rs.getInt("numero"));
+        logistica.setPiso(rs.getInt("piso"));
+        logistica.setMano(rs.getString("mano").charAt(0));
+        //logistica.setCodPostal(rs.getInt("codPostal"));
+        //logistica.setCiudad(rs.getString("ciudad"));
+        //logistica.setProvincia(rs.getString("provincia"));
+        //logistica.setTelefono(rs.getString("telefono"));
+    }
     public static void getCentro(Centro centro) throws SQLException {
      
      sql= "SELECT `id` ,`nombre`, `calle`, `numero`, `codPostal`, `ciudad`, `piso`, `mano`,  `provincia`, `telefono` FROM `centro` WHERE `id` = "+centro.getIdCentro()+";";
@@ -146,6 +167,10 @@ public class GestorBBDD {
     
     public static void eliminar(Centro centro){
         sql="DELETE FROM `centro` WHERE `centro`.`id` = " + centro.getIdCentro();
+        executeUpdate(sql); 
+    }
+    public static void eliminar(Trabajador trabajador){
+        sql="DELETE FROM `trabajador` WHERE `trabajador`.`id` = " + trabajador.getIdTrabajador();
         executeUpdate(sql); 
     }
     private static void executeUpdate(String sql){
