@@ -117,7 +117,7 @@ public class GestorBBDD {
 */
     public static void getTrabajadorLogistica(Logistica logistica) throws SQLException {
      
-        sql= "SELECT `id` ,`nombre`, `calle`, `numero`, `codPostal`, `ciudad`, `piso`, `mano`,  `provincia`, `telefono` FROM `centro` WHERE `id` = "+logistica.getIdTrabajador()+";";
+        sql= "SELECT `id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro` FROM `trabajador` WHERE `id` = "+logistica.getIdTrabajador()+";";
         rs=executeQuery(sql);
         rs.next();
         //logistica.setIdCentro(rs.getInt("id"));
