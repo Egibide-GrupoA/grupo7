@@ -15,7 +15,10 @@ import java.util.Date;
  */
 public abstract class Trabajador {
     
-    
+    public void eliminar() {
+        GestorBBDD.eliminar(this);
+        
+    }
     
     private int idTrabajador;
     private String dni;
@@ -244,7 +247,7 @@ public abstract class Trabajador {
     }
 
 
-    
+
     
     
     

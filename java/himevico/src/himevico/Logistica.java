@@ -43,6 +43,11 @@ public class Logistica extends Trabajador {
         // Conexión BBDD
         // ArrayList/LinkedList
     }
+    @Override
+    public void eliminar() {
+        GestorBBDD.eliminar(this);
+        
+    }
  
     
 }

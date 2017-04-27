@@ -169,6 +169,10 @@ public class GestorBBDD {
         sql="DELETE FROM `centro` WHERE `centro`.`id` = " + centro.getIdCentro();
         executeUpdate(sql); 
     }
+    public static void eliminar(Trabajador trabajador){
+        sql="DELETE FROM `trabajador` WHERE `trabajador`.`id` = " + trabajador.getIdTrabajador();
+        executeUpdate(sql); 
+    }
     private static void executeUpdate(String sql){
              System.out.println(sql);
      try{  

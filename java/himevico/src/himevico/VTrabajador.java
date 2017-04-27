@@ -6,6 +6,9 @@
 package himevico;
 
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,10 +48,8 @@ public class VTrabajador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCrear = new javax.swing.JButton();
         jModificar = new javax.swing.JButton();
         jBorrar = new javax.swing.JButton();
-        jConsultar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -66,13 +67,6 @@ public class VTrabajador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jCrear.setText("Crear");
-        jCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCrearActionPerformed(evt);
-            }
-        });
-
         jModificar.setText("Modificar");
         jModificar.setToolTipText("");
         jModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -85,13 +79,6 @@ public class VTrabajador extends javax.swing.JFrame {
         jBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBorrarActionPerformed(evt);
-            }
-        });
-
-        jConsultar.setText("Consultar");
-        jConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jConsultarActionPerformed(evt);
             }
         });
 
@@ -130,14 +117,10 @@ public class VTrabajador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
+                        .addGap(115, 115, 115)
                         .addComponent(jModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(jBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +128,7 @@ public class VTrabajador extends javax.swing.JFrame {
                                 .addGap(6, 6, 6)
                                 .addComponent(jNombre))
                             .addComponent(jDNI))))
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addContainerGap(459, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -181,10 +164,8 @@ public class VTrabajador extends javax.swing.JFrame {
                 .addComponent(jNombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCrear)
                     .addComponent(jModificar)
-                    .addComponent(jBorrar)
-                    .addComponent(jConsultar))
+                    .addComponent(jBorrar))
                 .addGap(28, 28, 28))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -216,11 +197,6 @@ public class VTrabajador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCrearActionPerformed
-        // Botón crear
-        jCrear.setBackground(Color.BLUE);
-    }//GEN-LAST:event_jCrearActionPerformed
-
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
         // Botón modificar
         jModificar.setBackground(Color.BLUE);
@@ -231,12 +207,18 @@ public class VTrabajador extends javax.swing.JFrame {
     private void jBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBorrarActionPerformed
         // Botón borrar
         jBorrar.setBackground(Color.RED);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog (null, "¿Estas seguro de que deseas eliminar este elemento?","Warning",dialogButton);
+        if(dialogResult == JOptionPane.YES_OPTION){
+            trabajador.eliminar();
+            this.setVisible(false);
+            try {
+                listado.actualizar();
+            } catch (Exception ex) {
+                Logger.getLogger(VCentro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jBorrarActionPerformed
-
-    private void jConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultarActionPerformed
-        // Botón consultar
-        jConsultar.setBackground(Color.BLUE);
-    }//GEN-LAST:event_jConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -275,8 +257,6 @@ public class VTrabajador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBorrar;
-    private javax.swing.JButton jConsultar;
-    private javax.swing.JButton jCrear;
     private javax.swing.JLabel jDNI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

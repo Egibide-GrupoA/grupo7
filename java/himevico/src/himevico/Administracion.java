@@ -37,9 +37,9 @@ public class Administracion extends Trabajador{
         // Conexión BBDD
         // ArrayList/LinkedList
     }
+
  
-        
-        
+                
     }
     
 
