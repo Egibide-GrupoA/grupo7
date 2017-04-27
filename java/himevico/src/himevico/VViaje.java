@@ -40,8 +40,6 @@ public class VViaje extends javax.swing.JFrame {
     }
     
       
-    
-    /*
     public void actualizarViajes() throws Exception{
         
        List<Viaje> viajes = GestorBBDD.listarViajes();
@@ -59,7 +57,7 @@ public class VViaje extends javax.swing.JFrame {
             model.addRow(new Object[]{viajes.get(i), viajes.get(i).getIdViaje(), viajes.get(i).getHoraInicio(), viajes.get(i).getHoraFin(), viajes.get(i).getMatricula()});
        }
     }
-    */
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
