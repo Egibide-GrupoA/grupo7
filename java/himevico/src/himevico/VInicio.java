@@ -148,7 +148,12 @@ public class VInicio extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Botón listar trabajadores
         
-        VListarTrabajadores vlt = new VListarTrabajadores();
+        VListarTrabajadores vlt = null;
+        try {
+            vlt = new VListarTrabajadores();
+        } catch (Exception ex) {
+            Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         vlt.setVisible(true);
         
         
