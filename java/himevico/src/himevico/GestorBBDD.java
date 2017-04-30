@@ -5,6 +5,10 @@
  */
 package himevico;
 
+import trabajadores.Trabajador;
+import trabajadores.Logistica;
+import viajes.Viaje;
+import centros.Centro;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

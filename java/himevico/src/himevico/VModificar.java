@@ -5,6 +5,8 @@
  */
 package himevico;
 
+import trabajadores.Trabajador;
+import trabajadores.Administracion;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;

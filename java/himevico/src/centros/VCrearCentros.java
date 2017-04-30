@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package centros;
 
+import centros.Centro;
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;

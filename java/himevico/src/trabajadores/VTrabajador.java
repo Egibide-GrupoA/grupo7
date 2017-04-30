@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package trabajadores;
 
+import trabajadores.VListarTrabajadores;
+import centros.VCentro;
+import himevico.VModificar;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;

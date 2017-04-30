@@ -3,19 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package trabajadores;
 
-import java.sql.ResultSet;
+import centros.Centro;
+import himevico.GestorBBDD;
+import java.sql.SQLException;
 import java.util.Date;
 
+/**
+ *
+ * @author Sheila
+ */
+public class Logistica extends Trabajador {
 
-public class Administracion extends Trabajador{
-
-    public Administracion() {
+    public Logistica() {
     }
-    
-  
-    public Administracion(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
+    public Logistica(int idTrabajador) throws SQLException {
+        this.setIdTrabajador(idTrabajador);
+        GestorBBDD.getTrabajadorLogistica(this);
+    }
+
+    public Logistica(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setIdTrabajador(idTrabajador);
         this.setDni(dni);
         this.setNombre(nombre);
@@ -32,16 +40,16 @@ public class Administracion extends Trabajador{
         this.setContrasena(contrasena);
         this.setCentro(centro);
         
-        
+
         //TODO 
         // Conexión BBDD
         // ArrayList/LinkedList
     }
-
- 
-                
+    @Override
+    public void eliminar() {
+        GestorBBDD.eliminar(this);
+        
     }
+ 
     
-
-    
-
+}

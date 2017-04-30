@@ -5,6 +5,7 @@
  */
 package himevico;
 
+import login.VLogin;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.ResultSet;

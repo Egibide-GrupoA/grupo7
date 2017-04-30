@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package viajes;
 
+import himevico.GestorBBDD;
 import java.awt.Color;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

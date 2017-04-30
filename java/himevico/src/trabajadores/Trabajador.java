@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package trabajadores;
 
+import centros.Centro;
+import himevico.GestorBBDD;
+import partes.Parte;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;

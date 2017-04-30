@@ -5,6 +5,9 @@
  */
 package himevico;
 
+import trabajadores.VListarTrabajadores;
+import centros.VListarCentros;
+import centros.VCrearCentros;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

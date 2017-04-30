@@ -3,32 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package centros;
 
+import centros.VCentro;
+import centros.Centro;
+import himevico.GestorBBDD;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author 7FPROG10
  */
-public class VListarTrabajadores extends javax.swing.JFrame {
+public class VListarCentros extends javax.swing.JFrame {
 
     /**
      * Creates new form VListarCentros
      */
-    public VListarTrabajadores() throws Exception {
+    public VListarCentros() throws Exception {
         initComponents();
         actualizar();
-
     }
-      public void actualizar() throws Exception{
-        List<Logistica> trabajadores = null;
-        trabajadores = GestorBBDD.listarTrabajadoresLogistica();
+    public void actualizar() throws Exception{
+        List<Centro> centros = null;
+        centros = GestorBBDD.listarCentros();
 
         //limpiar tabla
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -39,12 +44,10 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         }
         
         //añadir elementos a tabla
-        for (int i = 0; i < trabajadores.size(); i++) {
-            //TODO add category
-            model.addRow(new Object[]{trabajadores.get(i), trabajadores.get(i).getIdTrabajador(), trabajadores.get(i).getNombre(), trabajadores.get(i).getApellido1(), trabajadores.get(i).getApellido2()});
+        for (int i = 0; i < centros.size(); i++) {
+            model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro(), centros.get(i).getNombre(), centros.get(i).getCalle(), centros.get(i).getNumero(), centros.get(i).getPiso(), centros.get(i).getMano(), centros.get(i).getCodPostal(), centros.get(i).getCiudad(), centros.get(i).getProvincia(), centros.get(i).getTelefono()});
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,14 +71,14 @@ public class VListarTrabajadores extends javax.swing.JFrame {
 
             },
             new String [] {
-                "", "ID", "Nombre", "Apellido 1", "Apellido 2", "idCategorial"
+                "ref", "ID", "Nombre", "Calle", "Numero", "CP", "Provincia", "Telefono"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,24 +96,31 @@ public class VListarTrabajadores extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable1);
-        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jButton1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -120,16 +130,18 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        VTrabajador trabajador= new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
-        trabajador.setVisible(true);
+        // TODO add your handling code here:
+        VCentro centros= new VCentro((Centro) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        centros.setVisible(true);
         // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
-        trabajador.setListado(this);                    
+        centros.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
-                     
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]){
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -143,24 +155,23 @@ public class VListarTrabajadores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VListarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VListarCentros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VListarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VListarCentros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VListarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VListarCentros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VListarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VListarCentros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new VListarTrabajadores().setVisible(true);
+                    new VListarCentros().setVisible(true);
                 } catch (Exception ex) {
-                    Logger.getLogger(VListarTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VListarCentros.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
