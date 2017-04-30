@@ -6,6 +6,8 @@
 package himevico;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,9 +31,25 @@ public class VLogin extends javax.swing.JFrame {
     public VLogin() {
         initComponents();
         
-          // Insertar imagen
+        // Poner icono ventana
         setIconImage(new ImageIcon(getClass().getResource("../imagenes/padlockClose.png")).getImage());
-   
+
+     
+        
+        
+    }
+        
+       @Override
+        public void paint(Graphics g) {
+        Dimension size = getSize();
+        ImageIcon imagenFondo = new ImageIcon(getClass().getResource("../imagenes/Fondo.png"));
+        g.drawImage(imagenFondo.getImage(),0,0,size.width,size.height, null);
+       
+            
+     
+
+        
+       
     }
     public VLogin(GestorBBDD db) {
         initComponents();
@@ -51,6 +69,7 @@ public class VLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jUsuario = new javax.swing.JTextField();
@@ -104,9 +123,9 @@ public class VLogin extends javax.swing.JFrame {
                                 .addGap(0, 40, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jRecordarContrasena)
-                                    .addComponent(jIniciarSesión))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRecordarContrasena, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jIniciarSesión, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,12 +151,16 @@ public class VLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
         );
 
         pack();
@@ -210,6 +233,7 @@ public class VLogin extends javax.swing.JFrame {
     private javax.swing.JButton jIniciarSesión;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox jRecordarContrasena;
     private javax.swing.JTextField jUsuario;
