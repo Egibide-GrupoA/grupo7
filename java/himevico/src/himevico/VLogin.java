@@ -6,8 +6,6 @@
 package himevico;
 
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,18 +37,7 @@ public class VLogin extends javax.swing.JFrame {
         
     }
         
-       @Override
-        public void paint(Graphics g) {
-        Dimension size = getSize();
-        ImageIcon imagenFondo = new ImageIcon(getClass().getResource("../imagenes/Fondo.png"));
-        g.drawImage(imagenFondo.getImage(),0,0,size.width,size.height, null);
-       
-            
-     
-
-        
-       
-    }
+      
     public VLogin(GestorBBDD db) {
         initComponents();
         this.db=db;
