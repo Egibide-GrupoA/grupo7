@@ -22,7 +22,7 @@ public class Himevico {
      */
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));        
-        // TODO code application logic here
+     
         GestorBBDD db = new GestorBBDD();
         System.out.print("Contraseña BBDD: ");
         // La contraseña de la BBDD se pedira al iniciar el programa para no 

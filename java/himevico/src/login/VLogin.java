@@ -24,28 +24,24 @@ import javax.swing.JOptionPane;
  * @author Sheila
  */
 public class VLogin extends javax.swing.JFrame {
+    
     private GestorBBDD db;
+    
     /**
      * Creates new form VInicio
      */
     public VLogin() {
-        initComponents();
-        
-        // Poner icono ventana
-        setIconImage(new ImageIcon(getClass().getResource("../imagenes/padlockClose.png")).getImage());
-
-     
-        
+         initComponents();
+         // Poner icono ventana
+         // setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
+       
         
     }
         
-      
     public VLogin(GestorBBDD db) {
         initComponents();
         this.db=db;
        
-        
-      
        
     }
 
