@@ -31,7 +31,8 @@ public class Centro {
         
     }
 
-    public Centro(int idCentro, String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
+    public Centro(String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
+        // TODO: RETURN ID CENTRO
         this.idCentro = idCentro;
         this.nombre = nombre;
         this.calle = calle;
