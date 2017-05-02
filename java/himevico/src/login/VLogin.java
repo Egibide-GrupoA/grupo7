@@ -41,7 +41,7 @@ public class VLogin extends javax.swing.JFrame {
     public VLogin(GestorBBDD db) {
         initComponents();
         this.db=db;
-        setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
+        
        
        
     }
