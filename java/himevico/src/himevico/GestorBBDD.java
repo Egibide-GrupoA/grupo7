@@ -5,6 +5,7 @@
  */
 package himevico;
 
+import vehiculo.Vehiculo;
 import trabajadores.Trabajador;
 import trabajadores.Logistica;
 import viajes.Viaje;
@@ -86,6 +87,44 @@ public class GestorBBDD {
     }
      return centros;
     }
+    
+    public static List<Vehiculo> listarVehiculos() throws SQLException, Exception {
+     List<Vehiculo> vehiculos = new ArrayList<>();
+     sql= "SELECT `matricula`, `marca`, `modelo`, `color`, `fechaAlta` FROM vehiculo;";
+         System.out.println(sql);
+     try{  
+        rs2=stmt2.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+    while (rs2.next()) {
+        
+        vehiculos.add(new Vehiculo(rs2.getString("matricula")));
+       
+        System.out.println("TEST1");
+    }
+     return vehiculos;
+    }
+        
+    
+    public static void getVehiculo(Vehiculo vehiculo) throws SQLException {
+     
+        sql= "SELECT `matricula`, `marca`, `modelo`, `color`, `fechaAlta` FROM `vehiculo` WHERE `matricula` = '"+vehiculo.getMatricula()+"';";
+        System.out.println(sql);
+        rs=executeQuery(sql);
+        rs.next();
+        vehiculo.setMatricula(rs.getString("matricula"));
+        vehiculo.setMarca(rs.getString("marca"));
+        vehiculo.setModelo(rs.getString("modelo"));
+        vehiculo.setColor(rs.getString("color"));
+        vehiculo.setFechaAlta(rs.getDate("fechaAlta"));
+
+        
+    }
+        
     public static ResultSet comprobarUsuario(String usuario,String password) {
      
      sql= "SELECT * FROM `trabajador` WHERE `dni` = '"+usuario+"' AND `contrasena` = '"+password+"';";
@@ -196,6 +235,11 @@ public class GestorBBDD {
         return rs;
     }
     
+    public static void crearVehiculo(Vehiculo vehiculo) {
+     
+     sql= "INSERT INTO `vehiculo` (`matricula`, `marca`, `modelo`, `color`, `fechaAlta`) VALUES ('"+vehiculo.getMatricula()+"', '"+vehiculo.getMarca()+"', '"+vehiculo.getModelo()+"', '"+vehiculo.getColor()+"', CURRENT_TIMESTAMP);";
+     executeUpdate(sql); 
+    }
     
     
     public static void getViaje(Viaje viaje) throws SQLException {

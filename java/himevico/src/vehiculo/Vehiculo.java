@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package himevico;
+package vehiculo;
 
+import himevico.GestorBBDD;
+import java.sql.SQLException;
 import java.sql.Time;
+import java.util.Date;
 
 /**
  *
@@ -17,17 +20,24 @@ public class Vehiculo {
     private String marca;
     private String modelo;
     private String color;
-    private Time fechaAlta;
+    private Date fechaAlta;
 
     public Vehiculo() {
     }
+    
+    public Vehiculo(String matricula) throws SQLException {
+        this.matricula=matricula;
+        System.out.println(matricula);
+        GestorBBDD.getVehiculo(this);
+    }
 
-    public Vehiculo(String matricula, String marca, String modelo, String color, Time fechaAlta) {
+    public Vehiculo(String matricula, String marca, String modelo, String color) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
         this.fechaAlta = fechaAlta;
+        GestorBBDD.crearVehiculo(this);
     }
 
     /**
@@ -89,14 +99,14 @@ public class Vehiculo {
     /**
      * @return the fechaAlta
      */
-    public Time getFechaAlta() {
+    public Date getFechaAlta() {
         return fechaAlta;
     }
 
     /**
      * @param fechaAlta the fechaAlta to set
      */
-    public void setFechaAlta(Time fechaAlta) {
+    public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
     

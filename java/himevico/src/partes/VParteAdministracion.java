@@ -5,7 +5,7 @@
  */
 package partes;
 
-import himevico.Vehiculo;
+import vehiculo.Vehiculo;
 import java.awt.Color;
 import javax.swing.JComboBox;
 
