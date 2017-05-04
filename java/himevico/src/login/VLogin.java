@@ -33,20 +33,20 @@ public class VLogin extends javax.swing.JFrame {
     public VLogin() {
          initComponents();
          // Poner icono ventana
-        setIconImage(new ImageIcon(getClass().getResource("himevico/Source Packages/imagenes/password.png")).getImage());
+        //setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
        
         
     }
     
         
-    /*public VLogin(GestorBBDD db) {
+    public VLogin(GestorBBDD db) {
         initComponents();
         this.db=db;
         
        
        
     }
-    */
+   
 
     /**
      * This method is called from within the constructor to initialize the form.

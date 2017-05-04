@@ -11,8 +11,12 @@ package login;
  */
 public class VRecordarContrasenaRecu extends javax.swing.JFrame {
     
+ 
     private VRecordarContrasenaRecu vrcr = new VRecordarContrasenaRecu();
-
+    
+   
+    
+  
     /**
      * Creates new form VRecordarContrasenaRecu
      */
@@ -100,6 +104,10 @@ public class VRecordarContrasenaRecu extends javax.swing.JFrame {
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
         // Guardar
+        
+        
+        
+        
         
         
     }//GEN-LAST:event_jGuardarActionPerformed

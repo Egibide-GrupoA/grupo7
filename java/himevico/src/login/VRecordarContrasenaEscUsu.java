@@ -5,6 +5,14 @@
  */
 package login;
 
+import static himevico.GestorBBDD.recordarContrasenaUsuario;
+import himevico.VInicio;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Sheila
@@ -12,7 +20,7 @@ package login;
 public class VRecordarContrasenaEscUsu extends javax.swing.JFrame {
     
      private VRecordarContrasenaEscUsu vrceu = new VRecordarContrasenaEscUsu();
-     private VRecordarContrasenaRecu vrcr = new VRecordarContrasenaRecu();
+    
 
     /**
      * Creates new form VRecordarContrasena
@@ -98,8 +106,27 @@ public class VRecordarContrasenaEscUsu extends javax.swing.JFrame {
 
     private void jContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jContinuarActionPerformed
         // Continuar
-        vrcr.setVisible(true);
         
+        String usuario = jNombreUsuario.getText();
+       
+
+        ResultSet rs;
+        rs = recordarContrasenaUsuario(usuario);
+        try {
+            if (rs.next()) {
+                VRecordarContrasenaRecu vrcr = new VRecordarContrasenaRecu();
+                vrcr.setVisible(true);
+                this.setVisible(false);
+            }else{
+                JOptionPane.showMessageDialog(this, "El usuario no existe", "", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        
+
+
         
     }//GEN-LAST:event_jContinuarActionPerformed
 

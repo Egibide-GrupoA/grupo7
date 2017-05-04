@@ -124,7 +124,7 @@ public class GestorBBDD {
 
         
     }
-        
+         
     public static ResultSet comprobarUsuario(String usuario,String password) {
      
      sql= "SELECT * FROM `trabajador` WHERE `dni` = '"+usuario+"' AND `contrasena` = '"+password+"';";
@@ -139,8 +139,28 @@ public class GestorBBDD {
      }
      return rs;
     }
+
     
-    /*public static ResultSet selectTrabajador(int idTrabajador) {
+    // Recordar contraseña
+    public static ResultSet recordarContrasenaUsuario( String nombreUsuario){
+    
+    sql= "SELECT * FROM `trabajador` WHERE 'NombreUsuario` = '"+nombreUsuario+"';";
+        System.out.println(sql);
+    try{  
+        rs=stmt.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+     return rs;
+    }
+    
+    
+    
+    /*
+public static ResultSet selectTrabajador(int idTrabajador) {
      
      sql= "SELECT `id` ,`nombre`, `calle`, `numero`, `codPostal`, `ciudad`, `provincia`, `telefono` FROM `centro` WHERE `id` = "+idCentro+";";
          System.out.println(sql);
