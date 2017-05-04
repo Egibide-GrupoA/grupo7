@@ -8,6 +8,7 @@ package login;
 import himevico.GestorBBDD;
 import himevico.VInicioAdministracion;
 import java.awt.Color;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,8 +34,10 @@ public class VLogin extends javax.swing.JFrame {
     public VLogin() {
          initComponents();
          // Poner icono ventana
-        //setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
-       
+        
+ 
+
+    // this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("..imagenes/password.png")));
         
     }
     

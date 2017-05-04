@@ -105,7 +105,21 @@ public class VInicioAdministracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuAdministracionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuAdministracionMousePressed
-        // TODO add your handling code here:
+                                         
+    
+        String menu = jMenuAdministracion.getLastSelectedPathComponent().toString();
+        jMenuAdministracion.putClientProperty("JTree.lineStyle", "Horizontal");
+        
+        
+        if (menu.equals("Trabajadores")){
+            try {
+                vlt = new VListarTrabajadores();
+            } catch (Exception ex) {
+                Logger.getLogger(VInicioAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            vlt.setVisible(true);
+        }
+   
     }//GEN-LAST:event_jMenuAdministracionMousePressed
 
     /**
