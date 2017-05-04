@@ -5,6 +5,8 @@
  */
 package login;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author 7FPROG10
@@ -104,6 +106,17 @@ public class VRecordarContrasenaRecu extends javax.swing.JFrame {
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
         // Guardar
+        
+        if ( jNuevaContrasena.getText().equals(jConfirmNuevaContrasena.getText())){
+            
+            
+            
+            
+        }else{
+                JOptionPane.showMessageDialog(this, "La contraseña no coincide", "", JOptionPane.ERROR_MESSAGE);
+            }
+        
+        
         
         
         

@@ -6,7 +6,7 @@
 package login;
 
 import himevico.GestorBBDD;
-import himevico.VInicio;
+import himevico.VInicioAdministracion;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -175,7 +175,7 @@ public class VLogin extends javax.swing.JFrame {
         rs = db.comprobarUsuario(usuario,contrasena);
         try {
             if (rs.next()) {
-                VInicio inicio=new VInicio();
+                VInicioAdministracion inicio=new VInicioAdministracion();
                 inicio.setVisible(true);
                 this.setVisible(false);
             }else{

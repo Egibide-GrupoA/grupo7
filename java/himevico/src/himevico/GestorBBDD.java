@@ -142,7 +142,7 @@ public class GestorBBDD {
 
     
     // Recordar contraseña
-    public static ResultSet recordarContrasenaUsuario( String nombreUsuario){
+    public static ResultSet recordarContrasenaUsuario( String nombreUsuario ){
     
     sql= "SELECT * FROM `trabajador` WHERE 'NombreUsuario` = '"+nombreUsuario+"';";
         System.out.println(sql);
@@ -157,7 +157,13 @@ public class GestorBBDD {
      return rs;
     }
     
-    
+    /*
+    // Recuperar contraseña
+    public static boolean recuperarContrasena( String contrasena ) {
+  
+    return true;
+    }
+  */
     
     /*
 public static ResultSet selectTrabajador(int idTrabajador) {
