@@ -5,6 +5,8 @@
  */
 package partes;
 
+import himevico.GestorBBDD;
+
 /**
  *
  * @author 7FPROG10
@@ -35,6 +37,7 @@ public class Parte {
         this.otros = otros;
         this.eliminado = eliminado;
         this.validado = validado;
+        //GestorBBDD.crearParte(this);
     }
 
     /**

@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import partes.VParteAdministracion;
 
 /**
  *
@@ -170,20 +171,36 @@ public class VLogin extends javax.swing.JFrame {
 
         String usuario = jUsuario.getText();
         String contrasena = new String( jContrasena.getPassword());
+        String tipoUsuario = null;
 
-        ResultSet rs;
-        rs = db.comprobarUsuario(usuario,contrasena);
-        try {
-            if (rs.next()) {
-                VInicio inicio=new VInicio();
-                inicio.setVisible(true);
-                this.setVisible(false);
-            }else{
-                JOptionPane.showMessageDialog(this, "Error", "", JOptionPane.ERROR_MESSAGE);
+        if (GestorBBDD.comprobarUsuario(usuario, contrasena)) {
+            try {
+                tipoUsuario = GestorBBDD.tipoUsuario(usuario);
+            } catch (SQLException ex) {
+                Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+            switch (tipoUsuario) {
+                case "Logistica-Transporte": 
+                    VParteAdministracion parte = null;
+                    try {
+                        parte = new VParteAdministracion();
+                    } catch (Exception ex) {
+                        Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    parte.setVisible(true);
+                    break;
+                case "Administración": 
+                    VInicio inicio=new VInicio();
+                    inicio.setVisible(true);
+
+                    break;
+                default: break;
+            }
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Error", "", JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_jIniciarSesiónActionPerformed
 
     /**

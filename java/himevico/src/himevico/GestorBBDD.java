@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import login.VLogin;
+import partes.Parte;
 /**
  *
  * @author Sheila
@@ -125,7 +128,7 @@ public class GestorBBDD {
         
     }
          
-    public static ResultSet comprobarUsuario(String usuario,String password) {
+    public static boolean comprobarUsuario(String usuario,String password) {
      
      sql= "SELECT * FROM `trabajador` WHERE `dni` = '"+usuario+"' AND `contrasena` = '"+password+"';";
          System.out.println(sql);
@@ -137,14 +140,24 @@ public class GestorBBDD {
          System.out.println(e);
      
      }
-     return rs;
+        try {
+        if (rs.next()) {
+           return true;
+        }else{
+           return false;
+        }
+        } catch (SQLException ex) {
+        Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
     }
 
     
     // Recordar contraseña
-    public static ResultSet recordarContrasenaUsuario( String nombreUsuario){
+    public static String tipoUsuario(String dni) throws SQLException{
     
-    sql= "SELECT * FROM `trabajador` WHERE 'NombreUsuario` = '"+nombreUsuario+"';";
+    sql= "SELECT categoria.nombre tipoUsuario FROM `trabajador` INNER JOIN categoria ON trabajador.idCategoria = categoria.id WHERE trabajador.dni = '"+dni+"';";
         System.out.println(sql);
     try{  
         rs=stmt.executeQuery(sql);
@@ -154,7 +167,8 @@ public class GestorBBDD {
          System.out.println(e);
      
      }
-     return rs;
+     rs.next();
+     return rs.getString("tipoUsuario");
     }
     
     
@@ -261,16 +275,21 @@ public static ResultSet selectTrabajador(int idTrabajador) {
      executeUpdate(sql); 
     }
     
-    
+    public static void crearViaje(Viaje viaje) {
+     
+     sql= "INSERT INTO `viaje` (`id`, `idParte`, `horaInicio`, `horaFin`, `matricula`) VALUES (NULL, '1', '"+viaje.getHoraInicio()+"', '"+viaje.getHoraFin()+"', '"+viaje.getMatricula()+"');";
+     executeUpdate(sql); 
+    }
+        
     public static void getViaje(Viaje viaje) throws SQLException {
      
      sql= "SELECT `id` ,`hora inicio`, `hora fin`, `matricula`FROM `centro` WHERE `id` = "+viaje.getIdViaje()+";";
      rs=executeQuery(sql);
      rs.next();
      viaje.setIdViaje(rs.getInt("id"));
-     viaje.setHoraInicio(rs.getInt("hora inicio"));
-     viaje.setHoraFin(rs.getInt("hora fin"));
-     viaje.setMatricula(rs.getString("matricula"));
+     //viaje.setHoraInicio(rs.getInt("hora inicio"));
+     //viaje.setHoraFin(rs.getInt("hora fin"));
+     //viaje.setMatricula(rs.getString("matricula"));
  
     }
     public static List<Viaje> listarViajes() throws SQLException, Exception {

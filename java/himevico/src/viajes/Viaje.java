@@ -7,6 +7,7 @@ package viajes;
 
 import himevico.GestorBBDD;
 import java.sql.SQLException;
+import java.sql.Time;
 
 /**
  *
@@ -15,18 +16,18 @@ import java.sql.SQLException;
 public class Viaje {
     
     private int idViaje;
-    private int horaInicio;
-    private int horaFin;
-    private String matricula;
+    private Time horaInicio;
+    private Time horaFin;
+    private vehiculo.Vehiculo vehiculo;
 
     public Viaje() {
     }
 
-    public Viaje(int idViaje, int horaInicio, int horaFin, String matricula) {
-        this.idViaje = idViaje;
+    public Viaje(Time horaInicio, Time horaFin, vehiculo.Vehiculo vehiculo) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
-        this.matricula = matricula;
+        this.vehiculo = vehiculo;
+        GestorBBDD.crearViaje(this);
     }
 
      public Viaje(int idViaje) throws SQLException {
@@ -50,45 +51,34 @@ public class Viaje {
     /**
      * @return the horaInicio
      */
-    public int getHoraInicio() {
+    public Time getHoraInicio() {
         return horaInicio;
     }
 
     /**
      * @param horaInicio the horaInicio to set
      */
-    public void setHoraInicio(int horaInicio) {
+    public void setHoraInicio(Time horaInicio) {
         this.horaInicio = horaInicio;
     }
 
     /**
      * @return the horaFin
      */
-    public int getHoraFin() {
+    public Time getHoraFin() {
         return horaFin;
     }
 
     /**
      * @param horaFin the horaFin to set
      */
-    public void setHoraFin(int horaFin) {
+    public void setHoraFin(Time horaFin) {
         this.horaFin = horaFin;
     }
 
-    /**
-     * @return the matricula
-     */
     public String getMatricula() {
-        return matricula;
+        return this.vehiculo.getMatricula();
     }
-
-    /**
-     * @param matricula the matricula to set
-     */
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-    
     
     
 }

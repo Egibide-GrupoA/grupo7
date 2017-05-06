@@ -109,6 +109,11 @@ public class Vehiculo {
     public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
+
+    @Override
+    public String toString() {
+        return matricula;
+    }
     
     
 }
