@@ -277,7 +277,7 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     
     public static void crearViaje(Viaje viaje) {
      
-     sql= "INSERT INTO `viaje` (`id`, `idParte`, `horaInicio`, `horaFin`, `matricula`) VALUES (NULL, '1', '"+viaje.getHoraInicio()+"', '"+viaje.getHoraFin()+"', '"+viaje.getMatricula()+"');";
+     sql= "INSERT INTO `viaje` (`id`, `idParte`, `horaInicio`, `horaFin`, `matricula`, `albaran`) VALUES (NULL, '1', '"+viaje.getHoraInicio().getHours()+":"+viaje.getHoraInicio().getMinutes()+":00', '"+viaje.getHoraFin().getHours()+":"+viaje.getHoraFin().getMinutes()+":00', '"+viaje.getMatricula()+"', '"+viaje.getAlbaran()+"' );";
      executeUpdate(sql); 
     }
         

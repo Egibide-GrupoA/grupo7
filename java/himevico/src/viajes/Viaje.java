@@ -8,6 +8,8 @@ package viajes;
 import himevico.GestorBBDD;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.Date;
+import vehiculo.Vehiculo;
 
 /**
  *
@@ -16,17 +18,20 @@ import java.sql.Time;
 public class Viaje {
     
     private int idViaje;
-    private Time horaInicio;
-    private Time horaFin;
+    private Date horaInicio;
+    private Date horaFin;
     private vehiculo.Vehiculo vehiculo;
+    private String albaran;
 
     public Viaje() {
     }
 
-    public Viaje(Time horaInicio, Time horaFin, vehiculo.Vehiculo vehiculo) {
+    public Viaje(Date horaInicio, Date horaFin, vehiculo.Vehiculo vehiculo, String albaran) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.vehiculo = vehiculo;
+        this.albaran = albaran;
+
         GestorBBDD.crearViaje(this);
     }
 
@@ -51,34 +56,51 @@ public class Viaje {
     /**
      * @return the horaInicio
      */
-    public Time getHoraInicio() {
+    public Date getHoraInicio() {
         return horaInicio;
     }
 
     /**
      * @param horaInicio the horaInicio to set
      */
-    public void setHoraInicio(Time horaInicio) {
+    public void setHoraInicio(Date horaInicio) {
         this.horaInicio = horaInicio;
     }
 
     /**
      * @return the horaFin
      */
-    public Time getHoraFin() {
+    public Date getHoraFin() {
         return horaFin;
     }
 
     /**
      * @param horaFin the horaFin to set
      */
-    public void setHoraFin(Time horaFin) {
+    public void setHoraFin(Date horaFin) {
         this.horaFin = horaFin;
     }
 
     public String getMatricula() {
         return this.vehiculo.getMatricula();
     }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public String getAlbaran() {
+        return albaran;
+    }
+
+    public void setAlbaran(String albaran) {
+        this.albaran = albaran;
+    }
+    
     
     
 }

@@ -10,9 +10,15 @@ import vehiculo.Vehiculo;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import java.sql.Time;
+import java.text.ParseException;
+import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+import viajes.Viaje;
 
 /**
  *
@@ -28,8 +34,8 @@ public class VParteAdministracion extends javax.swing.JFrame {
         List<Vehiculo> vehiculos = null;
         vehiculos = GestorBBDD.listarVehiculos();
         for (int i = 0; i < vehiculos.size(); i++) {
-            //Vehiculo actual = (Vehiculo) vehiculos.get(i);
-            //jVehiculo.addItem(actual);
+            Vehiculo actual = (Vehiculo) vehiculos.get(i);
+            jVehiculo.addItem(actual);
         }
     }
 
@@ -60,8 +66,6 @@ public class VParteAdministracion extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -173,10 +177,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "id", "Hora Inicio", "Hora Fin", "Vehiculo", "Albaran", "Eliminar"
@@ -215,10 +216,6 @@ public class VParteAdministracion extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Horas en parte: ");
-
-        jLabel8.setText("X/Z");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -237,10 +234,6 @@ public class VParteAdministracion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -253,10 +246,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -271,24 +261,40 @@ public class VParteAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jVehiculoActionPerformed
 
     private void jHoraInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraInicio1ActionPerformed
-        // Hora inicio
-
-        String horaInicio = null;
-
-        horaInicio.subSequence(0, 23);
 
     }//GEN-LAST:event_jHoraInicio1ActionPerformed
 
     private void jBotonAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAnadirActionPerformed
         // Botón añadir
         jBotonAnadir.setBackground(Color.GREEN);
+
+       
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("HH:mm");
+
+        Date horaInicio = null;
+        try {
+            horaInicio = DATE_FORMAT.parse(jHoraInicio1.getSelectedItem().toString()+":"+jHoraInicio2.getSelectedItem().toString());
+        } catch (ParseException ex) {
+            Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Date horaFin = null;
+        try {
+            horaFin = DATE_FORMAT.parse(jHoraFin1.getSelectedItem().toString()+":"+jHoraFin2.getSelectedItem().toString());
+        } catch (ParseException ex) {
+            Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        viajes.Viaje viaje = new Viaje(horaInicio, horaFin, (Vehiculo) jVehiculo.getSelectedItem(), jNumeroAlbaran.getText());
+        
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        
+        model.addRow(new Object[]{viaje, viaje.getHoraInicio().getHours()+":"+((viaje.getHoraInicio().getMinutes()<10)?"0" : "")+viaje.getHoraInicio().getMinutes(), viaje.getHoraFin().getHours()+":"+((viaje.getHoraFin().getMinutes()<10)?"0" : "")+viaje.getHoraFin().getMinutes(), viaje.getMatricula(), viaje.getAlbaran()});
+
+        
     }//GEN-LAST:event_jBotonAnadirActionPerformed
 
     private void jHoraFin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraFin1ActionPerformed
-        // Hora inicio
-        String horaFin = null;
-                
-       horaFin.subSequence(0, 23);
 
     }//GEN-LAST:event_jHoraFin1ActionPerformed
 
@@ -350,12 +356,10 @@ public class VParteAdministracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jNumeroAlbaran;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JComboBox<String> jVehiculo;
+    private javax.swing.JComboBox<Vehiculo> jVehiculo;
     // End of variables declaration//GEN-END:variables
 }
