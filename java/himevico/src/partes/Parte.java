@@ -64,10 +64,11 @@ public class Parte {
         System.out.println(this.trabajador.getIdTrabajador());
         if ( ( GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()) ) > 0) {
             System.out.println("Existe parte abierto");
-            return new Parte(this.trabajador.getIdTrabajador());
+            return new Parte(GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()));
         } else {
             System.out.println("Crear parte nuevo");
-            return new Parte(logistica);
+            new Parte(logistica);
+            return new Parte(GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()));
         }
     }
     public void cerrarParte() throws Exception {

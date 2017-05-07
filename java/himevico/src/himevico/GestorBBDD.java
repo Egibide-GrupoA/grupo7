@@ -268,7 +268,7 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     public static void crearParte(Parte parte) {
      //TODO Añadir soporte KM
      sql= "INSERT INTO `parte` (`id`, `idPersona`, `fecha`, `kilometrosInicio`, `kilometrosFin`, `gasoil`, `peajes`, `dietas`, `otros`, `eliminado`, `validado`) VALUES "
-             + "(NULL, '"+parte.getTrabajador().getIdTrabajador()+"',  CURDATE(), '1000', NULL, NULL, NULL, NULL, NULL, '0', '0');";
+             + "(NULL, '"+parte.getTrabajador().getIdTrabajador()+"',  CURDATE(), NULL, NULL, NULL, NULL, NULL, NULL, '0', '0');";
      executeUpdate(sql); 
     }    
     
@@ -370,7 +370,7 @@ public static ResultSet selectTrabajador(int idTrabajador) {
      
      
     public static void cerrarParte(Parte parte) throws SQLException, Exception {
-     sql= "UPDATE `parte` SET `gasoil` = '"+parte.getGasoil()+"', `peajes` = '"+parte.getPeajes()+"', `dietas` = '"+parte.getDietas()+"', `otros` = '"+parte.getOtros()+"', `validado` = 1 WHERE `parte`.`id` = 2;";
+     sql= "UPDATE `parte` SET `kilometrosInicio` = '"+parte.getKilometrosInicio()+"', `kilometrosFin` = '"+parte.getKilometrosFin()+"', `gasoil` = '"+parte.getGasoil()+"', `peajes` = '"+parte.getPeajes()+"', `dietas` = '"+parte.getDietas()+"', `otros` = '"+parte.getOtros()+"', `validado` = 1 WHERE `parte`.`id` = "+parte.getIdParte()+";";
      executeUpdate(sql); 
     } 
      
