@@ -6,8 +6,10 @@
 package partes;
 
 import himevico.GestorBBDD;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,10 +23,15 @@ public class VCerrarParte extends javax.swing.JFrame {
     private Parte parte;
     private VParteAdministracion listaViajes;
 
-    public VCerrarParte(Parte parte, VParteAdministracion listaViajes) {
+    public VCerrarParte(Parte parte, VParteAdministracion listaViajes) throws SQLException {
         initComponents();
         this.parte=parte;
         this.listaViajes=listaViajes;
+        
+        int minutos= GestorBBDD.getMinutos(parte);
+        if (minutos != 480) {
+            JOptionPane.showMessageDialog(null, "Los viajes no se ajustan al tiempo de jornada." + minutos + " de " + "480" );
+        }
     }
 
     /**
@@ -51,6 +58,9 @@ public class VCerrarParte extends javax.swing.JFrame {
         jKFinal = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jKInicio = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jIncidencias = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,7 +95,7 @@ public class VCerrarParte extends javax.swing.JFrame {
                     .addComponent(jDietas)
                     .addComponent(jPeajes)
                     .addComponent(jGasoil))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,6 +128,23 @@ public class VCerrarParte extends javax.swing.JFrame {
 
         jLabel7.setText("Kilomitros Inicio");
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Incidencias"));
+
+        jIncidencias.setColumns(20);
+        jIncidencias.setRows(5);
+        jScrollPane1.setViewportView(jIncidencias);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,7 +152,10 @@ public class VCerrarParte extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
@@ -138,7 +168,7 @@ public class VCerrarParte extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jKInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jKFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 79, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -155,7 +185,9 @@ public class VCerrarParte extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jKFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -177,6 +209,10 @@ public class VCerrarParte extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VCerrarParte.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        GestorBBDD.crearIncidencia(this.parte, jIncidencias.getText());
+        
+        
         listaViajes.deshabilitar();
         this.setVisible(false);
         
@@ -221,6 +257,7 @@ public class VCerrarParte extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField jDietas;
     private javax.swing.JTextField jGasoil;
+    private javax.swing.JTextArea jIncidencias;
     private javax.swing.JTextField jKFinal;
     private javax.swing.JTextField jKInicio;
     private javax.swing.JLabel jLabel1;
@@ -232,6 +269,8 @@ public class VCerrarParte extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jOtros;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jPeajes;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

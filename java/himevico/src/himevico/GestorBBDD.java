@@ -308,7 +308,15 @@ public static ResultSet selectTrabajador(int idTrabajador) {
         }
         return rs;
     }
+
     
+    public static void crearIncidencia(Parte parte, String mensaje) {
+     
+     sql= "INSERT INTO `incidencia` (`id`, `idParte`, `mensaje`, `fecha`, `resuelta`) VALUES (NULL, '"+parte.getIdParte()+"', '"+mensaje+"', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);";
+     executeUpdate(sql); 
+    }
+    
+
     public static void crearVehiculo(Vehiculo vehiculo) {
      
      sql= "INSERT INTO `vehiculo` (`matricula`, `marca`, `modelo`, `color`, `fechaAlta`) VALUES ('"+vehiculo.getMatricula()+"', '"+vehiculo.getMarca()+"', '"+vehiculo.getModelo()+"', '"+vehiculo.getColor()+"', CURRENT_TIMESTAMP);";
@@ -416,4 +424,15 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     parte.setValidado(rs.getBoolean("validado"));
 
     }
+    
+    public static int getMinutos(Parte parte) throws SQLException {
+     
+        sql= "SELECT SUM(TIMESTAMPDIFF(MINUTE,`horaInicio`,`horaFin`)) MINS FROM `viaje` WHERE `idParte` = "+parte.getIdParte()+";";
+        System.out.println(sql);
+        rs=executeQuery(sql);
+        rs.next();
+        return rs.getInt("MINS");
+ 
+    }
+      
 }
