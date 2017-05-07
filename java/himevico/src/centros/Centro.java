@@ -194,6 +194,10 @@ public class Centro {
         this.telefono = telefono;
     }
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
     
     

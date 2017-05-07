@@ -256,12 +256,53 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     centro.setProvincia(rs.getString("provincia"));
     centro.setTelefono(rs.getString("telefono"));
     }
-    public static boolean crearTrabajador(Trabajador trabajador) {
-     //TODO: manejo de fechas
-     //String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, int idCategoria, int idCentro, String contrasena
+    public static boolean crearTrabajadorLogistica(Logistica trabajador) {
      Centro centro = trabajador.getCentro();
-     sql= "INSERT INTO `trabajador` (`id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `portal`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro`, `contrasena`) VALUES ("
-             + "NULL, '"+trabajador.getDni()+"', '"+trabajador.getNombre()+"', '"+trabajador.getApellido1()+"', '"+trabajador.getApellido2()+"', '"+trabajador.getCalle()+"', '"+trabajador.getPortal()+"', '"+trabajador.getPiso()+"', '"+trabajador.getPortal()+"', NULL, '"+trabajador.getTelPersonal()+"', '"+trabajador.getTelEmpresa()+"', "+trabajador.getSalario()+", '1', '"+centro.getIdCentro()+"', MD5('"+trabajador.getContrasena()+"'));";
+     sql= "INSERT INTO `trabajador` (`id`, `dni`, `nombre`, `apellido1`, "
+             + "`apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, "
+             + "`telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, "
+             + "`idCentro`, `contrasena`) VALUES ("
+             + "NULL, '"
+             +trabajador.getDni()+"', '"
+             +trabajador.getNombre()+"', '"
+             +trabajador.getApellido1()+"', '"
+             +trabajador.getApellido2()+"', '"
+             +trabajador.getCalle()+"', '"
+             +trabajador.getPortal()+"', '"
+             +trabajador.getPiso()+"', '"
+             +trabajador.getMano()+"', '"
+             +trabajador.getTelPersonal()+"', '"
+             +trabajador.getTelEmpresa()+"', "
+             +trabajador.getSalario()+", '"
+             +(trabajador.getFechaNacimiento().getYear()+1900)+"-"+(trabajador.getFechaNacimiento().getMonth()+1)+"-"+trabajador.getFechaNacimiento().getDate()+"', '"
+             + "1', '"
+             +centro.getIdCentro()+
+             "', MD5('"+trabajador.getContrasena()+"'));";
+        executeUpdate(sql); 
+     return true;
+    }
+     public static boolean crearTrabajadorAdministracion(Administracion trabajador) {
+     Centro centro = trabajador.getCentro();
+     sql= "INSERT INTO `trabajador` (`id`, `dni`, `nombre`, `apellido1`, "
+             + "`apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, "
+             + "`telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, "
+             + "`idCentro`, `contrasena`) VALUES ("
+             + "NULL, '"
+             +trabajador.getDni()+"', '"
+             +trabajador.getNombre()+"', '"
+             +trabajador.getApellido1()+"', '"
+             +trabajador.getApellido2()+"', '"
+             +trabajador.getCalle()+"', '"
+             +trabajador.getPortal()+"', '"
+             +trabajador.getPiso()+"', '"
+             +trabajador.getMano()+"', '"
+             +trabajador.getTelPersonal()+"', '"
+             +trabajador.getTelEmpresa()+"', "
+             +trabajador.getSalario()+", '"
+             +(trabajador.getFechaNacimiento().getYear()+1900)+"-"+(trabajador.getFechaNacimiento().getMonth()+1)+"-"+trabajador.getFechaNacimiento().getDate()+"', '"
+             + "2', '"
+             +centro.getIdCentro()+
+             "', MD5('"+trabajador.getContrasena()+"'));";
         executeUpdate(sql); 
      return true;
     }

@@ -16,10 +16,17 @@ public class Administracion extends Trabajador{
 
     public Administracion() {
     }
+    public Administracion(int idTrabajador) throws SQLException {
+        this.setIdTrabajador(idTrabajador);
+        GestorBBDD.getTrabajadorAdministracion(this);
+    }
+    public Administracion(String dni) throws SQLException {
+        this.setDni(dni);
+        GestorBBDD.getTrabajadorAdministracion(this);
+    }
     
   
-    public Administracion(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
-        this.setIdTrabajador(idTrabajador);
+    public Administracion(String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setDni(dni);
         this.setNombre(nombre);
         this.setApellido1(apellido1);
@@ -34,13 +41,15 @@ public class Administracion extends Trabajador{
         this.setFechaNacimiento(fechaNacimiento);
         this.setContrasena(contrasena);
         this.setCentro(centro);
-        
-        
-        //TODO 
-        // Conexión BBDD
-        // ArrayList/LinkedList
+        GestorBBDD.crearTrabajadorAdministracion(Administracion.this);
+
     }
     
+     @Override
+    public void eliminar() {
+        GestorBBDD.eliminar(this);
+        
+    }
  
                 
     }

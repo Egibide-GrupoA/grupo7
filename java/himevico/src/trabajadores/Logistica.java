@@ -27,8 +27,7 @@ public class Logistica extends Trabajador {
         GestorBBDD.getTrabajadorLogisticaDni(this);
     }
 
-    public Logistica(int idTrabajador, String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
-        this.setIdTrabajador(idTrabajador);
+    public Logistica(String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setDni(dni);
         this.setNombre(nombre);
         this.setApellido1(apellido1);
@@ -43,11 +42,8 @@ public class Logistica extends Trabajador {
         this.setFechaNacimiento(fechaNacimiento);
         this.setContrasena(contrasena);
         this.setCentro(centro);
-        
+        GestorBBDD.crearTrabajadorLogistica(Logistica.this);
 
-        //TODO 
-        // Conexión BBDD
-        // ArrayList/LinkedList
     }
     @Override
     public void eliminar() {

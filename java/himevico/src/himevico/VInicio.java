@@ -10,6 +10,7 @@ import centros.VListarCentros;
 import centros.VCrearCentros;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import trabajadores.VCrearTrabajadores;
 import vehiculo.VVehiculo;
 
 /**
@@ -238,7 +239,7 @@ public class VInicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botón crear trabajadores
         
-        VModificar vct = new VModificar();
+        VCrearTrabajadores vct = new VCrearTrabajadores();
         vct.setVisible(true);
         
         
