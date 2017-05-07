@@ -37,7 +37,11 @@ public class VLogin extends javax.swing.JFrame {
          initComponents();
          // Poner icono ventana
         //setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
-       
+        
+
+        //deshabilitar recordar contraseña
+        jRecordarContrasena.setVisible(false);
+
         
     }
     
@@ -46,6 +50,8 @@ public class VLogin extends javax.swing.JFrame {
         initComponents();
         this.db=db;
         
+        //deshabilitar recordar contraseña
+        jRecordarContrasena.setVisible(false);
        
        
     }
@@ -161,8 +167,6 @@ public class VLogin extends javax.swing.JFrame {
 
     private void jRecordarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRecordarContrasenaActionPerformed
         // Recordar contraseña
-        VRecordarContrasenaEscUsu vrceu = new VRecordarContrasenaEscUsu();
-        vrceu.setVisible(true);
         
        
 
