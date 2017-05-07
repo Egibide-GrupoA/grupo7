@@ -9,6 +9,7 @@ import centros.Centro;
 import himevico.GestorBBDD;
 import vehiculo.Vehiculo;
 import java.awt.Color;
+import java.sql.SQLException;
 import javax.swing.JComboBox;
 import java.sql.Time;
 import java.text.ParseException;
@@ -336,7 +337,12 @@ public class VParteAdministracion extends javax.swing.JFrame {
     }//GEN-LAST:event_jHoraFin1ActionPerformed
 
     private void jCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCerrarActionPerformed
-        VCerrarParte VCerrarParte = new VCerrarParte(parte, this);
+        VCerrarParte VCerrarParte = null;
+        try {
+            VCerrarParte = new VCerrarParte(parte, this);
+        } catch (SQLException ex) {
+            Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         VCerrarParte.setVisible(true);
     }//GEN-LAST:event_jCerrarActionPerformed
 
