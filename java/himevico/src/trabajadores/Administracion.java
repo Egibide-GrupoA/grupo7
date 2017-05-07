@@ -6,7 +6,9 @@
 package trabajadores;
 
 import centros.Centro;
+import himevico.GestorBBDD;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 
@@ -38,7 +40,7 @@ public class Administracion extends Trabajador{
         // Conexión BBDD
         // ArrayList/LinkedList
     }
-
+    
  
                 
     }

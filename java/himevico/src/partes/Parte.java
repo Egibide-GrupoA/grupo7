@@ -6,6 +6,11 @@
 package partes;
 
 import himevico.GestorBBDD;
+import java.sql.SQLException;
+import java.util.Date;
+import trabajadores.Administracion;
+import trabajadores.Logistica;
+
 
 /**
  *
@@ -14,6 +19,7 @@ import himevico.GestorBBDD;
 public class Parte {
     
     private int idParte;
+    private Date fecha;
     private double kilometrosInicio;
     private double kilometrosFin;
     private double gasoil;
@@ -22,6 +28,7 @@ public class Parte {
     private double otros;
     private boolean eliminado;
     private boolean validado;
+    private trabajadores.Logistica trabajador;
 
     
     public Parte() {
@@ -38,6 +45,30 @@ public class Parte {
         this.eliminado = eliminado;
         this.validado = validado;
         //GestorBBDD.crearParte(this);
+    }
+    public Parte(Logistica logistica) throws SQLException {
+        this.trabajador = logistica;
+        GestorBBDD.crearParte(this);
+       
+    }
+    public Parte(int idParte) throws SQLException {
+        this.idParte = idParte;
+        GestorBBDD.getParte(this);
+       
+    }
+
+    
+    public Parte parteAbierto(Logistica logistica) throws Exception {
+        this.trabajador=logistica;
+        System.out.println("PARTE ABIERTO LOGISTICA?");
+        System.out.println(this.trabajador.getIdTrabajador());
+        if ( ( GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()) ) > 0) {
+            System.out.println("Existe parte abierto");
+            return new Parte(this.trabajador.getIdTrabajador());
+        } else {
+            System.out.println("Crear parte nuevo");
+            return new Parte(logistica);
+        }
     }
 
     /**
@@ -165,8 +196,22 @@ public class Parte {
     public void setValidado(boolean validado) {
         this.validado = validado;
     }
-    
-    
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Logistica getTrabajador() {
+        return trabajador;
+    }
+
+    public void setTrabajador(Logistica trabajador) {
+        this.trabajador = trabajador;
+    }
     
     
 }

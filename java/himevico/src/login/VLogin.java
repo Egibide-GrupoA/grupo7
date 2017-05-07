@@ -19,6 +19,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import partes.VParteAdministracion;
+import trabajadores.Administracion;
+import trabajadores.Logistica;
 
 /**
  *
@@ -182,8 +184,15 @@ public class VLogin extends javax.swing.JFrame {
             switch (tipoUsuario) {
                 case "Logistica-Transporte": 
                     VParteAdministracion parte = null;
+                    Logistica logistica = null;
                     try {
-                        parte = new VParteAdministracion();
+                        logistica = new Logistica(jUsuario.getText());
+                    } catch (SQLException ex) {
+                        Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    try {
+                        parte = new VParteAdministracion(logistica);
                     } catch (Exception ex) {
                         Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
                     }

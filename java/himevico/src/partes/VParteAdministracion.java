@@ -5,6 +5,7 @@
  */
 package partes;
 
+import centros.Centro;
 import himevico.GestorBBDD;
 import vehiculo.Vehiculo;
 import java.awt.Color;
@@ -18,6 +19,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import trabajadores.Administracion;
+import trabajadores.Logistica;
 import viajes.Viaje;
 
 /**
@@ -29,14 +32,48 @@ public class VParteAdministracion extends javax.swing.JFrame {
     /**
      * Creates new form VParte
      */
-    public VParteAdministracion() throws Exception {
+    private Parte parte;
+    public VParteAdministracion(Logistica logistica) throws Exception {
         initComponents();
+        
+        //Añadir vehiculos
         List<Vehiculo> vehiculos = null;
         vehiculos = GestorBBDD.listarVehiculos();
         for (int i = 0; i < vehiculos.size(); i++) {
             Vehiculo actual = (Vehiculo) vehiculos.get(i);
             jVehiculo.addItem(actual);
         }
+        
+        //Buscar parte abierto
+
+        parte = new Parte();
+        
+        parte  = parte.parteAbierto(logistica);
+        
+        
+        List<Viaje> viajes = null;
+        viajes = GestorBBDD.listarViajes(parte.getIdParte());
+
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        //añadir elementos a tabla
+        for (int i = 0; i < viajes.size(); i++) {
+            System.out.println(viajes.get(i).getHoraInicio());
+            model.addRow(new Object[]{
+                viajes.get(i), 
+                viajes.get(i).getHoraInicio().getHours()+":"+((viajes.get(i).getHoraInicio().getMinutes()<10)?"0" : "")+viajes.get(i).getHoraInicio().getMinutes(), 
+                viajes.get(i).getHoraFin().getHours()+":"+((viajes.get(i).getHoraFin().getMinutes()<10)?"0" : "")+viajes.get(i).getHoraFin().getMinutes(), 
+                viajes.get(i).getMatricula(),
+                viajes.get(i).getAlbaran()
+            });
+
+        }
+        
+
+
+        //Comprobar si es anterior a hoy
+        
+        //crear parte para hoy
+        
     }
 
     /**
@@ -284,7 +321,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
             Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        viajes.Viaje viaje = new Viaje(horaInicio, horaFin, (Vehiculo) jVehiculo.getSelectedItem(), jNumeroAlbaran.getText());
+        viajes.Viaje viaje = new Viaje(horaInicio, horaFin, (Vehiculo) jVehiculo.getSelectedItem(), jNumeroAlbaran.getText(), parte);
         
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
@@ -334,7 +371,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new VParteAdministracion().setVisible(true);
+                    //new VParteAdministracion().setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
                 }

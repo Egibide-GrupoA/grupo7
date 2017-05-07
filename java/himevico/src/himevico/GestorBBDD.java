@@ -15,13 +15,17 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import login.VLogin;
 import partes.Parte;
+import partes.VParteAdministracion;
+import trabajadores.Administracion;
 /**
  *
  * @author Sheila
@@ -154,7 +158,6 @@ public class GestorBBDD {
     }
 
     
-    // Recordar contraseña
     public static String tipoUsuario(String dni) throws SQLException{
     
     sql= "SELECT categoria.nombre tipoUsuario FROM `trabajador` INNER JOIN categoria ON trabajador.idCategoria = categoria.id WHERE trabajador.dni = '"+dni+"';";
@@ -194,12 +197,44 @@ public static ResultSet selectTrabajador(int idTrabajador) {
         sql= "SELECT `id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro` FROM `trabajador` WHERE `id` = "+logistica.getIdTrabajador()+";";
         rs=executeQuery(sql);
         rs.next();
-        //logistica.setIdCentro(rs.getInt("id"));
+        logistica.setIdTrabajador(rs.getInt("id"));
         logistica.setNombre(rs.getString("nombre"));
         logistica.setCalle(rs.getString("calle"));
         //logistica.setNumero(rs.getInt("numero"));
         logistica.setPiso(rs.getInt("piso"));
         logistica.setMano(rs.getString("mano").charAt(0));
+        //logistica.setCodPostal(rs.getInt("codPostal"));
+        //logistica.setCiudad(rs.getString("ciudad"));
+        //logistica.setProvincia(rs.getString("provincia"));
+        //logistica.setTelefono(rs.getString("telefono"));
+    }
+    public static void getTrabajadorLogisticaDni(Logistica logistica) throws SQLException {
+     
+        sql= "SELECT `id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro` FROM `trabajador` WHERE `dni` = "+logistica.getDni()+";";
+        rs=executeQuery(sql);
+        rs.next();
+        logistica.setIdTrabajador(rs.getInt("id"));
+        logistica.setNombre(rs.getString("nombre"));
+        logistica.setCalle(rs.getString("calle"));
+        //logistica.setNumero(rs.getInt("numero"));
+        logistica.setPiso(rs.getInt("piso"));
+        logistica.setMano(rs.getString("mano").charAt(0));
+        //logistica.setCodPostal(rs.getInt("codPostal"));
+        //logistica.setCiudad(rs.getString("ciudad"));
+        //logistica.setProvincia(rs.getString("provincia"));
+        //logistica.setTelefono(rs.getString("telefono"));
+    }
+    public static void getTrabajadorAdministracion(Administracion administracion) throws SQLException {
+     
+        sql= "SELECT `id`, `dni`, `nombre`, `apellido1`, `apellido2`, `calle`, `numero`, `piso`, `mano`, `telPersonal`, `telEmpresa`, `salario`, `fechaNacimiento`, `idCategoria`, `idCentro` FROM `trabajador` WHERE `id` = "+administracion.getIdTrabajador()+";";
+        rs=executeQuery(sql);
+        rs.next();
+        //logistica.setIdCentro(rs.getInt("id"));
+        administracion.setNombre(rs.getString("nombre"));
+        administracion.setCalle(rs.getString("calle"));
+        //logistica.setNumero(rs.getInt("numero"));
+        administracion.setPiso(rs.getInt("piso"));
+        administracion.setMano(rs.getString("mano").charAt(0));
         //logistica.setCodPostal(rs.getInt("codPostal"));
         //logistica.setCiudad(rs.getString("ciudad"));
         //logistica.setProvincia(rs.getString("provincia"));
@@ -230,7 +265,12 @@ public static ResultSet selectTrabajador(int idTrabajador) {
         executeUpdate(sql); 
      return true;
     }
-    
+    public static void crearParte(Parte parte) {
+     //TODO Añadir soporte KM
+     sql= "INSERT INTO `parte` (`id`, `idPersona`, `fecha`, `kilometrosInicio`, `kilometrosFin`, `gasoil`, `peajes`, `dietas`, `otros`, `eliminado`, `validado`) VALUES "
+             + "(NULL, '"+parte.getTrabajador().getIdTrabajador()+"',  CURDATE(), '1000', NULL, NULL, NULL, NULL, NULL, '0', '0');";
+     executeUpdate(sql); 
+    }    
     
     public static void crearCentro(Centro centro) {
      
@@ -277,24 +317,26 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     
     public static void crearViaje(Viaje viaje) {
      
-     sql= "INSERT INTO `viaje` (`id`, `idParte`, `horaInicio`, `horaFin`, `matricula`, `albaran`) VALUES (NULL, '1', '"+viaje.getHoraInicio().getHours()+":"+viaje.getHoraInicio().getMinutes()+":00', '"+viaje.getHoraFin().getHours()+":"+viaje.getHoraFin().getMinutes()+":00', '"+viaje.getMatricula()+"', '"+viaje.getAlbaran()+"' );";
+     sql= "INSERT INTO `viaje` (`id`, `idParte`, `horaInicio`, `horaFin`, `matricula`, `albaran`) VALUES (NULL, "+viaje.getParte().getIdParte()+", '"+viaje.getHoraInicio().getHours()+":"+viaje.getHoraInicio().getMinutes()+":00', '"+viaje.getHoraFin().getHours()+":"+viaje.getHoraFin().getMinutes()+":00', '"+viaje.getMatricula()+"', '"+viaje.getAlbaran()+"' );";
      executeUpdate(sql); 
     }
         
     public static void getViaje(Viaje viaje) throws SQLException {
      
-     sql= "SELECT `id` ,`hora inicio`, `hora fin`, `matricula`FROM `centro` WHERE `id` = "+viaje.getIdViaje()+";";
+     sql= "SELECT `id`, `idParte`, `horaInicio`, `horaFin`, `matricula`, `albaran` FROM `viaje` WHERE `id` = "+viaje.getIdViaje()+";";
+     System.out.println(sql);
      rs=executeQuery(sql);
      rs.next();
      viaje.setIdViaje(rs.getInt("id"));
-     //viaje.setHoraInicio(rs.getInt("hora inicio"));
-     //viaje.setHoraFin(rs.getInt("hora fin"));
-     //viaje.setMatricula(rs.getString("matricula"));
- 
+     viaje.setHoraInicio(rs.getTime("horaInicio"));
+     viaje.setHoraFin(rs.getTime("horaFin"));
+     viaje.setAlbaran(rs.getString("albaran"));
+     viaje.setVehiculo(new Vehiculo(rs.getString("matricula")));
+
     }
-    public static List<Viaje> listarViajes() throws SQLException, Exception {
+    public static List<Viaje> listarViajes(int idParte) throws SQLException, Exception {
      List<Viaje> viajes = new ArrayList<>();
-     sql= "SELECT * FROM viaje;";
+     sql= "SELECT * FROM viaje where `idParte` = "+idParte+";";
          System.out.println(sql);
      try{  
         rs2=stmt2.executeQuery(sql);
@@ -307,9 +349,63 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     while (rs2.next()) {
         
         viajes.add(new Viaje(rs2.getInt("id")));
-       
-        System.out.println("TEST1");
     }
      return viajes;
+    }
+    
+     public static String getDate() throws SQLException, Exception {
+     sql= "SELECT CURDATE() hoy FROM DUAL;";
+         System.out.println(sql);
+     try{  
+        rs2=stmt2.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+    rs2.next();
+     return rs2.getString("hoy");
+    }
+    public static int ultimoParteAbierto(int idPersona) throws SQLException, Exception {
+     sql= "SELECT COUNT(`id`) abierto, `id` FROM `parte` WHERE `validado` = 0 AND idPersona = "+idPersona+" ORDER BY `parte`.`fecha` DESC LIMIT 1";
+         System.out.println(sql);
+     try{  
+        rs2=stmt2.executeQuery(sql);
+     }
+     catch(SQLException e)
+     {
+         System.out.println(e);
+     
+     }
+    rs2.next();
+        return rs2.getInt("id");
+    }
+    public static void getParte(Parte parte) throws SQLException {
+     
+     sql= "SELECT `id`, `idPersona`, `fecha`, `kilometrosInicio`, `kilometrosFin`,"
+             + "`gasoil`, `peajes`, `dietas`, `otros`, `eliminado`, `validado`  "
+             + "FROM `parte` WHERE `id` = "+parte.getIdParte()+";";
+     rs=executeQuery(sql);
+    rs.next();
+    parte.setIdParte(rs.getInt("id"));
+    //parte.setIdPersona(rs.getString("idPersona"));
+    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-mm-dd");
+    Date fecha = null;
+    try {
+        fecha = DATE_FORMAT.parse(rs.getString("fecha"));
+    } catch (ParseException ex) {
+        Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    parte.setFecha(fecha);
+    parte.setKilometrosInicio(rs.getInt("kilometrosInicio"));
+    parte.setKilometrosFin(rs.getInt("kilometrosFin"));
+    parte.setGasoil(rs.getDouble("gasoil"));
+    parte.setPeajes(rs.getDouble("peajes"));
+    parte.setDietas(rs.getDouble("dietas"));
+    parte.setOtros(rs.getDouble("otros"));
+    parte.setEliminado(rs.getBoolean("eliminado"));
+    parte.setValidado(rs.getBoolean("validado"));
+
     }
 }

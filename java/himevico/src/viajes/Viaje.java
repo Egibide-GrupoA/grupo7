@@ -9,6 +9,7 @@ import himevico.GestorBBDD;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
+import partes.Parte;
 import vehiculo.Vehiculo;
 
 /**
@@ -18,6 +19,7 @@ import vehiculo.Vehiculo;
 public class Viaje {
     
     private int idViaje;
+    private Parte parte;
     private Date horaInicio;
     private Date horaFin;
     private vehiculo.Vehiculo vehiculo;
@@ -26,11 +28,13 @@ public class Viaje {
     public Viaje() {
     }
 
-    public Viaje(Date horaInicio, Date horaFin, vehiculo.Vehiculo vehiculo, String albaran) {
+    public Viaje(Date horaInicio, Date horaFin, vehiculo.Vehiculo vehiculo, String albaran, Parte parte) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.vehiculo = vehiculo;
         this.albaran = albaran;
+        this.parte = parte;
+
 
         GestorBBDD.crearViaje(this);
     }
@@ -99,6 +103,14 @@ public class Viaje {
 
     public void setAlbaran(String albaran) {
         this.albaran = albaran;
+    }
+
+    public Parte getParte() {
+        return parte;
+    }
+
+    public void setParte(Parte parte) {
+        this.parte = parte;
     }
     
     
