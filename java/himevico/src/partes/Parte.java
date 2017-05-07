@@ -70,7 +70,9 @@ public class Parte {
             return new Parte(logistica);
         }
     }
-
+    public void cerrarParte() throws Exception {
+        GestorBBDD.cerrarParte(this);
+    }
     /**
      * @return the idParte
      */

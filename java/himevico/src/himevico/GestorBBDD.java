@@ -367,6 +367,14 @@ public static ResultSet selectTrabajador(int idTrabajador) {
     rs2.next();
      return rs2.getString("hoy");
     }
+     
+     
+    public static void cerrarParte(Parte parte) throws SQLException, Exception {
+     sql= "UPDATE `parte` SET `gasoil` = '"+parte.getGasoil()+"', `peajes` = '"+parte.getPeajes()+"', `dietas` = '"+parte.getDietas()+"', `otros` = '"+parte.getOtros()+"', `validado` = 1 WHERE `parte`.`id` = 2;";
+     executeUpdate(sql); 
+    } 
+     
+     
     public static int ultimoParteAbierto(int idPersona) throws SQLException, Exception {
      sql= "SELECT COUNT(`id`) abierto, `id` FROM `parte` WHERE `validado` = 0 AND idPersona = "+idPersona+" ORDER BY `parte`.`fecha` DESC LIMIT 1";
          System.out.println(sql);

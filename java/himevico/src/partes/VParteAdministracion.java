@@ -35,7 +35,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
     private Parte parte;
     public VParteAdministracion(Logistica logistica) throws Exception {
         initComponents();
-        
+
         //Añadir vehiculos
         List<Vehiculo> vehiculos = null;
         vehiculos = GestorBBDD.listarVehiculos();
@@ -102,7 +102,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -246,10 +246,10 @@ public class VParteAdministracion extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        jButton1.setText("Cerrar Parte");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jCerrar.setText("Cerrar Parte");
+        jCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jCerrarActionPerformed(evt);
             }
         });
 
@@ -270,7 +270,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(jCerrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -283,7 +283,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jCerrar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -335,10 +335,16 @@ public class VParteAdministracion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jHoraFin1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCerrarActionPerformed
+        VCerrarParte VCerrarParte = new VCerrarParte(parte, this);
+        VCerrarParte.setVisible(true);
+    }//GEN-LAST:event_jCerrarActionPerformed
 
+    
+    public void deshabilitar() {
+        jCerrar.setEnabled(false);
+        jBotonAnadir.setEnabled(false);
+    }  
     /**
      * @param args the command line arguments
      */
@@ -382,7 +388,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel4;
     private javax.swing.JButton jBotonAnadir;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jCerrar;
     private javax.swing.JComboBox<String> jHoraFin1;
     private javax.swing.JComboBox<String> jHoraFin2;
     private javax.swing.JComboBox<String> jHoraInicio1;
