@@ -239,7 +239,12 @@ public class VInicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botón crear trabajadores
         
-        VCrearTrabajadores vct = new VCrearTrabajadores();
+        VCrearTrabajadores vct = null;
+        try {
+            vct = new VCrearTrabajadores();
+        } catch (Exception ex) {
+            Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
         vct.setVisible(true);
         
         
