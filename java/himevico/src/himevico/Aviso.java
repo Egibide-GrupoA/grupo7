@@ -6,8 +6,8 @@
 package himevico;
 
 /**
- *
- * @author 7FPROG10
+ * Clase aviso
+ * @author Sheila y Asier
  */
 public class Aviso {
     

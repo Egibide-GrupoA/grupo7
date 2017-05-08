@@ -14,25 +14,32 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * JFrame VCrearCentros
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VCrearCentros extends javax.swing.JFrame {
-    
 
     private List<Centro> centros = new ArrayList<>();
+
     /**
-     * Creates new form VCrear
+     * Creates new form VCrearCentros
      */
     public VCrearCentros() {
         initComponents();
-        
+
         limpiar();
-        
+
     }
+
+    /**
+     * Creates new form VCrearCentros
+     *
+     * @param centro
+     */
     public VCrearCentros(Centro centro) {
         initComponents();
-        
+
         jNombre.setText(centro.getNombre());
         jCalle.setText(centro.getCalle());
         jNumero.setText(String.valueOf(centro.getNumero()));
@@ -40,12 +47,14 @@ public class VCrearCentros extends javax.swing.JFrame {
         jMano.setText(String.valueOf(centro.getMano()));
         jCp.setText(String.valueOf(centro.getCodPostal()));
         jTelefono.setText(centro.getTelefono());
-        
+
     }
 
-  
-    public void limpiar(){
-      
+    /**
+     * Borra los campos
+     */
+    public void limpiar() {
+
         jNombre.setText("");
         jCalle.setText("");
         jNumero.setText("");
@@ -53,12 +62,9 @@ public class VCrearCentros extends javax.swing.JFrame {
         jMano.setText("");
         jCp.setText("");
         jTelefono.setText("");
-    
+
     }
 
-    
-        
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,12 +136,6 @@ public class VCrearCentros extends javax.swing.JFrame {
         jLabel1.setText("Ciudad:");
 
         jLabel3.setText("Provincia:");
-
-        jProvincia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jProvinciaActionPerformed(evt);
-            }
-        });
 
         jLabel11.setText("Telefono:");
 
@@ -236,43 +236,39 @@ public class VCrearCentros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
-       
-            // Guardar
-            
-            String nombre = jNombre.getText();
-            String calle = jCalle.getText();
-            int numero = Integer.parseInt(jNumero.getText());
-            String piso = jPiso.getText();
-            String mano = jMano.getText();
-            String ciudad = jCiudad.getText();
-            String provincia = jProvincia.getText();
-            int cp = Integer.parseInt(jCp.getText());
-            String telefono = jTelefono.getText();
-            /*
+
+        // Guardar
+        String nombre = jNombre.getText();
+        String calle = jCalle.getText();
+        int numero = Integer.parseInt(jNumero.getText());
+        String piso = jPiso.getText();
+        String mano = jMano.getText();
+        String ciudad = jCiudad.getText();
+        String provincia = jProvincia.getText();
+        int cp = Integer.parseInt(jCp.getText());
+        String telefono = jTelefono.getText();
+        /*
              if ( !nombre.isEmpty() && !calle.isEmpty() && !numero.isEmpty() && !piso.isEmpty()
             && !mano.isEmpty() && !cp.isEmpty() && !telefono.isEmpty()){
-            */
-            Centro centro = null;
-                try {
-                    centro = new Centro(nombre, calle, numero, cp, ciudad, provincia, telefono);
-                } catch (Exception ex) {
-                    Logger.getLogger(VCrearCentros.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            
-            //centro.setNombre(nombre);
-            //centro.setCalle(calle);
-            //centro.setNumero(numero);
-            //centro.setPiso(piso);
-            //centro.setMano(mano);
-            //centro.setCiudad(cp);
-            //centro.setTelefono(telefono);
-            
-            
-            limpiar();
-            jNombre.requestFocus();
-            
-     
-            /*
+         */
+        Centro centro = null;
+        try {
+            centro = new Centro(nombre, calle, numero, cp, ciudad, provincia, telefono);
+        } catch (Exception ex) {
+            Logger.getLogger(VCrearCentros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //centro.setNombre(nombre);
+        //centro.setCalle(calle);
+        //centro.setNumero(numero);
+        //centro.setPiso(piso);
+        //centro.setMano(mano);
+        //centro.setCiudad(cp);
+        //centro.setTelefono(telefono);
+        limpiar();
+        jNombre.requestFocus();
+
+        /*
         }else{
             JOptionPane.showMessageDialog(this, "Rellene todos los campos", "", JOptionPane.ERROR_MESSAGE);
         } */
@@ -281,27 +277,22 @@ public class VCrearCentros extends javax.swing.JFrame {
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
         // Cancelar
         this.setVisible(false);
-        
-        
-        
+
+
     }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCpActionPerformed
         // Botón CP
-        
-        String cp = jCp.getText();
-        
-        if (!(cp.length() == 5)){
-             JOptionPane.showMessageDialog(this, "Longitud incorrecta", "", JOptionPane.ERROR_MESSAGE);
-       
-        }
-        
-        
-    }//GEN-LAST:event_jCpActionPerformed
 
-    private void jProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jProvinciaActionPerformed
-        
-    }//GEN-LAST:event_jProvinciaActionPerformed
+        String cp = jCp.getText();
+
+        if (!(cp.length() == 5)) {
+            JOptionPane.showMessageDialog(this, "Longitud incorrecta", "", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+
+    }//GEN-LAST:event_jCpActionPerformed
 
     /**
      * @param args the command line arguments

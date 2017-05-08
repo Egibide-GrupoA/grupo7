@@ -28,16 +28,24 @@ import partes.VParteAdministracion;
 import trabajadores.Administracion;
 /**
  *
- * @author Sheila
- * @author Asier
+ * @author Sheila y Asier
  */
 public class GestorBBDD {
+    
     private static Connection Conexion;
     static String sql;
     static ResultSet rs;
     static ResultSet rs2;
     static Statement stmt = null;
     static Statement stmt2 = null;
+    
+    /**
+     * Método connect hace la conexión a la base de datos
+     * @param user
+     * @param pass
+     * @param db_name
+     * @throws Exception 
+     */
     public void connect(String user, String pass, String db_name) throws Exception {
         try {
             Class.forName("com.mysql.jdbc.Driver");

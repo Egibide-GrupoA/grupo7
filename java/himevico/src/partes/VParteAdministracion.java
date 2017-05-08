@@ -100,7 +100,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jHoraInicio1 = new javax.swing.JComboBox<>();
         jHoraFin2 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
+        jTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jCerrar = new javax.swing.JButton();
@@ -211,7 +211,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jLabel6.setText("Viajes del ");
+        jTitulo.setText("Viajes del ");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -263,7 +263,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(jLabel6)
+                .addComponent(jTitulo)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -278,7 +278,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel6)
+                .addComponent(jTitulo)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -404,11 +404,11 @@ public class VParteAdministracion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jNumeroAlbaran;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jTitulo;
     private javax.swing.JComboBox<Vehiculo> jVehiculo;
     // End of variables declaration//GEN-END:variables
 }

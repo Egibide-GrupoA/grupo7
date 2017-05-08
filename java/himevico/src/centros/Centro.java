@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ * Clase Centro
  *
- * @author Sheila
+ * @author Sheila y Asier
  */
 public class Centro {
 
-    
     private int idCentro;
     private String nombre;
     private String calle;
@@ -28,9 +28,21 @@ public class Centro {
     private String telefono;
 
     public Centro() throws Exception {
-        
+
     }
 
+    /**
+     * Constructor que genera un objeto tipo centro y lo crea en la base de
+     * datos
+     *
+     * @param nombre
+     * @param calle
+     * @param numero
+     * @param codPostal
+     * @param ciudad
+     * @param provincia
+     * @param telefono
+     */
     public Centro(String nombre, String calle, int numero, int codPostal, String ciudad, String provincia, String telefono) {
         // TODO: RETURN ID CENTRO
         this.idCentro = idCentro;
@@ -45,14 +57,27 @@ public class Centro {
         this.telefono = telefono;
         GestorBBDD.crearCentro(this);
     }
+
+    /**
+     * Constructor que genera un objeto tipo centro y lo selecciona de la base
+     * de datos
+     *
+     * @param idCentro
+     * @throws SQLException
+     */
     public Centro(int idCentro) throws SQLException {
         this.idCentro = idCentro;
         GestorBBDD.getCentro(this);
     }
+
+    /**
+     * Método que llama a la base de datos y borra un centro
+     */
     public void eliminar() {
         GestorBBDD.eliminar(this);
-        
+
     }
+
     /**
      * @return the idCentro
      */
@@ -122,7 +147,7 @@ public class Centro {
     public void setCodPostal(int codPostal) {
         this.codPostal = codPostal;
     }
-    
+
     /**
      * @return the piso
      */
@@ -137,8 +162,7 @@ public class Centro {
         this.piso = piso;
     }
 
-  
-       /**
+    /**
      * @return the mano
      */
     public char getMano() {
@@ -198,8 +222,5 @@ public class Centro {
     public String toString() {
         return nombre;
     }
-    
-    
-    
-    
+
 }
