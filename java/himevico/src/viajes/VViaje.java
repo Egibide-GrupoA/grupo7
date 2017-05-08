@@ -6,9 +6,7 @@
 package viajes;
 
 import himevico.GestorBBDD;
-import java.awt.Color;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,21 +21,29 @@ public class VViaje extends javax.swing.JFrame {
    
     /**
      * Creates new form VViaje
+     * @throws java.lang.Exception
      */
     public VViaje() throws Exception {
         initComponents();
-
-    
+       
+          
+        fechaActual();
         
-        // Obtener fecha sistema, sumamos 1 a Calendar.MONTH por empieza a contar en 0.
-        Calendar calendario = Calendar.getInstance();
-        String fecha = calendario.get(Calendar.DATE)+"/"+(calendario.get(Calendar.MONTH)+1)+"/"+calendario.get(Calendar.YEAR);
-        this.jFecha.setText(fecha);
-        
-        //actualizarViajes();
+        //TODO actualizarViajes();
         
         
        
+    }
+    
+    
+    /**
+     * Método para obtener la fecha del sistema
+     */
+    public final void fechaActual(){
+        Calendar calendario = Calendar.getInstance();
+        String fecha = calendario.get(Calendar.DATE)+"/"+(calendario.get(Calendar.MONTH)+1)+"/"+calendario.get(Calendar.YEAR);
+        this.jFecha.setText(fecha);
+    
     }
     
       
@@ -152,7 +158,6 @@ public class VViaje extends javax.swing.JFrame {
 
     private void jCerrarParteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCerrarParteActionPerformed
         // Botón cerrar parte
-        jCerrarParte.setBackground(Color.RED);
         this.setVisible(false);
         
        
@@ -160,7 +165,7 @@ public class VViaje extends javax.swing.JFrame {
 
     private void jAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAnadirActionPerformed
         // Botón añadir
-        jAnadir.setBackground(Color.GREEN);
+       
         
         
 
@@ -194,13 +199,11 @@ public class VViaje extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new VViaje().setVisible(true);
-                } catch (Exception ex) {
-                    Logger.getLogger(VViaje.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new VViaje().setVisible(true);
+            } catch (Exception ex) {
+                Logger.getLogger(VViaje.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

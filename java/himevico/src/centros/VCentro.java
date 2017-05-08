@@ -5,10 +5,11 @@
  */
 package centros;
 
-import centros.Centro;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -22,8 +23,13 @@ public class VCentro extends javax.swing.JFrame {
     public void setListado(VListarCentros listado) {
         this.listado = listado;
     }
-        
+      
+   
+
     
+    
+
+ 
     /**
      * Creates new form VTrabajador
      */

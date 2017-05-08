@@ -6,25 +6,27 @@
 package login;
 
 import himevico.GestorBBDD;
+<<<<<<< HEAD
 import himevico.VInicioAdministracion;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+=======
+import himevico.VInicio;
+>>>>>>> master
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Sheila
  */
-public class VLogin extends javax.swing.JFrame {
+public final class VLogin extends javax.swing.JFrame {
     
     private GestorBBDD db;
     
@@ -33,6 +35,7 @@ public class VLogin extends javax.swing.JFrame {
      */
     public VLogin() {
          initComponents();
+<<<<<<< HEAD
          // Poner icono ventana
         
  
@@ -43,6 +46,16 @@ public class VLogin extends javax.swing.JFrame {
     
         
     public VLogin(GestorBBDD db) {
+=======
+         
+         // Centrar ventana
+         this.setLocationRelativeTo(null);
+      
+    }
+   
+     
+    /*public VLogin(GestorBBDD db) {
+>>>>>>> master
         initComponents();
         this.db=db;
         
@@ -60,101 +73,69 @@ public class VLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jUsuario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jContrasena = new javax.swing.JPasswordField();
         jIniciarSesión = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jRecordarContrasena = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jUsuario = new javax.swing.JTextField();
+        jFondoLock = new javax.swing.JLabel();
+        jFondoVentana = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesión");
+        setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel2.setText("Contraseña: ");
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel1.setText("Usuario: ");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(0, 102, 204));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+        getContentPane().add(jContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, -1));
+
+        jIniciarSesión.setBackground(new java.awt.Color(0, 51, 153));
+        jIniciarSesión.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jIniciarSesión.setText("Iniciar sesión");
         jIniciarSesión.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jIniciarSesiónActionPerformed(evt);
             }
         });
+        getContentPane().add(jIniciarSesión, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 204));
+        jLabel2.setText("Contraseña: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        jRecordarContrasena.setBackground(new java.awt.Color(255, 255, 255));
+        jRecordarContrasena.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jRecordarContrasena.setText("Recordar contraseña");
         jRecordarContrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRecordarContrasenaActionPerformed(evt);
             }
         });
+        getContentPane().add(jRecordarContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
+        getContentPane().add(jUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 180, 20));
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
-        jLabel1.setText("Usuario: ");
+        jFondoLock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lock.png"))); // NOI18N
+        getContentPane().add(jFondoLock, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 220, 250));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 178, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRecordarContrasena, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jIniciarSesión, javax.swing.GroupLayout.Alignment.TRAILING))))
-                        .addContainerGap())))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(254, 254, 254)
-                        .addComponent(jIniciarSesión))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jRecordarContrasena)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jFondoVentana.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoVentana inicio.png"))); // NOI18N
+        getContentPane().add(jFondoVentana, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -168,6 +149,7 @@ public class VLogin extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jRecordarContrasenaActionPerformed
 
+    @SuppressWarnings("static-access")
     private void jIniciarSesiónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIniciarSesiónActionPerformed
         // Iniciar sesión
 
@@ -188,6 +170,11 @@ public class VLogin extends javax.swing.JFrame {
             Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jIniciarSesiónActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // Salir
+       System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,25 +205,21 @@ public class VLogin extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new VLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new VLogin().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JPasswordField jContrasena;
+    private javax.swing.JLabel jFondoLock;
+    private javax.swing.JLabel jFondoVentana;
     private javax.swing.JButton jIniciarSesión;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JCheckBox jRecordarContrasena;
     private javax.swing.JTextField jUsuario;
     // End of variables declaration//GEN-END:variables
-
-    private void setIconImage(ImageIcon imageIcon) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
+ 
