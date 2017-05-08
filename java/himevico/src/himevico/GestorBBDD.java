@@ -134,7 +134,7 @@ public class GestorBBDD {
          
     public static boolean comprobarUsuario(String usuario,String password) {
      
-     sql= "SELECT * FROM `trabajador` WHERE `dni` = '"+usuario+"' AND `contrasena` = '"+password+"';";
+     sql= "SELECT * FROM `trabajador` WHERE `dni` = '"+usuario+"' AND `contrasena` = MD5('"+password+"');";
          System.out.println(sql);
      try{  
         rs=stmt.executeQuery(sql);
