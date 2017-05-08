@@ -6,7 +6,6 @@
 package login;
 
 import himevico.GestorBBDD;
-<<<<<<< HEAD
 import himevico.VInicioAdministracion;
 import java.awt.Color;
 import java.awt.Toolkit;
