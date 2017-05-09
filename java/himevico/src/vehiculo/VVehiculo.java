@@ -14,8 +14,9 @@ import javax.swing.table.DefaultTableModel;
 import login.VLogin;
 
 /**
+ * JFrame VVehiculo
  *
- * @author asier
+ * @author Asier y Sheila
  */
 public class VVehiculo extends javax.swing.JFrame {
 
@@ -26,20 +27,26 @@ public class VVehiculo extends javax.swing.JFrame {
         initComponents();
         actualizar();
     }
-    
-    public void actualizar() throws Exception{
+
+    /**
+     * Actualizar tabla
+     *
+     * @throws Exception
+     */
+    public void actualizar() throws Exception {
+
         List<Vehiculo> vehiculos = null;
         vehiculos = GestorBBDD.listarVehiculos();
 
-        //limpiar tabla
+        // Limpiar tabla
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         if (model.getRowCount() > 0) {
             for (int i = model.getRowCount() - 1; i > -1; i--) {
                 model.removeRow(i);
             }
         }
-        
-        //añadir elementos a tabla
+
+        // Añadir elementos a tabla
         for (int i = 0; i < vehiculos.size(); i++) {
             model.addRow(new Object[]{vehiculos.get(i), vehiculos.get(i).getMatricula(), vehiculos.get(i).getMarca(), vehiculos.get(i).getModelo(), vehiculos.get(i).getColor(), vehiculos.get(i).getFechaAlta()});
         }
@@ -126,7 +133,7 @@ public class VVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VCrearVehiculo crearVehiculo= new VCrearVehiculo();
+        VCrearVehiculo crearVehiculo = new VCrearVehiculo();
         crearVehiculo.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

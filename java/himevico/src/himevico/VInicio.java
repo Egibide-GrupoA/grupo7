@@ -14,17 +14,16 @@ import trabajadores.VCrearTrabajadores;
 import vehiculo.VVehiculo;
 
 /**
+ * JFrame VInicio
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VInicio extends javax.swing.JFrame {
-    
-    
+
     private VListarTrabajadores vlt = null;
     private VListarCentros vlc = null;
     private VModificar vct = null;
     private VCrearCentros vcc = null;
-    
 
     /**
      * Creates new form VInicio
@@ -210,9 +209,10 @@ public class VInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Botón listar trabajadores
-        
+
         VListarTrabajadores vlt = null;
         try {
             vlt = new VListarTrabajadores();
@@ -220,13 +220,13 @@ public class VInicio extends javax.swing.JFrame {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         vlt.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // Botón listar centros
-        
+
         VListarCentros vlc = null;
         try {
             vlc = new VListarCentros();
@@ -238,7 +238,7 @@ public class VInicio extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // Botón crear trabajadores
-        
+
         VCrearTrabajadores vct = null;
         try {
             vct = new VCrearTrabajadores();
@@ -246,21 +246,22 @@ public class VInicio extends javax.swing.JFrame {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         vct.setVisible(true);
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Botón crear centros
-        
+
         VCrearCentros vcc = new VCrearCentros();
         vcc.setVisible(true);
-        
-        
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // Botón listar vehículos
+
         VVehiculo VVehiculo = null;
         try {
             VVehiculo = new VVehiculo();

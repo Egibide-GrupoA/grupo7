@@ -32,8 +32,7 @@ public class Centro {
     }
 
     /**
-     * Constructor que genera un objeto tipo centro y lo crea en la base de
-     * datos
+     * Constructor que genera un objeto tipo centro y lo crea en la base de datos
      *
      * @param nombre
      * @param calle

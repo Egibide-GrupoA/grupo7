@@ -14,11 +14,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * JFrame VTrabajador
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VTrabajador extends javax.swing.JFrame {
-    
+
     VModificar vm = new VModificar();
     // Save dad screen
     private VListarTrabajadores listado;
@@ -34,6 +35,7 @@ public class VTrabajador extends javax.swing.JFrame {
         initComponents();
     }
     private Trabajador trabajador;
+
     public VTrabajador(Logistica logistica) {
         this.trabajador = logistica;
         initComponents();
@@ -42,6 +44,7 @@ public class VTrabajador extends javax.swing.JFrame {
         jNombre.setText(logistica.getNombre());
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -211,8 +214,8 @@ public class VTrabajador extends javax.swing.JFrame {
         // Botón borrar
         jBorrar.setBackground(Color.RED);
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "¿Estas seguro de que deseas eliminar este elemento?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Estas seguro de que deseas eliminar este elemento?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
             trabajador.eliminar();
             this.setVisible(false);
             try {

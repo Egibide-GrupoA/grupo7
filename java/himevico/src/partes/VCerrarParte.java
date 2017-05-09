@@ -12,8 +12,8 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author asier
+ * JFrame VCerrarParte
+ * @author Asier y Sheila
  */
 public class VCerrarParte extends javax.swing.JFrame {
 
@@ -23,6 +23,12 @@ public class VCerrarParte extends javax.swing.JFrame {
     private Parte parte;
     private VParteAdministracion listaViajes;
 
+    /**
+     * Constructor que genera un objeto de tipo VCerrarParte
+     * @param parte
+     * @param listaViajes
+     * @throws SQLException 
+     */
     public VCerrarParte(Parte parte, VParteAdministracion listaViajes) throws SQLException {
         initComponents();
         this.parte=parte;

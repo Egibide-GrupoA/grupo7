@@ -51,7 +51,7 @@ public class VCrearCentros extends javax.swing.JFrame {
     }
 
     /**
-     * Borra los campos
+     * Método que borra el contenido de los campos
      */
     public void limpiar() {
 

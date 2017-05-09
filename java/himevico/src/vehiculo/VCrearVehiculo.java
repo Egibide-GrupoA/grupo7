@@ -6,8 +6,8 @@
 package vehiculo;
 
 /**
- *
- * @author asier
+ * JFrame VCrearVehiculo
+ * @author Sheila y Asier
  */
 public class VCrearVehiculo extends javax.swing.JFrame {
 

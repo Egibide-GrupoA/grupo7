@@ -13,36 +13,21 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
+ * JFrame VModificar
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VModificar extends javax.swing.JFrame {
 
     private List<Trabajador> trabajadores = new ArrayList<>();
-    
+
     /**
      * Creates new form VCrear
      */
     public VModificar() {
         initComponents();
-        limpiar();
     }
-    
-     public void limpiar(){
-     jDni.setText("");
-            jNombre.setText("");
-            jPrimerApellido.setText("");
-            jSegundoApellido.setText("");
-            jCalle.setText("");
-            jPortal.setText("");
-            jPiso.setText("");
-            jMano.setText("");
-            jTelefonoPersonal.setText("");
-            jTelefonoEmpresa.setText("");
-            jSalario.setText("");
-            // TODO Fecha nacimiento
-            jContrasena.setText("");
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,12 +74,6 @@ public class VModificar extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setText("DNI: ");
-
-        jDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jDniActionPerformed(evt);
-            }
-        });
 
         jLabel2.setText("Nombre: ");
 
@@ -278,19 +257,13 @@ public class VModificar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jDniActionPerformed
-
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
         // Botón cancelar
-        jCancelar.setBackground(Color.RED);
 
     }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
         // Botón guardar
-        jGuardar.setBackground(Color.BLUE);
 
         String dni = jDni.getText();
         String nombre = jNombre.getText();
@@ -304,12 +277,12 @@ public class VModificar extends javax.swing.JFrame {
         String telefonoEmpresa = jTelefonoEmpresa.getText();
         String salario = jSalario.getText();
         // TODO Fecha nacimiento
-        String contrasena = new String( jContrasena.getPassword());
+        String contrasena = new String(jContrasena.getPassword());
 
         // La contraseña tiene que tener 7 caracteres.
-        if ( !dni.isEmpty() && !nombre.isEmpty() && !primerApellido.isEmpty() && !segundoApellido.isEmpty()
-            && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()
-            && contrasena.length() == 7){
+        if (!dni.isEmpty() && !nombre.isEmpty() && !primerApellido.isEmpty() && !segundoApellido.isEmpty()
+                && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()
+                && contrasena.length() == 7) {
 
             // TODO (Saber si es un trabajador de logística o de admnistración)
             Trabajador trabajador = new Administracion();
@@ -330,11 +303,9 @@ public class VModificar extends javax.swing.JFrame {
 
             trabajadores.add(trabajador);
 
-    
-
             JOptionPane.showMessageDialog(this, "Trabajador guardado");
 
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Introduce los campos obligatorios", "", JOptionPane.ERROR_MESSAGE);
         }
 

@@ -8,11 +8,12 @@ package himevico;
 import java.sql.Time;
 
 /**
+ * Clase incidencia
  *
- * @author 7FPROG10
+ * @author Sheila y Asier
  */
 public class Incidencia {
-    
+
     private int idIncidencia;
     private String mensaje;
     private Time fecha;
@@ -21,6 +22,14 @@ public class Incidencia {
     public Incidencia() {
     }
 
+    /**
+     * Constructor que genera un objeto tipo incidencia
+     *
+     * @param idIncidencia
+     * @param mensaje
+     * @param fecha
+     * @param resuelta
+     */
     public Incidencia(int idIncidencia, String mensaje, Time fecha, Time resuelta) {
         this.idIncidencia = idIncidencia;
         this.mensaje = mensaje;
@@ -83,9 +92,5 @@ public class Incidencia {
     public void setResuelta(Time resuelta) {
         this.resuelta = resuelta;
     }
-    
-    
-    
-    
-    
+
 }

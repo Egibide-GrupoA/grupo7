@@ -25,8 +25,8 @@ import trabajadores.Logistica;
 import viajes.Viaje;
 
 /**
- *
- * @author Sheila
+ * JFrame VParteAdministracion
+ * @author Asier y Sheila
  */
 public class VParteAdministracion extends javax.swing.JFrame {
 

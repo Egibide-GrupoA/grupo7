@@ -14,8 +14,9 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * JFrame VListarTrabajadores
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VListarTrabajadores extends javax.swing.JFrame {
 
@@ -27,19 +28,20 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         actualizar();
 
     }
-      public void actualizar() throws Exception{
+
+    public void actualizar() throws Exception {
         List<Logistica> trabajadores = null;
         trabajadores = GestorBBDD.listarTrabajadoresLogistica();
 
-        //limpiar tabla
+        // Limpiar tabla
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         if (model.getRowCount() > 0) {
             for (int i = model.getRowCount() - 1; i > -1; i--) {
                 model.removeRow(i);
             }
         }
-        
-        //añadir elementos a tabla
+
+        // Añadir elementos a tabla
         for (int i = 0; i < trabajadores.size(); i++) {
             //TODO add category
             model.addRow(new Object[]{trabajadores.get(i), trabajadores.get(i).getIdTrabajador(), trabajadores.get(i).getNombre(), trabajadores.get(i).getApellido1(), trabajadores.get(i).getApellido2()});
@@ -120,12 +122,12 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        VTrabajador trabajador= new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        VTrabajador trabajador = new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
         trabajador.setVisible(true);
         // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
-        trabajador.setListado(this);                    
+        trabajador.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
-                     
+
     /**
      * @param args the command line arguments
      */

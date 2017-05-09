@@ -11,11 +11,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
+/**
+ * Clase Administracion
+ * @author Sheila y Asier
+ */
 
 public class Administracion extends Trabajador{
 
     public Administracion() {
     }
+    
+  
     public Administracion(int idTrabajador) throws SQLException {
         this.setIdTrabajador(idTrabajador);
         GestorBBDD.getTrabajadorAdministracion(this);
@@ -25,6 +31,23 @@ public class Administracion extends Trabajador{
         GestorBBDD.getTrabajadorAdministracion(this);
     }
     
+    /**
+     * Constructor que genera un objeto tipo administracion
+     * @param dni
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param calle
+     * @param portal
+     * @param piso
+     * @param mano
+     * @param telPersonal
+     * @param telEmpresa
+     * @param salario
+     * @param fechaNacimiento
+     * @param contrasena
+     * @param centro 
+     */
   
     public Administracion(String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setDni(dni);

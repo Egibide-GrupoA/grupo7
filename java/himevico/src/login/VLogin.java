@@ -27,35 +27,24 @@ import trabajadores.Logistica;
  * @author Sheila
  */
 public class VLogin extends javax.swing.JFrame {
-    
+
     private GestorBBDD db;
-    
+
     /**
      * Creates new form VInicio
      */
     public VLogin() {
-         initComponents();
-         // Poner icono ventana
-        //setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
-        
+        initComponents();
+        // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/password.png")).getImage());
 
-        //deshabilitar recordar contraseña
-        jRecordarContrasena.setVisible(false);
-
-        
     }
-    
-        
+
     public VLogin(GestorBBDD db) {
         initComponents();
-        this.db=db;
-        
-        //deshabilitar recordar contraseña
-        jRecordarContrasena.setVisible(false);
-       
-       
+        this.db = db;
+
     }
-   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,7 +60,6 @@ public class VLogin extends javax.swing.JFrame {
         jUsuario = new javax.swing.JTextField();
         jContrasena = new javax.swing.JPasswordField();
         jIniciarSesión = new javax.swing.JButton();
-        jRecordarContrasena = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -86,13 +74,6 @@ public class VLogin extends javax.swing.JFrame {
         jIniciarSesión.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jIniciarSesiónActionPerformed(evt);
-            }
-        });
-
-        jRecordarContrasena.setText("Recordar contraseña");
-        jRecordarContrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRecordarContrasenaActionPerformed(evt);
             }
         });
 
@@ -117,13 +98,11 @@ public class VLogin extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 178, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRecordarContrasena, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jIniciarSesión, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                                .addComponent(jIniciarSesión)))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -144,9 +123,7 @@ public class VLogin extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18)
-                .addComponent(jRecordarContrasena)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -165,18 +142,11 @@ public class VLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRecordarContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRecordarContrasenaActionPerformed
-        // Recordar contraseña
-        
-       
-
-    }//GEN-LAST:event_jRecordarContrasenaActionPerformed
-
     private void jIniciarSesiónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIniciarSesiónActionPerformed
         // Iniciar sesión
 
         String usuario = jUsuario.getText();
-        String contrasena = new String( jContrasena.getPassword());
+        String contrasena = new String(jContrasena.getPassword());
         String tipoUsuario = null;
 
         if (GestorBBDD.comprobarUsuario(usuario, contrasena)) {
@@ -186,7 +156,7 @@ public class VLogin extends javax.swing.JFrame {
                 Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
             switch (tipoUsuario) {
-                case "Logistica-Transporte": 
+                case "Logistica-Transporte":
                     VParteAdministracion parte = null;
                     Logistica logistica = null;
                     try {
@@ -202,15 +172,16 @@ public class VLogin extends javax.swing.JFrame {
                     }
                     parte.setVisible(true);
                     break;
-                case "Administración": 
-                    VInicio inicio=new VInicio();
+                case "Administración":
+                    VInicio inicio = new VInicio();
                     inicio.setVisible(true);
 
                     break;
-                default: break;
+                default:
+                    break;
             }
             this.setVisible(false);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Error", "", JOptionPane.ERROR_MESSAGE);
         }
 
@@ -259,7 +230,6 @@ public class VLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JCheckBox jRecordarContrasena;
     private javax.swing.JTextField jUsuario;
     // End of variables declaration//GEN-END:variables
 

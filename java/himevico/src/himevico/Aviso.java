@@ -17,6 +17,13 @@ public class Aviso {
 
     public Aviso() {
     }
+    
+    /**
+     * Constructor que genera un objeto tipo aviso
+     * @param idAviso
+     * @param mensaje
+     * @param visto 
+     */
 
     public Aviso(int idAviso, String mensaje, boolean visto) {
         this.idAviso = idAviso;
