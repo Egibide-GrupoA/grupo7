@@ -11,8 +11,8 @@ import java.sql.Time;
 import java.util.Date;
 
 /**
- *
- * @author Sheila
+ * Clase Vehiculo
+ * @author Sheila y Asier
  */
 public class Vehiculo {
     
@@ -25,12 +25,19 @@ public class Vehiculo {
     public Vehiculo() {
     }
     
+  
+    
     public Vehiculo(String matricula) throws SQLException {
         this.matricula=matricula;
         System.out.println(matricula);
         GestorBBDD.getVehiculo(this);
     }
-
+    
+    /**
+     * Constructor que genera un objeto de tipo vehiculo
+     * @param matricula
+     * @throws SQLException 
+     */
     public Vehiculo(String matricula, String marca, String modelo, String color) {
         this.matricula = matricula;
         this.marca = marca;

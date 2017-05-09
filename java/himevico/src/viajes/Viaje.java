@@ -13,8 +13,8 @@ import partes.Parte;
 import vehiculo.Vehiculo;
 
 /**
- *
- * @author 7FPROG10
+ * Clase viaje
+ * @author Sheila y Asier
  */
 public class Viaje {
     
@@ -27,6 +27,15 @@ public class Viaje {
 
     public Viaje() {
     }
+    
+    /**
+     * Constructor que genera un objeto de tipo viaje
+     * @param horaInicio
+     * @param horaFin
+     * @param vehiculo
+     * @param albaran
+     * @param parte 
+     */
 
     public Viaje(Date horaInicio, Date horaFin, vehiculo.Vehiculo vehiculo, String albaran, Parte parte) {
         this.horaInicio = horaInicio;
