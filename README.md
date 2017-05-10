@@ -21,7 +21,8 @@ Este proyecto utiliza travis-ci para comprobar la estabilidad y portabilidad del
 Este proyecto ha sido desarrollado con Netbeans 8.2 (Version de Mac OS y Windows). Ha sido testado con la version de Java 1.8.0_121.
 
 # Usuarios ejemplo
-Existen dos usuarios ejemplo
+Existen dos usuarios ejemplo.
+
 Administración:
 ```
 Usuario: 7777
