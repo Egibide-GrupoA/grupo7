@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  * JFrame VCerrarParte
+ *
  * @author Asier y Sheila
  */
 public class VCerrarParte extends javax.swing.JFrame {
@@ -25,18 +26,19 @@ public class VCerrarParte extends javax.swing.JFrame {
 
     /**
      * Constructor que genera un objeto de tipo VCerrarParte
+     *
      * @param parte
      * @param listaViajes
-     * @throws SQLException 
+     * @throws SQLException
      */
     public VCerrarParte(Parte parte, VParteAdministracion listaViajes) throws SQLException {
         initComponents();
-        this.parte=parte;
-        this.listaViajes=listaViajes;
-        
-        int minutos= GestorBBDD.getMinutos(parte);
+        this.parte = parte;
+        this.listaViajes = listaViajes;
+
+        int minutos = GestorBBDD.getMinutos(parte);
         if (minutos != 480) {
-            JOptionPane.showMessageDialog(null, "Los viajes no se ajustan al tiempo de jornada." + minutos + " de " + "480" );
+            JOptionPane.showMessageDialog(null, "Los viajes no se ajustan al tiempo de jornada." + minutos + " de " + "480");
         }
     }
 
@@ -213,13 +215,12 @@ public class VCerrarParte extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VCerrarParte.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         GestorBBDD.crearIncidencia(this.parte, jIncidencias.getText());
-        
-        
+
         listaViajes.deshabilitar();
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

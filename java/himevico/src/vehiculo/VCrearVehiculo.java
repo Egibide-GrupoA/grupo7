@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 /**
  * JFrame VCrearVehiculo
+ *
  * @author Sheila y Asier
  */
 public class VCrearVehiculo extends javax.swing.JFrame {
@@ -18,13 +19,16 @@ public class VCrearVehiculo extends javax.swing.JFrame {
      * Creates new form VCrearVehiculo
      */
     VVehiculo padre = null;
+
     public VCrearVehiculo() {
         initComponents();
     }
+
     public VCrearVehiculo(VVehiculo padre) {
-        this.padre=padre;
+        this.padre = padre;
         initComponents();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -11,16 +11,15 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import trabajadores.Administracion;
 import trabajadores.Logistica;
-
 
 /**
  * Clase Parte
+ *
  * @author
  */
 public class Parte {
-    
+
     private int idParte;
     private Date fecha;
     private double kilometrosInicio;
@@ -32,14 +31,14 @@ public class Parte {
     private boolean eliminado;
     private boolean validado;
     private trabajadores.Logistica trabajador;
-    private Incidencia incidencia =null;
+    private Incidencia incidencia = null;
 
-    
     public Parte() {
     }
-    
+
     /**
      * Constructor que genera un objeto tipo parte
+     *
      * @param idParte
      * @param kilometrosInicio
      * @param kilometrosFin
@@ -48,9 +47,8 @@ public class Parte {
      * @param dietas
      * @param otros
      * @param eliminado
-     * @param validado 
+     * @param validado
      */
-
     public Parte(int idParte, double kilometrosInicio, double kilometrosFin, double gasoil, double peajes, double dietas, double otros, boolean eliminado, boolean validado) {
         this.idParte = idParte;
         this.kilometrosInicio = kilometrosInicio;
@@ -63,26 +61,27 @@ public class Parte {
         this.validado = validado;
         //GestorBBDD.crearParte(this);
     }
+
     public Parte(Logistica logistica) throws SQLException {
         this.trabajador = logistica;
         GestorBBDD.crearParte(this);
-       
+
     }
+
     public Parte(int idParte) throws SQLException {
         this.idParte = idParte;
         GestorBBDD.getParte(this);
-        if (GestorBBDD.existeParteIncidencia(this)){
-            this.incidencia=GestorBBDD.getIncidencia(this);
+        if (GestorBBDD.existeParteIncidencia(this)) {
+            this.incidencia = GestorBBDD.getIncidencia(this);
         }
-            
+
     }
 
-    
     public Parte parteAbierto(Logistica logistica) throws Exception {
-        this.trabajador=logistica;
+        this.trabajador = logistica;
         System.out.println("PARTE ABIERTO LOGISTICA?");
         System.out.println(this.trabajador.getIdTrabajador());
-        if ( ( GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()) ) > 0) {
+        if ((GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador())) > 0) {
             System.out.println("Existe parte abierto");
             return new Parte(GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()));
         } else {
@@ -91,9 +90,11 @@ public class Parte {
             return new Parte(GestorBBDD.ultimoParteAbierto(this.trabajador.getIdTrabajador()));
         }
     }
+
     public void cerrarParte() throws Exception {
         GestorBBDD.cerrarParte(this);
     }
+
     /**
      * @return the idParte
      */
@@ -243,7 +244,6 @@ public class Parte {
     public void setIncidencia(Incidencia incidencia) {
         this.incidencia = incidencia;
     }
-    
 
     @Override
     public String toString() {
@@ -251,12 +251,11 @@ public class Parte {
         // the string representation of date (month/day/year)
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
 
-        Date day = fecha;        
+        Date day = fecha;
 
         String reportDate = df.format(day);
 
         return reportDate;
     }
-    
-    
+
 }

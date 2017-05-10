@@ -7,32 +7,32 @@ package trabajadores;
 
 import centros.Centro;
 import himevico.GestorBBDD;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
 /**
  * Clase Administracion
+ *
  * @author Sheila y Asier
  */
-
-public class Administracion extends Trabajador{
+public class Administracion extends Trabajador {
 
     public Administracion() {
     }
-    
-  
+
     public Administracion(int idTrabajador) throws SQLException {
         this.setIdTrabajador(idTrabajador);
         GestorBBDD.getTrabajadorAdministracion(this);
     }
+
     public Administracion(String dni) throws SQLException {
         this.setDni(dni);
         GestorBBDD.getTrabajadorAdministracion(this);
     }
-    
+
     /**
      * Constructor que genera un objeto tipo administracion
+     *
      * @param dni
      * @param nombre
      * @param apellido1
@@ -46,9 +46,8 @@ public class Administracion extends Trabajador{
      * @param salario
      * @param fechaNacimiento
      * @param contrasena
-     * @param centro 
+     * @param centro
      */
-  
     public Administracion(String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setDni(dni);
         this.setNombre(nombre);
@@ -67,16 +66,11 @@ public class Administracion extends Trabajador{
         GestorBBDD.crearTrabajadorAdministracion(Administracion.this);
 
     }
-    
-     @Override
+
+    @Override
     public void eliminar() {
         GestorBBDD.eliminar(this);
-        
-    }
- 
-                
-    }
-    
 
-    
+    }
 
+}

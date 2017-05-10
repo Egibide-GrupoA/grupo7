@@ -7,10 +7,9 @@ package trabajadores;
 
 import centros.Centro;
 import himevico.GestorBBDD;
-import partes.Parte;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Date;
+import partes.Parte;
 
 /**
  * Clase Trabajador

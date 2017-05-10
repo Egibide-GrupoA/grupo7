@@ -72,8 +72,9 @@ public class Logistica extends Trabajador {
         GestorBBDD.eliminar(this);
 
     }
+
     public String toString() {
-        return this.getDni() + " - " + this.getNombre() + " " + this.getApellido1() + " " + this.getApellido2() ;
+        return this.getDni() + " - " + this.getNombre() + " " + this.getApellido1() + " " + this.getApellido2();
     }
 
 }

@@ -7,24 +7,25 @@ package himevico;
 
 /**
  * Clase aviso
+ *
  * @author Sheila y Asier
  */
 public class Aviso {
-    
+
     private int idAviso;
     private String mensaje;
     private boolean visto;
 
     public Aviso() {
     }
-    
+
     /**
      * Constructor que genera un objeto tipo aviso
+     *
      * @param idAviso
      * @param mensaje
-     * @param visto 
+     * @param visto
      */
-
     public Aviso(int idAviso, String mensaje, boolean visto) {
         this.idAviso = idAviso;
         this.mensaje = mensaje;
@@ -72,7 +73,5 @@ public class Aviso {
     public void setVisto(boolean visto) {
         this.visto = visto;
     }
-    
-    
-    
+
 }

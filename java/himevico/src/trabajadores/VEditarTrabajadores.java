@@ -8,15 +8,11 @@ package trabajadores;
 import centros.Centro;
 import himevico.GestorBBDD;
 import java.awt.Color;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import partes.VParteAdministracion;
-import vehiculo.Vehiculo;
 
 /**
  *
@@ -28,22 +24,22 @@ public class VEditarTrabajadores extends javax.swing.JFrame {
      * Creates new form VCrear
      */
     private Trabajador trabajador = null;
+
     public VEditarTrabajadores() throws Exception {
         initComponents();
     }
+
     public VEditarTrabajadores(Trabajador trabajador) throws Exception {
-        this.trabajador=trabajador;
+        this.trabajador = trabajador;
         initComponents();
-        
+
         List<Centro> centros = null;
         centros = GestorBBDD.listarCentros();
         for (int i = 0; i < centros.size(); i++) {
-            Centro actual = (Centro) centros.get(i);
+            Centro actual = centros.get(i);
             jCentro.addItem(actual);
         }
-        
-        
-        
+
         jDNI.setText(trabajador.getDni());
         jNombre.setText(trabajador.getNombre());
         jApellido1.setText(trabajador.getApellido1());
@@ -56,7 +52,7 @@ public class VEditarTrabajadores extends javax.swing.JFrame {
         jTelefonoEmpresa.setText(trabajador.getTelEmpresa());
         jSalario.setText(String.valueOf(trabajador.getSalario()));
         jFechaNac.setDate(trabajador.getFechaNacimiento());
-        
+
     }
 
     /**
@@ -383,7 +379,6 @@ public class VEditarTrabajadores extends javax.swing.JFrame {
         // Botón guardar
         jGuardar.setBackground(Color.BLUE);
 
-        
         String dni = jDNI.getText();
         String nombre = jNombre.getText();
         String apellido1 = jApellido1.getText();
@@ -396,13 +391,13 @@ public class VEditarTrabajadores extends javax.swing.JFrame {
         String telefonoEmpresa = jTelefonoEmpresa.getText();
         String salario = jSalario.getText();
         Date fechaNacimiento = jFechaNac.getDate();
-        String contrasena = new String( jContrasena.getPassword());
-        
+        String contrasena = new String(jContrasena.getPassword());
+
         // La contraseña tiene que tener 7 caracteres.
-        if ( !dni.isEmpty() && !nombre.isEmpty() && !apellido1.isEmpty() && !apellido2.isEmpty()
-            && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()){
+        if (!dni.isEmpty() && !nombre.isEmpty() && !apellido1.isEmpty() && !apellido2.isEmpty()
+                && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()) {
             if (contrasena.length() > 7) {
-                
+
                 trabajador.setDni(dni);
                 trabajador.setNombre(nombre);
                 trabajador.setApellido1(apellido1);
@@ -416,16 +411,15 @@ public class VEditarTrabajadores extends javax.swing.JFrame {
                 trabajador.setSalario(Double.parseDouble(salario));
                 trabajador.setFechaNacimiento(fechaNacimiento);
                 trabajador.setContrasena(contrasena);
-        
+
                 trabajador.actualizar();
-                    
 
                 JOptionPane.showMessageDialog(this, "Trabajador guardado");
                 this.show(false);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "La contraseña necesita 7 caracteres", "", JOptionPane.ERROR_MESSAGE);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Introduce los campos obligatorios", "", JOptionPane.ERROR_MESSAGE);
         }
 

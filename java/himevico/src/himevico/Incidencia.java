@@ -5,7 +5,6 @@
  */
 package himevico;
 
-import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -23,14 +22,14 @@ public class Incidencia {
     public Incidencia() {
     }
 
-  /**
-   * Constructor que genera un objeto tipo incidencia
-   *
-   * @param idIncidencia
-   * @param mensaje
-   * @param fecha
-   * @param resuelta
-   */
+    /**
+     * Constructor que genera un objeto tipo incidencia
+     *
+     * @param idIncidencia
+     * @param mensaje
+     * @param fecha
+     * @param resuelta
+     */
     public Incidencia(int idIncidencia, String mensaje, Date fecha, Date resuelta) {
         this.idIncidencia = idIncidencia;
         this.mensaje = mensaje;

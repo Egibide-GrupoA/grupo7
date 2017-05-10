@@ -5,8 +5,6 @@
  */
 package centros;
 
-import centros.Centro;
-import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,7 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class VCrearCentros extends javax.swing.JFrame {
 
-    private boolean editar=false;
+    private boolean editar = false;
     private Centro centro = null;
     private List<Centro> centros = new ArrayList<>();
 
@@ -41,7 +39,7 @@ public class VCrearCentros extends javax.swing.JFrame {
      */
     public VCrearCentros(Centro centro) {
         initComponents();
-        this.centro=centro;
+        this.centro = centro;
         jNombre.setText(centro.getNombre());
         jCalle.setText(centro.getCalle());
         jNumero.setText(String.valueOf(centro.getNumero()));
@@ -51,7 +49,7 @@ public class VCrearCentros extends javax.swing.JFrame {
         jMano.setText(String.valueOf(centro.getMano()));
         jCp.setText(String.valueOf(centro.getCodPostal()));
         jTelefono.setText(centro.getTelefono());
-        editar=true;
+        editar = true;
     }
 
     /**
@@ -266,24 +264,23 @@ public class VCrearCentros extends javax.swing.JFrame {
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
 
-            // Guardar
+        // Guardar
+        if (editar) {
+            centro.setCalle(jCalle.getText());
+            centro.setCiudad(jCiudad.getText());
+            centro.setCodPostal(Integer.parseInt(jCp.getText()));
+            centro.setMano(jMano.getText().charAt(0));
+            centro.setNombre(jNombre.getText());
+            centro.setNumero(Integer.parseInt(jNumero.getText()));
+            centro.setPiso(Integer.parseInt(jPiso.getText()));
+            centro.setProvincia(jProvincia.getText());
+            centro.setTelefono(jTelefono.getText());
 
-            if (editar){
-                centro.setCalle(jCalle.getText());
-                centro.setCiudad(jCiudad.getText());
-                centro.setCodPostal(Integer.parseInt(jCp.getText()));
-                centro.setMano(jMano.getText().charAt(0));
-                centro.setNombre(jNombre.getText());
-                centro.setNumero(Integer.parseInt(jNumero.getText()));
-                centro.setPiso(Integer.parseInt(jPiso.getText()));
-                centro.setProvincia(jProvincia.getText());
-                centro.setTelefono(jTelefono.getText());
+            centro.actualizar();
+        } else {
 
-                centro.actualizar();
-            } else {
-
-             if ( !jNombre.getText().isEmpty() && !jCalle.getText().isEmpty() && !jNumero.getText().isEmpty() && !jPiso.getText().isEmpty() && !jMano.getText().isEmpty()
-            && !jCiudad.getText().isEmpty() && !jProvincia.getText().isEmpty() && !jCp.getText().isEmpty() && !jTelefono.getText().isEmpty()){
+            if (!jNombre.getText().isEmpty() && !jCalle.getText().isEmpty() && !jNumero.getText().isEmpty() && !jPiso.getText().isEmpty() && !jMano.getText().isEmpty()
+                    && !jCiudad.getText().isEmpty() && !jProvincia.getText().isEmpty() && !jCp.getText().isEmpty() && !jTelefono.getText().isEmpty()) {
                 String nombre = jNombre.getText();
                 String calle = jCalle.getText();
                 int numero = Integer.parseInt(jNumero.getText());
@@ -294,36 +291,31 @@ public class VCrearCentros extends javax.swing.JFrame {
                 int cp = Integer.parseInt(jCp.getText());
                 String telefono = jTelefono.getText();
                 Centro centro = null;
-                    try {
-                        centro = new Centro(nombre, calle, numero, cp, ciudad, provincia, telefono);
-                    } catch (Exception ex) {
-                        Logger.getLogger(VCrearCentros.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                try {
+                    centro = new Centro(nombre, calle, numero, cp, ciudad, provincia, telefono);
+                } catch (Exception ex) {
+                    Logger.getLogger(VCrearCentros.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
-            //centro.setNombre(nombre);
-            //centro.setCalle(calle);
-            //centro.setNumero(numero);
-            //centro.setPiso(piso);
-            //centro.setMano(mano);
-            //centro.setCiudad(cp);
-            //centro.setTelefono(telefono);
+                //centro.setNombre(nombre);
+                //centro.setCalle(calle);
+                //centro.setNumero(numero);
+                //centro.setPiso(piso);
+                //centro.setMano(mano);
+                //centro.setCiudad(cp);
+                //centro.setTelefono(telefono);
+                limpiar();
+                jNombre.requestFocus();
 
-
-            limpiar();
-            jNombre.requestFocus();
-
-
-
-        }else{
-            JOptionPane.showMessageDialog(this, "Rellene todos los campos", "", JOptionPane.ERROR_MESSAGE);
-        }
+            } else {
+                JOptionPane.showMessageDialog(this, "Rellene todos los campos", "", JOptionPane.ERROR_MESSAGE);
             }
+        }
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
         // Cancelar
         this.setVisible(false);
-
 
     }//GEN-LAST:event_jCancelarActionPerformed
 
@@ -336,7 +328,6 @@ public class VCrearCentros extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Longitud incorrecta", "", JOptionPane.ERROR_MESSAGE);
 
         }
-
 
     }//GEN-LAST:event_jCpActionPerformed
 

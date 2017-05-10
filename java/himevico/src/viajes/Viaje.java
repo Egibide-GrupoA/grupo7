@@ -7,17 +7,17 @@ package viajes;
 
 import himevico.GestorBBDD;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.Date;
 import partes.Parte;
 import vehiculo.Vehiculo;
 
 /**
  * Clase viaje
+ *
  * @author Sheila y Asier
  */
 public class Viaje {
-    
+
     private int idViaje;
     private Parte parte;
     private Date horaInicio;
@@ -27,16 +27,16 @@ public class Viaje {
 
     public Viaje() {
     }
-    
+
     /**
      * Constructor que genera un objeto de tipo viaje
+     *
      * @param horaInicio
      * @param horaFin
      * @param vehiculo
      * @param albaran
-     * @param parte 
+     * @param parte
      */
-
     public Viaje(Date horaInicio, Date horaFin, vehiculo.Vehiculo vehiculo, String albaran, Parte parte) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
@@ -44,14 +44,14 @@ public class Viaje {
         this.albaran = albaran;
         this.parte = parte;
 
-
         GestorBBDD.crearViaje(this);
     }
 
-     public Viaje(int idViaje) throws SQLException {
+    public Viaje(int idViaje) throws SQLException {
         this.idViaje = idViaje;
         GestorBBDD.getViaje(this);
     }
+
     /**
      * @return the idViaje
      */
@@ -121,7 +121,5 @@ public class Viaje {
     public void setParte(Parte parte) {
         this.parte = parte;
     }
-    
-    
-    
+
 }

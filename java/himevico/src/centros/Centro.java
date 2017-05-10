@@ -6,7 +6,6 @@
 package centros;
 
 import himevico.GestorBBDD;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -32,7 +31,8 @@ public class Centro {
     }
 
     /**
-     * Constructor que genera un objeto tipo centro y lo crea en la base de datos
+     * Constructor que genera un objeto tipo centro y lo crea en la base de
+     * datos
      *
      * @param nombre
      * @param calle
@@ -220,6 +220,7 @@ public class Centro {
     public void actualizar() {
         GestorBBDD.actualizarCentro(this);
     }
+
     @Override
     public String toString() {
         return nombre;

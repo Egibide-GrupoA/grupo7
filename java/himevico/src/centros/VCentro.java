@@ -5,7 +5,6 @@
  */
 package centros;
 
-import centros.Centro;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -31,13 +30,11 @@ public class VCentro extends javax.swing.JFrame {
         this.listado = listado;
     }
 
-   
     public VCentro() {
         initComponents();
     }
     private Centro centro;
 
-   
     public VCentro(Centro centroLlamada) {
         this.centro = centroLlamada;
         initComponents();

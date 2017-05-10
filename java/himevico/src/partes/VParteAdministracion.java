@@ -5,27 +5,23 @@
  */
 package partes;
 
-import centros.Centro;
 import himevico.GestorBBDD;
-import vehiculo.Vehiculo;
 import java.awt.Color;
 import java.sql.SQLException;
-import javax.swing.JComboBox;
-import java.sql.Time;
 import java.text.ParseException;
-import java.time.format.DateTimeFormatter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import trabajadores.Administracion;
 import trabajadores.Logistica;
+import vehiculo.Vehiculo;
 import viajes.Viaje;
 
 /**
  * JFrame VParteAdministracion
+ *
  * @author Asier y Sheila
  */
 public class VParteAdministracion extends javax.swing.JFrame {
@@ -34,6 +30,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
      * Creates new form VParte
      */
     private Parte parte;
+
     public VParteAdministracion(Logistica logistica) throws Exception {
         initComponents();
 
@@ -41,17 +38,15 @@ public class VParteAdministracion extends javax.swing.JFrame {
         List<Vehiculo> vehiculos = null;
         vehiculos = GestorBBDD.listarVehiculos();
         for (int i = 0; i < vehiculos.size(); i++) {
-            Vehiculo actual = (Vehiculo) vehiculos.get(i);
+            Vehiculo actual = vehiculos.get(i);
             jVehiculo.addItem(actual);
         }
-        
-        //Buscar parte abierto
 
+        //Buscar parte abierto
         parte = new Parte();
-        
-        parte  = parte.parteAbierto(logistica);
-        
-        
+
+        parte = parte.parteAbierto(logistica);
+
         List<Viaje> viajes = null;
         viajes = GestorBBDD.listarViajes(parte.getIdParte());
 
@@ -60,21 +55,17 @@ public class VParteAdministracion extends javax.swing.JFrame {
         for (int i = 0; i < viajes.size(); i++) {
             System.out.println(viajes.get(i).getHoraInicio());
             model.addRow(new Object[]{
-                viajes.get(i), 
-                viajes.get(i).getHoraInicio().getHours()+":"+((viajes.get(i).getHoraInicio().getMinutes()<10)?"0" : "")+viajes.get(i).getHoraInicio().getMinutes(), 
-                viajes.get(i).getHoraFin().getHours()+":"+((viajes.get(i).getHoraFin().getMinutes()<10)?"0" : "")+viajes.get(i).getHoraFin().getMinutes(), 
+                viajes.get(i),
+                viajes.get(i).getHoraInicio().getHours() + ":" + ((viajes.get(i).getHoraInicio().getMinutes() < 10) ? "0" : "") + viajes.get(i).getHoraInicio().getMinutes(),
+                viajes.get(i).getHoraFin().getHours() + ":" + ((viajes.get(i).getHoraFin().getMinutes() < 10) ? "0" : "") + viajes.get(i).getHoraFin().getMinutes(),
                 viajes.get(i).getMatricula(),
                 viajes.get(i).getAlbaran()
             });
 
         }
-        
-
 
         //Comprobar si es anterior a hoy
-        
         //crear parte para hoy
-        
     }
 
     /**
@@ -294,7 +285,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
         // Botón vehículo
         Vehiculo vehiculo = new Vehiculo();
         vehiculo.getMarca();
-        
+
     }//GEN-LAST:event_jVehiculoActionPerformed
 
     private void jHoraInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraInicio1ActionPerformed
@@ -305,30 +296,27 @@ public class VParteAdministracion extends javax.swing.JFrame {
         // Botón añadir
         jBotonAnadir.setBackground(Color.GREEN);
 
-       
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("HH:mm");
 
         Date horaInicio = null;
         try {
-            horaInicio = DATE_FORMAT.parse(jHoraInicio1.getSelectedItem().toString()+":"+jHoraInicio2.getSelectedItem().toString());
+            horaInicio = DATE_FORMAT.parse(jHoraInicio1.getSelectedItem().toString() + ":" + jHoraInicio2.getSelectedItem().toString());
         } catch (ParseException ex) {
             Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
         }
         Date horaFin = null;
         try {
-            horaFin = DATE_FORMAT.parse(jHoraFin1.getSelectedItem().toString()+":"+jHoraFin2.getSelectedItem().toString());
+            horaFin = DATE_FORMAT.parse(jHoraFin1.getSelectedItem().toString() + ":" + jHoraFin2.getSelectedItem().toString());
         } catch (ParseException ex) {
             Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         viajes.Viaje viaje = new Viaje(horaInicio, horaFin, (Vehiculo) jVehiculo.getSelectedItem(), jNumeroAlbaran.getText(), parte);
-        
 
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        
-        model.addRow(new Object[]{viaje, viaje.getHoraInicio().getHours()+":"+((viaje.getHoraInicio().getMinutes()<10)?"0" : "")+viaje.getHoraInicio().getMinutes(), viaje.getHoraFin().getHours()+":"+((viaje.getHoraFin().getMinutes()<10)?"0" : "")+viaje.getHoraFin().getMinutes(), viaje.getMatricula(), viaje.getAlbaran()});
 
-        
+        model.addRow(new Object[]{viaje, viaje.getHoraInicio().getHours() + ":" + ((viaje.getHoraInicio().getMinutes() < 10) ? "0" : "") + viaje.getHoraInicio().getMinutes(), viaje.getHoraFin().getHours() + ":" + ((viaje.getHoraFin().getMinutes() < 10) ? "0" : "") + viaje.getHoraFin().getMinutes(), viaje.getMatricula(), viaje.getAlbaran()});
+
     }//GEN-LAST:event_jBotonAnadirActionPerformed
 
     private void jHoraFin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jHoraFin1ActionPerformed
@@ -345,11 +333,11 @@ public class VParteAdministracion extends javax.swing.JFrame {
         VCerrarParte.setVisible(true);
     }//GEN-LAST:event_jCerrarActionPerformed
 
-    
     public void deshabilitar() {
         jCerrar.setEnabled(false);
         jBotonAnadir.setEnabled(false);
-    }  
+    }
+
     /**
      * @param args the command line arguments
      */

@@ -5,13 +5,11 @@
  */
 package vehiculo;
 
-import centros.Centro;
 import himevico.GestorBBDD;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
-import login.VLogin;
 
 /**
  * JFrame VVehiculo
@@ -131,7 +129,7 @@ public class VVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VCrearVehiculo crearVehiculo= new VCrearVehiculo(this);
+        VCrearVehiculo crearVehiculo = new VCrearVehiculo(this);
         crearVehiculo.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

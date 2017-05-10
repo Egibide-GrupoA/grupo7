@@ -5,21 +5,15 @@
  */
 package centros;
 
-import centros.VCentro;
-import centros.Centro;
 import himevico.GestorBBDD;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
  * JFrame VListarCentros
+ *
  * @author Asier y Sheila
  */
 public class VListarCentros extends javax.swing.JFrame {
@@ -31,12 +25,13 @@ public class VListarCentros extends javax.swing.JFrame {
         initComponents();
         actualizar();
     }
-    
+
     /**
      * Actualiza los campos de la tabla
-     * @throws Exception 
+     *
+     * @throws Exception
      */
-    public void actualizar() throws Exception{
+    public void actualizar() throws Exception {
         List<Centro> centros = null;
         centros = GestorBBDD.listarCentros();
 
@@ -49,7 +44,7 @@ public class VListarCentros extends javax.swing.JFrame {
                 model.removeRow(i);
             }
         }
-        
+
         /**
          * Añade elementos a la tabla
          */
@@ -57,6 +52,7 @@ public class VListarCentros extends javax.swing.JFrame {
             model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro()});
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -136,10 +132,11 @@ public class VListarCentros extends javax.swing.JFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
-        VCentro centros= new VCentro((Centro) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        VCentro centros = new VCentro((Centro) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
         centros.setVisible(true);
         /**
-         * Informa a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+         * Informa a la ventana de centro la referencia de esta ventana (BOT
+         * ELIMINAR)
          */
         centros.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
@@ -147,7 +144,7 @@ public class VListarCentros extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

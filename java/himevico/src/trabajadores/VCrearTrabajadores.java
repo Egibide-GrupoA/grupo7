@@ -8,18 +8,15 @@ package trabajadores;
 import centros.Centro;
 import himevico.GestorBBDD;
 import java.awt.Color;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import partes.VParteAdministracion;
-import vehiculo.Vehiculo;
 
 /**
  * JFrame VCrearTrabajadores
+ *
  * @author Asier y Sheila
  */
 public class VCrearTrabajadores extends javax.swing.JFrame {
@@ -29,11 +26,11 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
      */
     public VCrearTrabajadores() throws Exception {
         initComponents();
-        
+
         List<Centro> centros = null;
         centros = GestorBBDD.listarCentros();
         for (int i = 0; i < centros.size(); i++) {
-            Centro actual = (Centro) centros.get(i);
+            Centro actual = centros.get(i);
             jCentro.addItem(actual);
         }
     }
@@ -386,11 +383,11 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
         String telefonoEmpresa = jTelefonoEmpresa.getText();
         String salario = jSalario.getText();
         Date fechaNacimiento = jFechaNac.getDate();
-        String contrasena = new String( jContrasena.getPassword());
+        String contrasena = new String(jContrasena.getPassword());
 
         // La contraseña tiene que tener 7 caracteres.
-        if ( !dni.isEmpty() && !nombre.isEmpty() && !apellido1.isEmpty() && !apellido2.isEmpty()
-            && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()){
+        if (!dni.isEmpty() && !nombre.isEmpty() && !apellido1.isEmpty() && !apellido2.isEmpty()
+                && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()) {
             if (contrasena.length() > 7) {
                 // TODO (Saber si es un trabajador de logística o de admnistración)
                 System.out.println(jTipo.getSelectedItem().toString());
@@ -400,16 +397,16 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
                         new Logistica(dni,
                                 nombre,
                                 apellido1,
-                                apellido2, 
-                                calle, 
-                                Integer.parseInt(portal), 
-                                Integer.parseInt(piso), 
-                                mano.charAt(0), 
-                                telefonoPersonal, 
-                                telefonoEmpresa, 
-                                Double.parseDouble(salario), 
-                                fechaNacimiento, 
-                                contrasena, 
+                                apellido2,
+                                calle,
+                                Integer.parseInt(portal),
+                                Integer.parseInt(piso),
+                                mano.charAt(0),
+                                telefonoPersonal,
+                                telefonoEmpresa,
+                                Double.parseDouble(salario),
+                                fechaNacimiento,
+                                contrasena,
                                 (Centro) jCentro.getSelectedItem());
                     } catch (Exception ex) {
                         Logger.getLogger(VCrearTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
@@ -417,28 +414,27 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
 
                 } else {
                     new Administracion(dni,
-                                nombre,
-                                apellido1,
-                                apellido2, 
-                                calle, 
-                                Integer.parseInt(portal), 
-                                Integer.parseInt(piso), 
-                                mano.charAt(0), 
-                                telefonoPersonal, 
-                                telefonoEmpresa, 
-                                Double.parseDouble(salario), 
-                                fechaNacimiento, 
-                                contrasena, 
-                                (Centro) jCentro.getSelectedItem());
+                            nombre,
+                            apellido1,
+                            apellido2,
+                            calle,
+                            Integer.parseInt(portal),
+                            Integer.parseInt(piso),
+                            mano.charAt(0),
+                            telefonoPersonal,
+                            telefonoEmpresa,
+                            Double.parseDouble(salario),
+                            fechaNacimiento,
+                            contrasena,
+                            (Centro) jCentro.getSelectedItem());
                 }
-
 
                 JOptionPane.showMessageDialog(this, "Trabajador guardado");
                 this.show(false);
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(this, "La contraseña necesita 7 caracteres", "", JOptionPane.ERROR_MESSAGE);
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Introduce los campos obligatorios", "", JOptionPane.ERROR_MESSAGE);
         }
 

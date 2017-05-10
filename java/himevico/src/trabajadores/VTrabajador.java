@@ -5,7 +5,6 @@
  */
 package trabajadores;
 
-import trabajadores.VListarTrabajadores;
 import centros.VCentro;
 import java.awt.Color;
 import java.text.DateFormat;
@@ -300,7 +299,7 @@ public class VTrabajador extends javax.swing.JFrame {
     private void jModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jModificarActionPerformed
         // Botón modificar
         jModificar.setBackground(Color.BLUE);
-        VEditarTrabajadores vEditarTrabajadores=null;
+        VEditarTrabajadores vEditarTrabajadores = null;
         try {
             vEditarTrabajadores = new VEditarTrabajadores(trabajador);
         } catch (Exception ex) {
@@ -313,8 +312,8 @@ public class VTrabajador extends javax.swing.JFrame {
         // Botón borrar
         jBorrar.setBackground(Color.RED);
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "¿Estas seguro de que deseas eliminar este elemento y todos los relacionados?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Estas seguro de que deseas eliminar este elemento y todos los relacionados?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
             trabajador.eliminar();
             this.setVisible(false);
             try {

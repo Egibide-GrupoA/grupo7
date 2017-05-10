@@ -5,10 +5,7 @@
  */
 package partes;
 
-import centros.Centro;
 import himevico.GestorBBDD;
-import himevico.Incidencia;
-import java.awt.Component;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,10 +13,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.JTextComponent;
 import trabajadores.Logistica;
-import trabajadores.VTrabajador;
 import viajes.Viaje;
 
 /**
@@ -33,11 +29,11 @@ public class VVisualizarPartes extends javax.swing.JFrame {
      */
     public VVisualizarPartes() throws Exception {
         initComponents();
-        
+
         List<Logistica> trabajadores = null;
         trabajadores = GestorBBDD.listarTrabajadoresLogistica();
         for (int i = 0; i < trabajadores.size(); i++) {
-            Logistica actual = (Logistica) trabajadores.get(i);
+            Logistica actual = trabajadores.get(i);
             jTrabajador.addItem(actual);
         }
     }
@@ -398,52 +394,51 @@ public class VVisualizarPartes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       String s = ((JTextField)jFecha1.getDateEditor().getUiComponent()).getText();
-       String d = ((JTextField)jFecha2.getDateEditor().getUiComponent()).getText();
+        String s = ((JTextComponent) jFecha1.getDateEditor().getUiComponent()).getText();
+        String d = ((JTextComponent) jFecha2.getDateEditor().getUiComponent()).getText();
 
-       if (s.equals("") || d.equals("")) {
+        if (s.equals("") || d.equals("")) {
             JOptionPane.showMessageDialog(null, "Introducir rango de fechas", "Warning!", JOptionPane.ERROR_MESSAGE);
         } else {
-           
-       
-        List<Parte> partes = null;
-        // Create an instance of SimpleDateFormat used for formatting 
-        // the string representation of date (month/day/year)
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
-        Date day1 = jFecha1.getDate();        
-        Date day2 = jFecha2.getDate();        
+            List<Parte> partes = null;
+            // Create an instance of SimpleDateFormat used for formatting 
+            // the string representation of date (month/day/year)
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
-        if(jTodos.isSelected()){
-            try {
-                partes = GestorBBDD.listarPartes(df.format(day1), df.format(day2));
-            } catch (Exception ex) {
-                Logger.getLogger(VVisualizarPartes.class.getName()).log(Level.SEVERE, null, ex);
+            Date day1 = jFecha1.getDate();
+            Date day2 = jFecha2.getDate();
+
+            if (jTodos.isSelected()) {
+                try {
+                    partes = GestorBBDD.listarPartes(df.format(day1), df.format(day2));
+                } catch (Exception ex) {
+                    Logger.getLogger(VVisualizarPartes.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {
+                    partes = GestorBBDD.listarPartes(df.format(day1), df.format(day2), (Logistica) jTrabajador.getSelectedItem());
+                } catch (Exception ex) {
+                    Logger.getLogger(VVisualizarPartes.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        } else {
-            try {
-                partes = GestorBBDD.listarPartes(df.format(day1), df.format(day2), (Logistica) jTrabajador.getSelectedItem());
-            } catch (Exception ex) {
-                Logger.getLogger(VVisualizarPartes.class.getName()).log(Level.SEVERE, null, ex);
+            //limpiar tabla
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            if (model.getRowCount() > 0) {
+                for (int i = model.getRowCount() - 1; i > -1; i--) {
+                    model.removeRow(i);
+                }
+            }
+
+            //añadir elementos a tabla
+            for (int i = 0; i < partes.size(); i++) {
+                model.addRow(new Object[]{partes.get(i), partes.get(i).getTrabajador().getNombre(), partes.get(i).isValidado()});
             }
         }
-        //limpiar tabla
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        if (model.getRowCount() > 0) {
-            for (int i = model.getRowCount() - 1; i > -1; i--) {
-                model.removeRow(i);
-            }
-        }
-        
-        //añadir elementos a tabla
-        for (int i = 0; i < partes.size(); i++) {
-            model.addRow(new Object[]{partes.get(i), partes.get(i).getTrabajador().getNombre(), partes.get(i).isValidado()});
-        }    
-       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTodosActionPerformed
-        if (jTodos.isSelected()){
+        if (jTodos.isSelected()) {
             jTrabajador.setEnabled(false);
         } else {
             jTrabajador.setEnabled(true);
@@ -454,7 +449,7 @@ public class VVisualizarPartes extends javax.swing.JFrame {
         Parte parte = (Parte) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
         System.out.println(parte.getIncidencia().getMensaje());
 
-        int result = JOptionPane.showConfirmDialog((Component) null, "Incidencia: "+ parte.getIncidencia().getMensaje() + "","alert", JOptionPane.OK_OPTION);
+        int result = JOptionPane.showConfirmDialog(null, "Incidencia: " + parte.getIncidencia().getMensaje() + "", "alert", JOptionPane.OK_OPTION);
 
     }//GEN-LAST:event_jIncidenciaActionPerformed
 
@@ -466,7 +461,7 @@ public class VVisualizarPartes extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VVisualizarPartes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         //añadir otros datos
         jKMInicio.setText(String.valueOf(parte.getKilometrosInicio()));
         jKMFin.setText(String.valueOf(parte.getKilometrosFin()));
@@ -475,19 +470,18 @@ public class VVisualizarPartes extends javax.swing.JFrame {
         jDietas.setText(String.valueOf(parte.getDietas()));
         jOtros.setText(String.valueOf(parte.getOtros()));
 
-        if (parte.isValidado()){
+        if (parte.isValidado()) {
             jCerrar.setEnabled(false);
         } else {
             jCerrar.setEnabled(true);
         }
-        
-        
-        if (parte.getIncidencia()==null){
+
+        if (parte.getIncidencia() == null) {
             jIncidencia.setEnabled(false);
         } else {
             jIncidencia.setEnabled(true);
         }
-        
+
         //limpiar tabla
         DefaultTableModel model = (DefaultTableModel) jTablaViajes.getModel();
         if (model.getRowCount() > 0) {
@@ -495,7 +489,7 @@ public class VVisualizarPartes extends javax.swing.JFrame {
                 model.removeRow(i);
             }
         }
-        
+
         //añadir elementos a tabla
         for (int i = 0; i < viajes.size(); i++) {
             // Create an instance of SimpleDateFormat used for formatting 
@@ -504,20 +498,20 @@ public class VVisualizarPartes extends javax.swing.JFrame {
             Date horaInicio = viajes.get(i).getHoraInicio();
             Date horaFin = viajes.get(i).getHoraFin();
 
-            model.addRow(new Object[]{df.format(horaInicio), df.format(horaFin) , viajes.get(i).getAlbaran()});
-        }  
+            model.addRow(new Object[]{df.format(horaInicio), df.format(horaFin), viajes.get(i).getAlbaran()});
+        }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCerrarActionPerformed
         Parte parte = (Parte) jTable1.getValueAt(jTable1.getSelectedRow(), 0);
-        int result = JOptionPane.showConfirmDialog((Component) null, "¿Cerrar parte?","alert", JOptionPane.OK_OPTION);
-        if (result==0){
+        int result = JOptionPane.showConfirmDialog(null, "¿Cerrar parte?", "alert", JOptionPane.OK_OPTION);
+        if (result == 0) {
             try {
                 parte.cerrarParte();
             } catch (Exception ex) {
                 Logger.getLogger(VVisualizarPartes.class.getName()).log(Level.SEVERE, null, ex);
             }
-            jTable1.setValueAt((boolean) true, jTable1.getSelectedRow() , 2);
+            jTable1.setValueAt((boolean) true, jTable1.getSelectedRow(), 2);
             jCerrar.setEnabled(false);
         }
 

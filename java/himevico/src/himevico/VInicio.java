@@ -5,13 +5,13 @@
  */
 package himevico;
 
-import trabajadores.VListarTrabajadores;
-import centros.VListarCentros;
 import centros.VCrearCentros;
+import centros.VListarCentros;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import partes.VVisualizarPartes;
 import trabajadores.VCrearTrabajadores;
+import trabajadores.VListarTrabajadores;
 import vehiculo.VVehiculo;
 
 /**
@@ -223,7 +223,6 @@ public class VInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Botón listar trabajadores
 
@@ -234,7 +233,6 @@ public class VInicio extends javax.swing.JFrame {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
         vlt.setVisible(true);
-
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -261,7 +259,6 @@ public class VInicio extends javax.swing.JFrame {
         }
         vct.setVisible(true);
 
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -269,7 +266,6 @@ public class VInicio extends javax.swing.JFrame {
 
         VCrearCentros vcc = new VCrearCentros();
         vcc.setVisible(true);
-
 
     }//GEN-LAST:event_jButton3ActionPerformed
 

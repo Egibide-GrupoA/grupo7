@@ -5,11 +5,10 @@
  */
 package himevico;
 
-import login.VLogin;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.sql.ResultSet;
-import javax.swing.JOptionPane;
+import login.VLogin;
 
 /**
  * Clase Himevico

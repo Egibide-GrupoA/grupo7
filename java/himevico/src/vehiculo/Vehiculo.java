@@ -7,15 +7,15 @@ package vehiculo;
 
 import himevico.GestorBBDD;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.Date;
 
 /**
  * Clase Vehiculo
+ *
  * @author Sheila y Asier
  */
 public class Vehiculo {
-    
+
     private String matricula;
     private String marca;
     private String modelo;
@@ -24,19 +24,18 @@ public class Vehiculo {
 
     public Vehiculo() {
     }
-    
-  
-    
+
     public Vehiculo(String matricula) throws SQLException {
-        this.matricula=matricula;
+        this.matricula = matricula;
         System.out.println(matricula);
         GestorBBDD.getVehiculo(this);
     }
-    
+
     /**
      * Constructor que genera un objeto de tipo vehiculo
+     *
      * @param matricula
-     * @throws SQLException 
+     * @throws SQLException
      */
     public Vehiculo(String matricula, String marca, String modelo, String color) {
         this.matricula = matricula;
@@ -121,6 +120,5 @@ public class Vehiculo {
     public String toString() {
         return matricula;
     }
-    
-    
+
 }
