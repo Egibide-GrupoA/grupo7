@@ -11,26 +11,33 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * JFrame VCentro
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VCentro extends javax.swing.JFrame {
 
-    // Save dad screen
+    /**
+     * Crear la variable la cual guardará la referencia de la ventana que ha
+     * llamado a esta ventana
+     */
     private VListarCentros listado;
 
+    /**
+     *
+     * @param listado the Listado to set
+     */
     public void setListado(VListarCentros listado) {
         this.listado = listado;
     }
-        
-    
-    /**
-     * Creates new form VTrabajador
-     */
+
+   
     public VCentro() {
         initComponents();
     }
     private Centro centro;
+
+   
     public VCentro(Centro centroLlamada) {
         this.centro = centroLlamada;
         initComponents();
@@ -43,6 +50,7 @@ public class VCentro extends javax.swing.JFrame {
         jCP.setText(String.valueOf(centro.getCodPostal()));
         jTelefoni.setText(centro.getTelefono());
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -206,8 +214,8 @@ public class VCentro extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog (null, "¿Estas seguro de que deseas eliminar este elemento?","Warning",dialogButton);
-        if(dialogResult == JOptionPane.YES_OPTION){
+        int dialogResult = JOptionPane.showConfirmDialog(null, "¿Estas seguro de que deseas eliminar este elemento?", "Warning", dialogButton);
+        if (dialogResult == JOptionPane.YES_OPTION) {
             centro.eliminar();
             this.setVisible(false);
             try {

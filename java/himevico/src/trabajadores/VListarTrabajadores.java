@@ -14,8 +14,9 @@ import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
+ * JFrame VListarTrabajadores
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VListarTrabajadores extends javax.swing.JFrame {
 
@@ -27,19 +28,20 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         actualizar();
 
     }
-      public void actualizar() throws Exception{
+
+    public void actualizar() throws Exception {
         List<Logistica> trabajadores = null;
         trabajadores = GestorBBDD.listarTrabajadoresLogistica();
 
-        //limpiar tabla
+        // Limpiar tabla
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         if (model.getRowCount() > 0) {
             for (int i = model.getRowCount() - 1; i > -1; i--) {
                 model.removeRow(i);
             }
         }
-        
-        //añadir elementos a tabla
+
+        // Añadir elementos a tabla
         for (int i = 0; i < trabajadores.size(); i++) {
             model.addRow(new Object[]{trabajadores.get(i)});
             //model.addRow(new Object[]{trabajadores.get(i), trabajadores.get(i).getIdTrabajador(), trabajadores.get(i).getNombre(), trabajadores.get(i).getApellido1(), trabajadores.get(i).getApellido2()});
@@ -55,13 +57,10 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setResizable(false);
-
-        jButton1.setText("Buscar");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,31 +96,27 @@ public class VListarTrabajadores extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        VTrabajador trabajador= new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
+        VTrabajador trabajador = new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
         trabajador.setVisible(true);
         // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
-        trabajador.setListado(this);                    
+        trabajador.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
-                     
+
     /**
      * @param args the command line arguments
      */
@@ -163,7 +158,6 @@ public class VListarTrabajadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

@@ -9,11 +9,12 @@ import java.sql.Time;
 import java.util.Date;
 
 /**
+ * Clase incidencia
  *
- * @author 7FPROG10
+ * @author Sheila y Asier
  */
 public class Incidencia {
-    
+
     private int idIncidencia;
     private String mensaje;
     private Date fecha;
@@ -22,6 +23,14 @@ public class Incidencia {
     public Incidencia() {
     }
 
+  /**
+   * Constructor que genera un objeto tipo incidencia
+   *
+   * @param idIncidencia
+   * @param mensaje
+   * @param fecha
+   * @param resuelta
+   */
     public Incidencia(int idIncidencia, String mensaje, Date fecha, Date resuelta) {
         this.idIncidencia = idIncidencia;
         this.mensaje = mensaje;
@@ -84,9 +93,5 @@ public class Incidencia {
     public void setResuelta(Date resuelta) {
         this.resuelta = resuelta;
     }
-    
-    
-    
-    
-    
+
 }

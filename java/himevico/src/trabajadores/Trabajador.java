@@ -13,16 +13,17 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
+ * Clase Trabajador
  *
- * @author Sheila
+ * @author Sheila y Asier
  */
 public abstract class Trabajador {
-    
+
     public void eliminar() {
         GestorBBDD.eliminar(this);
-        
+
     }
-    
+
     private int idTrabajador;
     private String dni;
     private String nombre;
@@ -38,11 +39,9 @@ public abstract class Trabajador {
     private Date fechaNacimiento;
     private String contrasena;
     private Centro centro;
-    
-    private ArrayList<Parte> partes = new ArrayList<>();
-    
 
-   
+    private ArrayList<Parte> partes = new ArrayList<>();
+
     public Centro getCentro() {
         return centro;
     }
@@ -51,8 +50,6 @@ public abstract class Trabajador {
         this.centro = centro;
     }
 
-
-    
     /**
      * @return the idTrabajador
      */
@@ -249,12 +246,8 @@ public abstract class Trabajador {
         this.contrasena = contrasena;
     }
 
-
     public void actualizar() {
         GestorBBDD.actualizarTrabajador(this);
     }
 
-    
-    
-    
 }

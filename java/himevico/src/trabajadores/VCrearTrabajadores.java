@@ -19,8 +19,8 @@ import partes.VParteAdministracion;
 import vehiculo.Vehiculo;
 
 /**
- *
- * @author 7FPROG10
+ * JFrame VCrearTrabajadores
+ * @author Asier y Sheila
  */
 public class VCrearTrabajadores extends javax.swing.JFrame {
 

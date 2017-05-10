@@ -12,25 +12,27 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 /**
+ * Clase Himevico
  *
- * @author asier
+ * @author Sheila y Asier
  */
 public class Himevico {
-       static ResultSet rs;
+
+    static ResultSet rs;
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));        
-     
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
         GestorBBDD db = new GestorBBDD();
         System.out.print("Contraseña BBDD: ");
-        // La contraseña de la BBDD se pedira al iniciar el programa para no 
-        // publicar la misma en GitHub
+        // La contraseña de la BBDD se pedira al iniciar el programa para no publicar la misma en GitHub
         db.connect("program7", br.readLine(), "program7");
-        
-        
-        VLogin login= new VLogin();
+
+        VLogin login = new VLogin();
         login.setVisible(true);
-    }   
+    }
 }

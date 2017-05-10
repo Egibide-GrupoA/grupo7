@@ -16,8 +16,8 @@ import trabajadores.Logistica;
 
 
 /**
- *
- * @author 7FPROG10
+ * Clase Parte
+ * @author
  */
 public class Parte {
     
@@ -37,6 +37,19 @@ public class Parte {
     
     public Parte() {
     }
+    
+    /**
+     * Constructor que genera un objeto tipo parte
+     * @param idParte
+     * @param kilometrosInicio
+     * @param kilometrosFin
+     * @param gasoil
+     * @param peajes
+     * @param dietas
+     * @param otros
+     * @param eliminado
+     * @param validado 
+     */
 
     public Parte(int idParte, double kilometrosInicio, double kilometrosFin, double gasoil, double peajes, double dietas, double otros, boolean eliminado, boolean validado) {
         this.idParte = idParte;

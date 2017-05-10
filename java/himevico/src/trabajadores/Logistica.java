@@ -11,22 +11,43 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
+ * Clase Logistica
  *
- * @author Sheila
+ * @author Sheila y Asier
  */
 public class Logistica extends Trabajador {
 
     public Logistica() {
     }
+
     public Logistica(int idTrabajador) throws SQLException {
         this.setIdTrabajador(idTrabajador);
         GestorBBDD.getTrabajadorLogistica(this);
     }
+
     public Logistica(String dni) throws SQLException {
         this.setDni(dni);
         GestorBBDD.getTrabajadorLogisticaDni(this);
     }
 
+    /**
+     * Constructor que genera un objeto tipo logistica
+     *
+     * @param dni
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param calle
+     * @param portal
+     * @param piso
+     * @param mano
+     * @param telPersonal
+     * @param telEmpresa
+     * @param salario
+     * @param fechaNacimiento
+     * @param contrasena
+     * @param centro
+     */
     public Logistica(String dni, String nombre, String apellido1, String apellido2, String calle, int portal, int piso, char mano, String telPersonal, String telEmpresa, double salario, Date fechaNacimiento, String contrasena, Centro centro) {
         this.setDni(dni);
         this.setNombre(nombre);
@@ -45,13 +66,14 @@ public class Logistica extends Trabajador {
         GestorBBDD.crearTrabajadorLogistica(Logistica.this);
 
     }
+
     @Override
     public void eliminar() {
         GestorBBDD.eliminar(this);
-        
+
     }
     public String toString() {
         return this.getDni() + " - " + this.getNombre() + " " + this.getApellido1() + " " + this.getApellido2() ;
     }
-    
+
 }

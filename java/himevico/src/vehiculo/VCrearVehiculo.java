@@ -9,8 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author asier
+ * JFrame VCrearVehiculo
+ * @author Sheila y Asier
  */
 public class VCrearVehiculo extends javax.swing.JFrame {
 

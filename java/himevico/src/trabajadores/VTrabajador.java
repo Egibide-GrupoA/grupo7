@@ -15,11 +15,12 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * JFrame VTrabajador
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VTrabajador extends javax.swing.JFrame {
-    
+
     // Save dad screen
     private VListarTrabajadores listado;
 
@@ -34,6 +35,7 @@ public class VTrabajador extends javax.swing.JFrame {
         initComponents();
     }
     private Trabajador trabajador;
+
     public VTrabajador(Logistica logistica) {
         this.trabajador = logistica;
         initComponents();
@@ -53,6 +55,7 @@ public class VTrabajador extends javax.swing.JFrame {
         //jFechaNac.setText(logistica.getFechaNacimiento().getDay()+"/"+logistica.getFechaNacimiento().getMonth()+"/"+logistica.getFechaNacimiento().getYear());
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -329,7 +332,7 @@ public class VTrabajador extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

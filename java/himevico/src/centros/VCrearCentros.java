@@ -14,23 +14,31 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
+ * JFrame VCrearCentros
  *
- * @author 7FPROG10
+ * @author Asier y Sheila
  */
 public class VCrearCentros extends javax.swing.JFrame {
-    
+
     private boolean editar=false;
     private Centro centro = null;
     private List<Centro> centros = new ArrayList<>();
+
     /**
-     * Creates new form VCrear
+     * Creates new form VCrearCentros
      */
     public VCrearCentros() {
         initComponents();
-        
+
         limpiar();
-        
+
     }
+
+    /**
+     * Creates new form VCrearCentros
+     *
+     * @param centro
+     */
     public VCrearCentros(Centro centro) {
         initComponents();
         this.centro=centro;
@@ -46,9 +54,11 @@ public class VCrearCentros extends javax.swing.JFrame {
         editar=true;
     }
 
-  
-    public void limpiar(){
-      
+    /**
+     * Método que borra el contenido de los campos
+     */
+    public void limpiar() {
+
         jNombre.setText("");
         jCalle.setText("");
         jNumero.setText("");
@@ -56,12 +66,9 @@ public class VCrearCentros extends javax.swing.JFrame {
         jMano.setText("");
         jCp.setText("");
         jTelefono.setText("");
-    
+
     }
 
-    
-        
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -146,11 +153,6 @@ public class VCrearCentros extends javax.swing.JFrame {
 
         jLabel6.setText("Número:");
 
-        jProvincia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jProvinciaActionPerformed(evt);
-            }
-        });
 
         jLabel11.setText("Telefono:");
 
@@ -162,19 +164,20 @@ public class VCrearCentros extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jNombre))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jNombre))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel5)
+                            .addGap(24, 24, 24)
+                            .addComponent(jCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(jCiudad))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(24, 24, 24)
-                        .addComponent(jCalle, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -262,9 +265,9 @@ public class VCrearCentros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGuardarActionPerformed
-       
+
             // Guardar
-            
+
             if (editar){
                 centro.setCalle(jCalle.getText());
                 centro.setCiudad(jCiudad.getText());
@@ -275,10 +278,10 @@ public class VCrearCentros extends javax.swing.JFrame {
                 centro.setPiso(Integer.parseInt(jPiso.getText()));
                 centro.setProvincia(jProvincia.getText());
                 centro.setTelefono(jTelefono.getText());
-                
+
                 centro.actualizar();
-            } else { 
-            
+            } else {
+
              if ( !jNombre.getText().isEmpty() && !jCalle.getText().isEmpty() && !jNumero.getText().isEmpty() && !jPiso.getText().isEmpty() && !jMano.getText().isEmpty()
             && !jCiudad.getText().isEmpty() && !jProvincia.getText().isEmpty() && !jCp.getText().isEmpty() && !jTelefono.getText().isEmpty()){
                 String nombre = jNombre.getText();
@@ -304,43 +307,38 @@ public class VCrearCentros extends javax.swing.JFrame {
             //centro.setMano(mano);
             //centro.setCiudad(cp);
             //centro.setTelefono(telefono);
-            
-            
+
+
             limpiar();
             jNombre.requestFocus();
-            
-     
-             
+
+
+
         }else{
             JOptionPane.showMessageDialog(this, "Rellene todos los campos", "", JOptionPane.ERROR_MESSAGE);
-        } 
+        }
             }
     }//GEN-LAST:event_jGuardarActionPerformed
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
         // Cancelar
         this.setVisible(false);
-        
-        
-        
+
+
     }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jCpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCpActionPerformed
         // Botón CP
-        
-        String cp = jCp.getText();
-        
-        if (!(cp.length() == 5)){
-             JOptionPane.showMessageDialog(this, "Longitud incorrecta", "", JOptionPane.ERROR_MESSAGE);
-       
-        }
-        
-        
-    }//GEN-LAST:event_jCpActionPerformed
 
-    private void jProvinciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jProvinciaActionPerformed
-        
-    }//GEN-LAST:event_jProvinciaActionPerformed
+        String cp = jCp.getText();
+
+        if (!(cp.length() == 5)) {
+            JOptionPane.showMessageDialog(this, "Longitud incorrecta", "", JOptionPane.ERROR_MESSAGE);
+
+        }
+
+
+    }//GEN-LAST:event_jCpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,7 +347,7 @@ public class VCrearCentros extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

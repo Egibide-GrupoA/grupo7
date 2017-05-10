@@ -19,8 +19,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author 7FPROG10
+ * JFrame VListarCentros
+ * @author Asier y Sheila
  */
 public class VListarCentros extends javax.swing.JFrame {
 
@@ -31,11 +31,18 @@ public class VListarCentros extends javax.swing.JFrame {
         initComponents();
         actualizar();
     }
+    
+    /**
+     * Actualiza los campos de la tabla
+     * @throws Exception 
+     */
     public void actualizar() throws Exception{
         List<Centro> centros = null;
         centros = GestorBBDD.listarCentros();
 
-        //limpiar tabla
+        /**
+         * Actualiza los campos de la tabla
+         */
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         if (model.getRowCount() > 0) {
             for (int i = model.getRowCount() - 1; i > -1; i--) {
@@ -43,7 +50,9 @@ public class VListarCentros extends javax.swing.JFrame {
             }
         }
         
-        //añadir elementos a tabla
+        /**
+         * Añade elementos a la tabla
+         */
         for (int i = 0; i < centros.size(); i++) {
             model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro()});
         }
@@ -126,10 +135,12 @@ public class VListarCentros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+
         VCentro centros= new VCentro((Centro) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
         centros.setVisible(true);
-        // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+        /**
+         * Informa a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+         */
         centros.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
 
