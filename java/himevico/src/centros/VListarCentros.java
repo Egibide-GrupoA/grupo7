@@ -45,7 +45,7 @@ public class VListarCentros extends javax.swing.JFrame {
         
         //añadir elementos a tabla
         for (int i = 0; i < centros.size(); i++) {
-            model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro(), centros.get(i).getNombre(), centros.get(i).getCalle(), centros.get(i).getNumero(), centros.get(i).getPiso(), centros.get(i).getMano(), centros.get(i).getCodPostal(), centros.get(i).getCiudad(), centros.get(i).getProvincia(), centros.get(i).getTelefono()});
+            model.addRow(new Object[]{centros.get(i), centros.get(i).getIdCentro()});
         }
     }
     /**
@@ -61,7 +61,6 @@ public class VListarCentros extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jButton1.setText("Buscar");
@@ -71,14 +70,14 @@ public class VListarCentros extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ref", "ID", "Nombre", "Calle", "Numero", "CP", "Provincia", "Telefono"
+                "Nombre"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -97,9 +96,6 @@ public class VListarCentros extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
         jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(0);
-        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

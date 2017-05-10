@@ -22,12 +22,17 @@ import vehiculo.Vehiculo;
  *
  * @author 7FPROG10
  */
-public class VCrearTrabajadores extends javax.swing.JFrame {
+public class VEditarTrabajadores extends javax.swing.JFrame {
 
     /**
      * Creates new form VCrear
      */
-    public VCrearTrabajadores() throws Exception {
+    private Trabajador trabajador = null;
+    public VEditarTrabajadores() throws Exception {
+        initComponents();
+    }
+    public VEditarTrabajadores(Trabajador trabajador) throws Exception {
+        this.trabajador=trabajador;
         initComponents();
         
         List<Centro> centros = null;
@@ -36,6 +41,22 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
             Centro actual = (Centro) centros.get(i);
             jCentro.addItem(actual);
         }
+        
+        
+        
+        jDNI.setText(trabajador.getDni());
+        jNombre.setText(trabajador.getNombre());
+        jApellido1.setText(trabajador.getApellido1());
+        jApellido2.setText(trabajador.getApellido2());
+        jCalle.setText(trabajador.getCalle());
+        jPortal.setText(String.valueOf(trabajador.getPortal()));
+        jPiso.setText(String.valueOf(trabajador.getPiso()));
+        jMano.setText(String.valueOf(trabajador.getMano()));
+        jTelefonoPersona.setText(trabajador.getTelPersonal());
+        jTelefonoEmpresa.setText(trabajador.getTelEmpresa());
+        jSalario.setText(String.valueOf(trabajador.getSalario()));
+        jFechaNac.setDate(trabajador.getFechaNacimiento());
+        
     }
 
     /**
@@ -82,8 +103,6 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jContrasena = new javax.swing.JPasswordField();
-        jTipo = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jCentro = new javax.swing.JComboBox<>();
@@ -106,7 +125,7 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
             }
         });
 
-        jGuardar.setText("Guardar");
+        jGuardar.setText("Editar");
         jGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jGuardarActionPerformed(evt);
@@ -281,10 +300,6 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
 
         jLabel13.setText("Contraseña: ");
 
-        jTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administración", "Logistica-Transporte" }));
-
-        jLabel14.setText("Tipo de usuario:");
-
         jLabel15.setText("Recuerda que el login es el numero de DNI.");
 
         jLabel16.setText("Centro:");
@@ -300,14 +315,10 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
                         .addGap(18, 18, 18)
-                        .addComponent(jTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel16)
                         .addGap(18, 18, 18)
-                        .addComponent(jCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCentro, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel15))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
@@ -318,8 +329,6 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(jContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
                     .addComponent(jLabel16)
                     .addComponent(jCentro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -374,6 +383,7 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
         // Botón guardar
         jGuardar.setBackground(Color.BLUE);
 
+        
         String dni = jDNI.getText();
         String nombre = jNombre.getText();
         String apellido1 = jApellido1.getText();
@@ -387,51 +397,28 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
         String salario = jSalario.getText();
         Date fechaNacimiento = jFechaNac.getDate();
         String contrasena = new String( jContrasena.getPassword());
-
+        
         // La contraseña tiene que tener 7 caracteres.
         if ( !dni.isEmpty() && !nombre.isEmpty() && !apellido1.isEmpty() && !apellido2.isEmpty()
             && !calle.isEmpty() && !portal.isEmpty() && !piso.isEmpty() && !mano.isEmpty() && !telefonoEmpresa.isEmpty()){
             if (contrasena.length() > 7) {
-                // TODO (Saber si es un trabajador de logística o de admnistración)
-                System.out.println(jTipo.getSelectedItem().toString());
-
-                if (jTipo.getSelectedItem().toString().equals("Logistica-Transporte")) {
-                    try {
-                        new Logistica(dni,
-                                nombre,
-                                apellido1,
-                                apellido2, 
-                                calle, 
-                                Integer.parseInt(portal), 
-                                Integer.parseInt(piso), 
-                                mano.charAt(0), 
-                                telefonoPersonal, 
-                                telefonoEmpresa, 
-                                Double.parseDouble(salario), 
-                                fechaNacimiento, 
-                                contrasena, 
-                                (Centro) jCentro.getSelectedItem());
-                    } catch (Exception ex) {
-                        Logger.getLogger(VCrearTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                } else {
-                    new Administracion(dni,
-                                nombre,
-                                apellido1,
-                                apellido2, 
-                                calle, 
-                                Integer.parseInt(portal), 
-                                Integer.parseInt(piso), 
-                                mano.charAt(0), 
-                                telefonoPersonal, 
-                                telefonoEmpresa, 
-                                Double.parseDouble(salario), 
-                                fechaNacimiento, 
-                                contrasena, 
-                                (Centro) jCentro.getSelectedItem());
-                }
-
+                
+                trabajador.setDni(dni);
+                trabajador.setNombre(nombre);
+                trabajador.setApellido1(apellido1);
+                trabajador.setApellido2(apellido2);
+                trabajador.setCalle(calle);
+                trabajador.setPortal(Integer.parseInt(portal));
+                trabajador.setPiso(Integer.parseInt(piso));
+                trabajador.setMano(mano.charAt(0));
+                trabajador.setTelPersonal(telefonoPersonal);
+                trabajador.setTelEmpresa(telefonoEmpresa);
+                trabajador.setSalario(Double.parseDouble(salario));
+                trabajador.setFechaNacimiento(fechaNacimiento);
+                trabajador.setContrasena(contrasena);
+        
+                trabajador.actualizar();
+                    
 
                 JOptionPane.showMessageDialog(this, "Trabajador guardado");
                 this.show(false);
@@ -470,14 +457,16 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VCrearTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VEditarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VCrearTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VEditarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VCrearTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VEditarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VCrearTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VEditarTrabajadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -485,9 +474,9 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new VCrearTrabajadores().setVisible(true);
+                    new VEditarTrabajadores().setVisible(true);
                 } catch (Exception ex) {
-                    Logger.getLogger(VCrearTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(VEditarTrabajadores.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -509,7 +498,6 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -532,7 +520,6 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
     private javax.swing.JTextField jSalario;
     private javax.swing.JTextField jTelefonoEmpresa;
     private javax.swing.JTextField jTelefonoPersona;
-    private javax.swing.JComboBox<String> jTipo;
     private com.toedter.calendar.JYearChooser jYearChooser1;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package himevico;
 
 import java.sql.Time;
+import java.util.Date;
 
 /**
  *
@@ -15,13 +16,13 @@ public class Incidencia {
     
     private int idIncidencia;
     private String mensaje;
-    private Time fecha;
-    private Time resuelta;
+    private Date fecha;
+    private Date resuelta;
 
     public Incidencia() {
     }
 
-    public Incidencia(int idIncidencia, String mensaje, Time fecha, Time resuelta) {
+    public Incidencia(int idIncidencia, String mensaje, Date fecha, Date resuelta) {
         this.idIncidencia = idIncidencia;
         this.mensaje = mensaje;
         this.fecha = fecha;
@@ -59,28 +60,28 @@ public class Incidencia {
     /**
      * @return the fecha
      */
-    public Time getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
     /**
      * @param fecha the fecha to set
      */
-    public void setFecha(Time fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
     /**
      * @return the resuelta
      */
-    public Time getResuelta() {
+    public Date getResuelta() {
         return resuelta;
     }
 
     /**
      * @param resuelta the resuelta to set
      */
-    public void setResuelta(Time resuelta) {
+    public void setResuelta(Date resuelta) {
         this.resuelta = resuelta;
     }
     

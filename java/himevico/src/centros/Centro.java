@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *
+ * 
  * @author Sheila
  */
 public class Centro {
@@ -193,7 +193,10 @@ public class Centro {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+    
+    public void actualizar() {
+        GestorBBDD.actualizarCentro(this);
+    }
     @Override
     public String toString() {
         return nombre;

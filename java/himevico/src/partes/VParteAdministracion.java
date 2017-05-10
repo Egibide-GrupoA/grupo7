@@ -105,7 +105,6 @@ public class VParteAdministracion extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jCerrar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Añadir viaje a parte"));

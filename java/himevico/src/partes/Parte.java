@@ -6,7 +6,10 @@
 package partes;
 
 import himevico.GestorBBDD;
+import himevico.Incidencia;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import trabajadores.Administracion;
 import trabajadores.Logistica;
@@ -29,6 +32,7 @@ public class Parte {
     private boolean eliminado;
     private boolean validado;
     private trabajadores.Logistica trabajador;
+    private Incidencia incidencia =null;
 
     
     public Parte() {
@@ -54,7 +58,10 @@ public class Parte {
     public Parte(int idParte) throws SQLException {
         this.idParte = idParte;
         GestorBBDD.getParte(this);
-       
+        if (GestorBBDD.existeParteIncidencia(this)){
+            this.incidencia=GestorBBDD.getIncidencia(this);
+        }
+            
     }
 
     
@@ -214,6 +221,28 @@ public class Parte {
 
     public void setTrabajador(Logistica trabajador) {
         this.trabajador = trabajador;
+    }
+
+    public Incidencia getIncidencia() {
+        return incidencia;
+    }
+
+    public void setIncidencia(Incidencia incidencia) {
+        this.incidencia = incidencia;
+    }
+    
+
+    @Override
+    public String toString() {
+        // Create an instance of SimpleDateFormat used for formatting 
+        // the string representation of date (month/day/year)
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+
+        Date day = fecha;        
+
+        String reportDate = df.format(day);
+
+        return reportDate;
     }
     
     

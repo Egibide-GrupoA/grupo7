@@ -62,8 +62,6 @@ public class VCerrarParte extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jIncidencias = new javax.swing.JTextArea();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel1.setText("Cerrar Parte");
 
         jLabel2.setText("Kilomitros Finales");

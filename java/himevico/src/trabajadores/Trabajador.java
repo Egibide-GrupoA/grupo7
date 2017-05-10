@@ -250,6 +250,9 @@ public abstract class Trabajador {
     }
 
 
+    public void actualizar() {
+        GestorBBDD.actualizarTrabajador(this);
+    }
 
     
     

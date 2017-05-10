@@ -58,8 +58,6 @@ public class VVehiculo extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -126,7 +124,7 @@ public class VVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        VCrearVehiculo crearVehiculo= new VCrearVehiculo();
+        VCrearVehiculo crearVehiculo= new VCrearVehiculo(this);
         crearVehiculo.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

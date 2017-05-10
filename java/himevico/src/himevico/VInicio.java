@@ -10,6 +10,7 @@ import centros.VListarCentros;
 import centros.VCrearCentros;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import partes.VVisualizarPartes;
 import trabajadores.VCrearTrabajadores;
 import vehiculo.VVehiculo;
 
@@ -22,7 +23,6 @@ public class VInicio extends javax.swing.JFrame {
     
     private VListarTrabajadores vlt = null;
     private VListarCentros vlc = null;
-    private VModificar vct = null;
     private VCrearCentros vcc = null;
     
 
@@ -43,6 +43,7 @@ public class VInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -56,15 +57,28 @@ public class VInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        jButton5.setText("Listar Partes");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(267, 267, 267)
+                .addComponent(jButton5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 247, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jButton5)
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Trabajadores"));
@@ -270,6 +284,16 @@ public class VInicio extends javax.swing.JFrame {
         VVehiculo.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        VVisualizarPartes vVisualizarPartes = null;
+        try {
+            vVisualizarPartes = new VVisualizarPartes();
+        } catch (Exception ex) {
+            Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        vVisualizarPartes.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -310,6 +334,7 @@ public class VInicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

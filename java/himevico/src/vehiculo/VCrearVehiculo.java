@@ -5,6 +5,9 @@
  */
 package vehiculo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author asier
@@ -14,10 +17,14 @@ public class VCrearVehiculo extends javax.swing.JFrame {
     /**
      * Creates new form VCrearVehiculo
      */
+    VVehiculo padre = null;
     public VCrearVehiculo() {
         initComponents();
     }
-
+    public VCrearVehiculo(VVehiculo padre) {
+        this.padre=padre;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,8 +43,6 @@ public class VCrearVehiculo extends javax.swing.JFrame {
         jModelo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jColor = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Matrícula: ");
 
@@ -114,6 +119,12 @@ public class VCrearVehiculo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Vehiculo(jMatricula.getText(), jMarca.getText(), jModelo.getText(), jColor.getText());
+        try {
+            padre.actualizar();
+        } catch (Exception ex) {
+            Logger.getLogger(VCrearVehiculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.show(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMarcaActionPerformed
