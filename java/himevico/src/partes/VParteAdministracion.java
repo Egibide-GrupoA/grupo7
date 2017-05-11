@@ -302,7 +302,6 @@ public class VParteAdministracion extends javax.swing.JFrame {
 
     private void jBotonAnadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonAnadirActionPerformed
         // Botón añadir
-        jBotonAnadir.setBackground(Color.GREEN);
 
         SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("HH:mm");
 
