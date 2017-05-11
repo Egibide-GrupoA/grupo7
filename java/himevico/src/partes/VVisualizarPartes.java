@@ -26,8 +26,9 @@ public class VVisualizarPartes extends javax.swing.JFrame {
 
     /**
      * Creates new form VVisualizarPartes
+     * @throws java.lang.Exception
      */
-    public VVisualizarPartes() throws Exception {
+    public VVisualizarPartes() throws  Exception {
         initComponents();
 
         List<Logistica> trabajadores = null;

@@ -26,7 +26,7 @@ public class Viaje {
     private String albaran;
 
     /**
-     * Crear viaje vacío
+     * Crear viaje vacío 
      */
     public Viaje() {
     }

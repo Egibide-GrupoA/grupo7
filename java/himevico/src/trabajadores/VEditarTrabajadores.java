@@ -25,10 +25,19 @@ public class VEditarTrabajadores extends javax.swing.JFrame {
      */
     private Trabajador trabajador = null;
 
+    /**
+     *
+     * @throws Exception
+     */
     public VEditarTrabajadores() throws Exception {
         initComponents();
     }
 
+    /**
+     *
+     * @param trabajador
+     * @throws Exception
+     */
     public VEditarTrabajadores(Trabajador trabajador) throws Exception {
         this.trabajador = trabajador;
         initComponents();

@@ -46,7 +46,6 @@ public class Vehiculo {
      * @param marca
      * @param modelo
      * @param color
-     * @throws SQLException
      */
     public Vehiculo(String matricula, String marca, String modelo, String color) {
         this.matricula = matricula;

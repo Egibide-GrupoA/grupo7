@@ -20,6 +20,7 @@ public class VListarCentros extends javax.swing.JFrame {
 
     /**
      * Creates new form VListarCentros
+     * @throws java.lang.Exception
      */
     public VListarCentros() throws Exception {
         initComponents();

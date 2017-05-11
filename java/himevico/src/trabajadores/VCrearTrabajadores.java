@@ -23,6 +23,7 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
 
     /**
      * Creates new form VCrear
+     * @throws java.lang.Exception
      */
     public VCrearTrabajadores() throws Exception {
         initComponents();

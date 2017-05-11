@@ -23,6 +23,10 @@ public class VTrabajador extends javax.swing.JFrame {
     // Save dad screen
     private VListarTrabajadores listado;
 
+    /**
+     * 
+     * @param listado
+     */
     public void setListado(VListarTrabajadores listado) {
         this.listado = listado;
     }
@@ -35,6 +39,10 @@ public class VTrabajador extends javax.swing.JFrame {
     }
     private Trabajador trabajador;
 
+    /**
+     *
+     * @param logistica
+     */
     public VTrabajador(Logistica logistica) {
         this.trabajador = logistica;
         initComponents();

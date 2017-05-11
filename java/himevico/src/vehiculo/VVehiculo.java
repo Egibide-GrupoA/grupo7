@@ -20,6 +20,7 @@ public class VVehiculo extends javax.swing.JFrame {
 
     /**
      * Creates new form VVehiculo
+     * @throws java.lang.Exception
      */
     public VVehiculo() throws Exception {
         initComponents();
