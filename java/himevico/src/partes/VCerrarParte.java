@@ -230,9 +230,10 @@ public class VCerrarParte extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(VCerrarParte.class.getName()).log(Level.SEVERE, null, ex);
             }
-
-            GestorBBDD.crearIncidencia(this.parte, jIncidencias.getText());
-
+            
+            if (! jIncidencias.getText().equals("")){
+                GestorBBDD.crearIncidencia(this.parte, jIncidencias.getText());
+            }
             listaViajes.deshabilitar();
             this.setVisible(false);
 
