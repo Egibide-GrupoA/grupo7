@@ -9,6 +9,7 @@ import himevico.GestorBBDD;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -33,6 +34,9 @@ public class VCerrarParte extends javax.swing.JFrame {
      */
     public VCerrarParte(Parte parte, VParteAdministracion listaViajes) throws SQLException {
         initComponents();
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
+        
         this.parte = parte;
         this.listaViajes = listaViajes;
 

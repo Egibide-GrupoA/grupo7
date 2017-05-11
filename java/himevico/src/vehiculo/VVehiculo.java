@@ -9,6 +9,7 @@ import himevico.GestorBBDD;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,6 +25,9 @@ public class VVehiculo extends javax.swing.JFrame {
      */
     public VVehiculo() throws Exception {
         initComponents();
+        
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
         actualizar();
     }
 

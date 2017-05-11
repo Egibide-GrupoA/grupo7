@@ -14,6 +14,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import trabajadores.Logistica;
 import vehiculo.Vehiculo;
@@ -38,6 +39,8 @@ public class VParteAdministracion extends javax.swing.JFrame {
      */
     public VParteAdministracion(Logistica logistica) throws Exception {
         initComponents();
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
 
         //Añadir vehiculos
         List<Vehiculo> vehiculos = null;
