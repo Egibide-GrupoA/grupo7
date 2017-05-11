@@ -52,14 +52,16 @@ public class VLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jUsuario = new javax.swing.JTextField();
         jContrasena = new javax.swing.JPasswordField();
         jIniciarSesión = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoVentana inicio.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Iniciar Sesión");
@@ -70,8 +72,8 @@ public class VLogin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 102));
         jLabel2.setText("Contraseña: ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        getContentPane().add(jUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 247, -1));
-        getContentPane().add(jContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 247, -1));
+        getContentPane().add(jUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 247, 30));
+        getContentPane().add(jContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 250, 30));
 
         jIniciarSesión.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jIniciarSesión.setForeground(new java.awt.Color(0, 0, 102));
@@ -87,13 +89,12 @@ public class VLogin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 102));
         jLabel1.setText("Usuario: ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 80, -1));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 222, 375, 1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lock.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 230, 240));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoVentana inicio.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 450));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondoVentana inicio.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
