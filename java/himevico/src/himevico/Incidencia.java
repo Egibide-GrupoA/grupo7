@@ -19,6 +19,9 @@ public class Incidencia {
     private Date fecha;
     private Date resuelta;
 
+    /**
+     * Crea una incidencia vacía
+     */
     public Incidencia() {
     }
 

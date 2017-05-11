@@ -22,9 +22,17 @@ public class Vehiculo {
     private String color;
     private Date fechaAlta;
 
+    /**
+     * Crear vehiculo vacío
+     */
     public Vehiculo() {
     }
 
+    /**
+     * Crear vehiculo partiendo de una matricula desde BBDD
+     * @param matricula
+     * @throws SQLException
+     */
     public Vehiculo(String matricula) throws SQLException {
         this.matricula = matricula;
         System.out.println(matricula);
@@ -35,6 +43,9 @@ public class Vehiculo {
      * Constructor que genera un objeto de tipo vehiculo
      *
      * @param matricula
+     * @param marca
+     * @param modelo
+     * @param color
      * @throws SQLException
      */
     public Vehiculo(String matricula, String marca, String modelo, String color) {

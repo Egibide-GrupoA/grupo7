@@ -18,6 +18,9 @@ import partes.Parte;
  */
 public abstract class Trabajador {
 
+    /**
+     * Eliminar en BBDD este trbajador
+     */
     public void eliminar() {
         GestorBBDD.eliminar(this);
 
@@ -41,10 +44,18 @@ public abstract class Trabajador {
 
     private ArrayList<Parte> partes = new ArrayList<>();
 
+    /**
+     *
+     * @return
+     */
     public Centro getCentro() {
         return centro;
     }
 
+    /**
+     *
+     * @param centro
+     */
     public void setCentro(Centro centro) {
         this.centro = centro;
     }
@@ -245,6 +256,9 @@ public abstract class Trabajador {
         this.contrasena = contrasena;
     }
 
+    /**
+     * Actualizar en BBDD este trabajador
+     */
     public void actualizar() {
         GestorBBDD.actualizarTrabajador(this);
     }

@@ -20,6 +20,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
 
     /**
      * Creates new form VListarCentros
+     * @throws java.lang.Exception
      */
     public VListarTrabajadores() throws Exception {
         initComponents();
@@ -27,6 +28,10 @@ public class VListarTrabajadores extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Actualizar la tabla
+     * @throws Exception
+     */
     public void actualizar() throws Exception {
         List<Logistica> trabajadores = null;
         trabajadores = GestorBBDD.listarTrabajadoresLogistica();

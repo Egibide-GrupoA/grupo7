@@ -566,6 +566,14 @@ public class GestorBBDD {
         return viajes;
     }
 
+    /**
+     * Devuelve una lista de partes. 
+     * @param fecha1
+     * @param fecha2
+     * @return
+     * @throws SQLException
+     * @throws Exception
+     */
     public static List<Parte> listarPartes(String fecha1, String fecha2) throws SQLException, Exception {
         String sql = null;
         ResultSet rs = null;
@@ -587,6 +595,15 @@ public class GestorBBDD {
         return partes;
     }
 
+    /**
+     * Devuelve una lista de partes. 
+     * @param fecha1
+     * @param fecha2
+     * @param logistica
+     * @return
+     * @throws SQLException
+     * @throws Exception
+     */
     public static List<Parte> listarPartes(String fecha1, String fecha2, Logistica logistica) throws SQLException, Exception {
         String sql = null;
         ResultSet rs = null;
@@ -721,6 +738,11 @@ public class GestorBBDD {
 
     }
 
+    /**
+     * Devuelve una incidencia. 
+     * @param incidencia
+     * @throws SQLException
+     */
     public static void getIncidencia(Incidencia incidencia) throws SQLException {
 
         String sql = null;
@@ -737,6 +759,12 @@ public class GestorBBDD {
 
     }
 
+    /**
+     * Devuelve una lista incidencia. 
+     * @param parte
+     * @return
+     * @throws SQLException
+     */
     public static Incidencia getIncidencia(Parte parte) throws SQLException {
 
         String sql = null;
@@ -750,6 +778,11 @@ public class GestorBBDD {
 
     }
 
+    /**
+     * Devuelve un verdadero o falso dependiendo si existe incidencia para un parte. 
+     * @param parte
+     * @return
+     */
     public static boolean existeParteIncidencia(Parte parte) {
         String sql = null;
         ResultSet rs = null;
@@ -774,6 +807,10 @@ public class GestorBBDD {
 
     }
 
+    /**
+     * Actualiza el trabajador en BBDD
+     * @param trabajador
+     */
     public static void actualizarTrabajador(Trabajador trabajador) {
         String sql = null;
         ResultSet rs = null;
@@ -796,6 +833,10 @@ public class GestorBBDD {
         executeUpdate(sql);
     }
 
+    /**
+     * Actualiza un centro en la BBDD
+     * @param centro
+     */
     public static void actualizarCentro(Centro centro) {
         String sql = null;
         ResultSet rs = null;

@@ -17,14 +17,27 @@ import java.util.Date;
  */
 public class Logistica extends Trabajador {
 
+    /**
+     * Crear Logistica vacío
+     */
     public Logistica() {
     }
 
+    /**
+     *
+     * @param idTrabajador
+     * @throws SQLException
+     */
     public Logistica(int idTrabajador) throws SQLException {
         this.setIdTrabajador(idTrabajador);
         GestorBBDD.getTrabajadorLogistica(this);
     }
 
+    /**
+     *
+     * @param dni
+     * @throws SQLException
+     */
     public Logistica(String dni) throws SQLException {
         this.setDni(dni);
         GestorBBDD.getTrabajadorLogisticaDni(this);
@@ -67,6 +80,9 @@ public class Logistica extends Trabajador {
 
     }
 
+    /**
+     *
+     */
     @Override
     public void eliminar() {
         GestorBBDD.eliminar(this);

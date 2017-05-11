@@ -16,6 +16,9 @@ public class Aviso {
     private String mensaje;
     private boolean visto;
 
+    /**
+     * Crear aviso vacío
+     */
     public Aviso() {
     }
 

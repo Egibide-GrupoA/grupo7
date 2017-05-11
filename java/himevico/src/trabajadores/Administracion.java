@@ -17,14 +17,27 @@ import java.util.Date;
  */
 public class Administracion extends Trabajador {
 
+    /**
+     * Crear Administración vacío
+     */
     public Administracion() {
     }
 
+    /**
+     *
+     * @param idTrabajador
+     * @throws SQLException
+     */
     public Administracion(int idTrabajador) throws SQLException {
         this.setIdTrabajador(idTrabajador);
         GestorBBDD.getTrabajadorAdministracion(this);
     }
 
+    /**
+     *
+     * @param dni
+     * @throws SQLException
+     */
     public Administracion(String dni) throws SQLException {
         this.setDni(dni);
         GestorBBDD.getTrabajadorAdministracion(this);
@@ -67,6 +80,9 @@ public class Administracion extends Trabajador {
 
     }
 
+    /**
+     *
+     */
     @Override
     public void eliminar() {
         GestorBBDD.eliminar(this);

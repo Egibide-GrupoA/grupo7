@@ -31,6 +31,11 @@ public class VParteAdministracion extends javax.swing.JFrame {
      */
     private Parte parte;
 
+    /**
+     *
+     * @param logistica
+     * @throws Exception
+     */
     public VParteAdministracion(Logistica logistica) throws Exception {
         initComponents();
 
@@ -333,6 +338,9 @@ public class VParteAdministracion extends javax.swing.JFrame {
         VCerrarParte.setVisible(true);
     }//GEN-LAST:event_jCerrarActionPerformed
 
+    /**
+     * Deshabilitar boton de Cerrar parte y añadir viaje
+     */
     public void deshabilitar() {
         jCerrar.setEnabled(false);
         jBotonAnadir.setEnabled(false);

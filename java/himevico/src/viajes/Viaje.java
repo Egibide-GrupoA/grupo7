@@ -25,6 +25,9 @@ public class Viaje {
     private vehiculo.Vehiculo vehiculo;
     private String albaran;
 
+    /**
+     * Crear viaje vacío
+     */
     public Viaje() {
     }
 
@@ -47,6 +50,11 @@ public class Viaje {
         GestorBBDD.crearViaje(this);
     }
 
+    /**
+     * Crear Viaje partiendo de un id desde la BBDD
+     * @param idViaje
+     * @throws SQLException
+     */
     public Viaje(int idViaje) throws SQLException {
         this.idViaje = idViaje;
         GestorBBDD.getViaje(this);
@@ -94,30 +102,58 @@ public class Viaje {
         this.horaFin = horaFin;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMatricula() {
         return this.vehiculo.getMatricula();
     }
 
+    /**
+     *
+     * @return
+     */
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
 
+    /**
+     *
+     * @param vehiculo
+     */
     public void setVehiculo(Vehiculo vehiculo) {
         this.vehiculo = vehiculo;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAlbaran() {
         return albaran;
     }
 
+    /**
+     *
+     * @param albaran
+     */
     public void setAlbaran(String albaran) {
         this.albaran = albaran;
     }
 
+    /**
+     *
+     * @return
+     */
     public Parte getParte() {
         return parte;
     }
 
+    /**
+     *
+     * @param parte
+     */
     public void setParte(Parte parte) {
         this.parte = parte;
     }

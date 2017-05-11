@@ -20,10 +20,18 @@ public class VCrearVehiculo extends javax.swing.JFrame {
      */
     VVehiculo padre = null;
 
+    /**
+     * Crear VCrearVehiculo vacío
+     */
     public VCrearVehiculo() {
         initComponents();
     }
 
+    /**
+     * Crear VVCrearVehiculo. Se facilita la ventana padre para poder acctualizar
+     * la misma.
+     * @param padre
+     */
     public VCrearVehiculo(VVehiculo padre) {
         this.padre = padre;
         initComponents();

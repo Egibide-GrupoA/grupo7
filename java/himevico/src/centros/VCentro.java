@@ -30,11 +30,17 @@ public class VCentro extends javax.swing.JFrame {
         this.listado = listado;
     }
 
+    /**
+     * Iniciar VCentro
+     */
     public VCentro() {
         initComponents();
     }
     private Centro centro;
 
+    /**
+     * @param centroLlamada 
+     */
     public VCentro(Centro centroLlamada) {
         this.centro = centroLlamada;
         initComponents();

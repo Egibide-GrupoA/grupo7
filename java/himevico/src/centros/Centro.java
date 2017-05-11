@@ -26,6 +26,9 @@ public class Centro {
     private String provincia;
     private String telefono;
 
+    /**
+     * @throws Exception 
+     */
     public Centro() throws Exception {
 
     }
@@ -217,6 +220,9 @@ public class Centro {
         this.telefono = telefono;
     }
 
+    /**
+     * Actualizar centro en BBDD
+     */
     public void actualizar() {
         GestorBBDD.actualizarCentro(this);
     }

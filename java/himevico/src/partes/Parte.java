@@ -33,6 +33,9 @@ public class Parte {
     private trabajadores.Logistica trabajador;
     private Incidencia incidencia = null;
 
+    /**
+     * Crear parte vacío
+     */
     public Parte() {
     }
 
@@ -62,12 +65,22 @@ public class Parte {
         //GestorBBDD.crearParte(this);
     }
 
+    /**
+     *
+     * @param logistica
+     * @throws SQLException
+     */
     public Parte(Logistica logistica) throws SQLException {
         this.trabajador = logistica;
         GestorBBDD.crearParte(this);
 
     }
 
+    /**
+     * Obtener incidencia si existe para este idParte
+     * @param idParte
+     * @throws SQLException
+     */
     public Parte(int idParte) throws SQLException {
         this.idParte = idParte;
         GestorBBDD.getParte(this);
@@ -77,6 +90,12 @@ public class Parte {
 
     }
 
+    /**
+     *
+     * @param logistica
+     * @return
+     * @throws Exception
+     */
     public Parte parteAbierto(Logistica logistica) throws Exception {
         this.trabajador = logistica;
         System.out.println("PARTE ABIERTO LOGISTICA?");
@@ -91,6 +110,10 @@ public class Parte {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void cerrarParte() throws Exception {
         GestorBBDD.cerrarParte(this);
     }
@@ -221,26 +244,50 @@ public class Parte {
         this.validado = validado;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getFecha() {
         return fecha;
     }
 
+    /**
+     *
+     * @param fecha
+     */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
+    /**
+     *
+     * @return
+     */
     public Logistica getTrabajador() {
         return trabajador;
     }
 
+    /**
+     *
+     * @param trabajador
+     */
     public void setTrabajador(Logistica trabajador) {
         this.trabajador = trabajador;
     }
 
+    /**
+     *
+     * @return
+     */
     public Incidencia getIncidencia() {
         return incidencia;
     }
 
+    /**
+     *
+     * @param incidencia
+     */
     public void setIncidencia(Incidencia incidencia) {
         this.incidencia = incidencia;
     }

@@ -33,6 +33,10 @@ public class VLogin extends javax.swing.JFrame {
 
     }
 
+    /**
+     * Crea una ventana de login
+     * @param db
+     */
     public VLogin(GestorBBDD db) {
         initComponents();
         this.db = db;
