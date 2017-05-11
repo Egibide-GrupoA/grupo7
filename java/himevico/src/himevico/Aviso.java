@@ -36,6 +36,13 @@ public class Aviso {
         this.visto = visto;
     }
     
+    /**
+     * Crear objeto de Aviso
+     * @param idAviso
+     * @param mensaje
+     * @param visto
+     * @param idParte
+     */
     public Aviso(int idAviso, String mensaje, boolean visto, int idParte) {
         this.idAviso = idAviso;
         this.mensaje = mensaje;
@@ -85,10 +92,16 @@ public class Aviso {
         this.visto = visto;
     }
 
+    /**
+     * @return int
+     */
     public int getIdParte() {
         return idParte;
     }
 
+    /**
+     * @param idParte
+     */
     public void setIdParte(int idParte) {
         this.idParte = idParte;
     }

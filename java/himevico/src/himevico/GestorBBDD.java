@@ -855,6 +855,8 @@ public class GestorBBDD {
     }
     /**
      * Get avisos desde BBDD
+     * @return 
+     * @throws java.sql.SQLException
      */
     public static List<Aviso> getAvisos() throws SQLException {
         String sql = null;

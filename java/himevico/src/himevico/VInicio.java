@@ -31,6 +31,7 @@ public class VInicio extends javax.swing.JFrame {
 
     /**
      * Creates new form VInicio
+     * @throws java.sql.SQLException
      */
     public VInicio() throws SQLException {
         initComponents();
