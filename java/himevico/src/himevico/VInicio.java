@@ -9,6 +9,7 @@ import centros.VCrearCentros;
 import centros.VListarCentros;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import partes.VVisualizarPartes;
 import trabajadores.VCrearTrabajadores;
 import trabajadores.VListarTrabajadores;
@@ -30,6 +31,8 @@ public class VInicio extends javax.swing.JFrame {
      */
     public VInicio() {
         initComponents();
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
     }
 
     /**

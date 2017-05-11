@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -27,6 +28,8 @@ public class VCrearTrabajadores extends javax.swing.JFrame {
      */
     public VCrearTrabajadores() throws Exception {
         initComponents();
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
 
         List<Centro> centros = null;
         centros = GestorBBDD.listarCentros();

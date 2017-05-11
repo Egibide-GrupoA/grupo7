@@ -7,6 +7,7 @@ package vehiculo;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  * JFrame VCrearVehiculo
@@ -25,6 +26,9 @@ public class VCrearVehiculo extends javax.swing.JFrame {
      */
     public VCrearVehiculo() {
         initComponents();
+        
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
     }
 
     /**

@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.JTextComponent;
@@ -30,6 +31,9 @@ public class VVisualizarPartes extends javax.swing.JFrame {
      */
     public VVisualizarPartes() throws  Exception {
         initComponents();
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
+        
         this.setLocationRelativeTo(null);
         List<Logistica> trabajadores = null;
         trabajadores = GestorBBDD.listarTrabajadoresLogistica();

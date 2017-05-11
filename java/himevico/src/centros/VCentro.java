@@ -7,6 +7,7 @@ package centros;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -35,6 +36,8 @@ public class VCentro extends javax.swing.JFrame {
      */
     public VCentro() {
         initComponents();
+         // Poner icono ventana
+        setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo.png")).getImage());
     }
     private Centro centro;
 
