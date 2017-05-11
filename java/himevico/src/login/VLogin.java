@@ -167,10 +167,12 @@ public class VLogin extends javax.swing.JFrame {
                     } catch (Exception ex) {
                         Logger.getLogger(VLogin.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    parte.setLocationRelativeTo(null);
                     parte.setVisible(true);
                     break;
                 case "Administración":
                     VInicio inicio = new VInicio();
+                    inicio.setLocationRelativeTo(null);
                     inicio.setVisible(true);
 
                     break;

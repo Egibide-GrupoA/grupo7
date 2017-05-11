@@ -131,6 +131,7 @@ public class VVehiculo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         VCrearVehiculo crearVehiculo = new VCrearVehiculo(this);
+        crearVehiculo.setLocationRelativeTo(null);
         crearVehiculo.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

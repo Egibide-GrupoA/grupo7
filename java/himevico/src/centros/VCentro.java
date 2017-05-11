@@ -233,6 +233,7 @@ public class VCentro extends javax.swing.JFrame {
         System.out.println("CONTROL");
         System.out.println(this.centro.getNombre());
         VCrearCentros vCrearCentros = new VCrearCentros(this.centro);
+        vCrearCentros.setLocationRelativeTo(null);
         vCrearCentros.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

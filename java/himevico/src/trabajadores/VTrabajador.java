@@ -313,6 +313,7 @@ public class VTrabajador extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VTrabajador.class.getName()).log(Level.SEVERE, null, ex);
         }
+        vEditarTrabajadores.setLocationRelativeTo(null);
         vEditarTrabajadores.setVisible(true);
     }//GEN-LAST:event_jModificarActionPerformed
 

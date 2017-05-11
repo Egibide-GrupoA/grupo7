@@ -336,6 +336,7 @@ public class VParteAdministracion extends javax.swing.JFrame {
             Logger.getLogger(VParteAdministracion.class.getName()).log(Level.SEVERE, null, ex);
         }
         VCerrarParte.setVisible(true);
+        VCerrarParte.setLocationRelativeTo(null);
     }//GEN-LAST:event_jCerrarActionPerformed
 
     /**
