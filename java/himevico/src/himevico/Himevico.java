@@ -33,6 +33,7 @@ public class Himevico {
         db.connect("program7", br.readLine(), "program7");
 
         VLogin login = new VLogin();
+        login.setLocationRelativeTo(null);
         login.setVisible(true);
     }
 }

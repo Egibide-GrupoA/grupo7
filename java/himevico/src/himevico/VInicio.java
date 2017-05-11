@@ -232,6 +232,7 @@ public class VInicio extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        vlt.setLocationRelativeTo(null);
         vlt.setVisible(true);
 
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -245,6 +246,7 @@ public class VInicio extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        vlc.setLocationRelativeTo(null);
         vlc.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -257,6 +259,7 @@ public class VInicio extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        vct.setLocationRelativeTo(null);
         vct.setVisible(true);
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -265,6 +268,7 @@ public class VInicio extends javax.swing.JFrame {
         // Botón crear centros
 
         VCrearCentros vcc = new VCrearCentros();
+        vcc.setLocationRelativeTo(null);
         vcc.setVisible(true);
 
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -278,6 +282,7 @@ public class VInicio extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        VVehiculo.setLocationRelativeTo(null);
         VVehiculo.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -288,6 +293,7 @@ public class VInicio extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(VInicio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        vVisualizarPartes.setLocationRelativeTo(null);
         vVisualizarPartes.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 

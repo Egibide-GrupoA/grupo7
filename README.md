@@ -9,7 +9,7 @@ Este proyecto requiere de una base de datos MySql. Se recomienda utilizar phpMyA
 
 Para agilizar la aplicación, por defecto utiliza la base de datos alojada en ireland.izabil.net, la aplicación solicitara por terminal la contraseña para acceder a la base de datos. Se requiere que se introduzca la contraseña por motivos de seguridad, ya que almacenar la misma en un Git publico no es una buena practica.
 
-En caso de necesitar una base de datos diferente a la utilizada por defecto, modificar [este]() archivo.
+En caso de necesitar una base de datos diferente a la utilizada por defecto, modificar [este](https://github.com/programGrupo7/grupo7/blob/trabajarpartes/java/himevico/src/himevico/GestorBBDD.java#L54) archivo.
 
 ## Contraseña Ireland
 La contraseña del servidor por defecto se encuentra en moodle.

@@ -30,7 +30,7 @@ public class VVisualizarPartes extends javax.swing.JFrame {
      */
     public VVisualizarPartes() throws  Exception {
         initComponents();
-
+        this.setLocationRelativeTo(null);
         List<Logistica> trabajadores = null;
         trabajadores = GestorBBDD.listarTrabajadoresLogistica();
         for (int i = 0; i < trabajadores.size(); i++) {

@@ -24,6 +24,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
      */
     public VListarTrabajadores() throws Exception {
         initComponents();
+        this.setLocationRelativeTo(null);
         actualizar();
 
     }
@@ -117,6 +118,7 @@ public class VListarTrabajadores extends javax.swing.JFrame {
         VTrabajador trabajador = new VTrabajador((Logistica) jTable1.getValueAt(jTable1.getSelectedRow(), 0));
         trabajador.setVisible(true);
         // informar a la ventana de centro la referencia de esta ventana (BOT ELIMINAR)
+        trabajador.setLocationRelativeTo(null);
         trabajador.setListado(this);
     }//GEN-LAST:event_jTable1MouseClicked
 
