@@ -207,23 +207,36 @@ public class VCerrarParte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.parte.setKilometrosInicio(Double.parseDouble(jKInicio.getText()));
-        this.parte.setKilometrosFin(Double.parseDouble(jKFinal.getText()));
-        this.parte.setGasoil(Double.parseDouble(jGasoil.getText()));
-        this.parte.setPeajes(Double.parseDouble(jPeajes.getText()));
-        this.parte.setDietas(Double.parseDouble(jDietas.getText()));
-        this.parte.setOtros(Double.parseDouble(jOtros.getText()));
+        if (jKFinal.getText().equals("") || jKInicio.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "KM Inicio y KM Fin son obligatorios ", "", JOptionPane.ERROR_MESSAGE);
+        } else {
+            this.parte.setKilometrosInicio(Double.parseDouble(jKInicio.getText()));
+            this.parte.setKilometrosFin(Double.parseDouble(jKFinal.getText()));
+            if (jGasoil.getText().equals("")){ this.parte.setGasoil(0); } else {
+                this.parte.setGasoil(Double.parseDouble(jGasoil.getText()));
+            }
+            if (jGasoil.getText().equals("")){ this.parte.setPeajes(0); } else {
+                this.parte.setPeajes(Double.parseDouble(jPeajes.getText()));
+            }
+            if (jGasoil.getText().equals("")){ this.parte.setDietas(0); } else {
+                this.parte.setDietas(Double.parseDouble(jDietas.getText()));
+            }
+            if (jGasoil.getText().equals("")){ this.parte.setOtros(0); } else {
+                this.parte.setOtros(Double.parseDouble(jOtros.getText()));
+            }
 
-        try {
-            parte.cerrarParte();
-        } catch (Exception ex) {
-            Logger.getLogger(VCerrarParte.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                parte.cerrarParte();
+            } catch (Exception ex) {
+                Logger.getLogger(VCerrarParte.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            GestorBBDD.crearIncidencia(this.parte, jIncidencias.getText());
+
+            listaViajes.deshabilitar();
+            this.setVisible(false);
+
         }
-
-        GestorBBDD.crearIncidencia(this.parte, jIncidencias.getText());
-
-        listaViajes.deshabilitar();
-        this.setVisible(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
