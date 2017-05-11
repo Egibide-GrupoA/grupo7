@@ -15,6 +15,7 @@ public class Aviso {
     private int idAviso;
     private String mensaje;
     private boolean visto;
+    private int idParte;
 
     /**
      * Crear aviso vacío
@@ -34,7 +35,14 @@ public class Aviso {
         this.mensaje = mensaje;
         this.visto = visto;
     }
+    
+    public Aviso(int idAviso, String mensaje, boolean visto, int idParte) {
+        this.idAviso = idAviso;
+        this.mensaje = mensaje;
+        this.visto = visto;
+        this.idParte = idParte;
 
+    }
     /**
      * @return the idAviso
      */
@@ -75,6 +83,14 @@ public class Aviso {
      */
     public void setVisto(boolean visto) {
         this.visto = visto;
+    }
+
+    public int getIdParte() {
+        return idParte;
+    }
+
+    public void setIdParte(int idParte) {
+        this.idParte = idParte;
     }
 
 }

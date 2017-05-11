@@ -853,5 +853,25 @@ public class GestorBBDD {
                 + "WHERE `centro`.`id` = " + centro.getIdCentro() + ";";
         executeUpdate(sql);
     }
+    /**
+     * Get avisos desde BBDD
+     */
+    public static List<Aviso> getAvisos() throws SQLException {
+        String sql = null;
+        ResultSet rs = null;
+        List<Aviso> avisos = new ArrayList<>();
+        sql = "SELECT `id`, `idParte`, `mensaje`, `visto` FROM `aviso`";
+        System.out.println(sql);
+        try {
+            rs = stmt2.executeQuery(sql);
+        } catch (SQLException e) {
+            System.out.println(e);
 
+        }
+        while (rs.next()) {
+            //int idAviso, String mensaje, boolean visto, int idParte
+            avisos.add(new Aviso(rs.getInt("id"),rs.getString("mensaje"),rs.getBoolean("visto"), rs.getInt("idParte")));
+        }
+        return avisos;
+    }
 }

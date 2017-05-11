@@ -86,7 +86,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kilomitros Finales"/>
+        <Property name="text" type="java.lang.String" value="Kilometros Finales"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
@@ -191,7 +191,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Kilomitros Inicio"/>
+        <Property name="text" type="java.lang.String" value="Kilometros Inicio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jKInicio">

@@ -72,7 +72,7 @@ public class VCerrarParte extends javax.swing.JFrame {
 
         jLabel1.setText("Cerrar Parte");
 
-        jLabel2.setText("Kilomitros Finales");
+        jLabel2.setText("Kilometros Finales");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gastos"));
 
@@ -132,7 +132,7 @@ public class VCerrarParte extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setText("Kilomitros Inicio");
+        jLabel7.setText("Kilometros Inicio");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Incidencias"));
 
